@@ -12,7 +12,8 @@ import React from 'react'
 
 function App() {
   return (
-    <Router>
+
+      <Router>
       <Switch>
        <Route  exact path='/' component={Loginpage} />
        <Route exact path='/StudentLogin' component={StudentLogin} />

@@ -5,6 +5,8 @@ import {Redirect, Route, Router} from 'react-router-dom';
 import studentlogin from './StudentLogin'
 import teacherlogin from './TeacherLogin'
 import AdminLogin from './AdminLogin'
+
+
 import { useHistory } from 'react-router-dom';
 
 
@@ -21,25 +23,36 @@ const Loginpage = () => {
     history.push('/StudentLogin');
   }
   return (
-    <header>
-      <h1>Welcome to ChallengeMe</h1>
+
+    <header style={header1}>
+
       <div>
-        <img src={img} alt=""/>
+        <img align="center" src={img} alt=""/>
       </div>
-        <h2>האם אתה</h2>
+        <br/>
+        <h1>Challenge Me</h1>
+        <h2>התחבר</h2>
       <div>
-        <button style={headingStyle} onClick={heIsAdmin} >מנהל</button>
+        <button style={buttonStyle} onClick={heIsAdmin} >מנהל</button>
       </div>
       <div>
-        <button style={headingStyle} onClick={heIsTeacher} >מורה</button> 
+        <button style={buttonStyle} onClick={heIsTeacher} >מורה</button>
       </div>
       <div>
-        <button style={headingStyle} onClick={heIsStudent}>תלמיד</button>
+        <button style={buttonStyle} onClick={heIsStudent}>תלמיד</button>
       </div>
     </header>
   )
 }
-const headingStyle = {
+const header1 = {
+    backgroundColor: 'cornsilk',
+    color: 'black',
+    fontsize:120,
+    textAlign:'center',
+
+}
+
+const buttonStyle = {
   color: 'black',
   backgroundColor: 'white',
   fontsize:120,
@@ -49,4 +62,4 @@ const headingStyle = {
   cursor: 'pointer',
 }
 
-export default Loginpage 
+export default Loginpage
