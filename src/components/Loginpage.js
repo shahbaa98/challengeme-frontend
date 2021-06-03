@@ -33,13 +33,13 @@ const Loginpage = () => {
         <h1>Challenge Me</h1>
         <h2>התחבר</h2>
       <div>
-        <button style={buttonStyle} onClick={heIsAdmin} >מנהל</button>
+        <button className="buttonStyle" onClick={heIsAdmin} >מנהל</button>
       </div>
       <div>
-        <button style={buttonStyle} onClick={heIsTeacher} >מורה</button>
+        <button className="buttonStyle"  onClick={heIsTeacher} >מורה</button>
       </div>
       <div>
-        <button style={buttonStyle} onClick={heIsStudent}>תלמיד</button>
+        <button className="buttonStyle"  onClick={heIsStudent}>תלמיד</button>
       </div>
     </header>
   )
@@ -52,14 +52,6 @@ const header1 = {
 
 }
 
-const buttonStyle = {
-  color: 'black',
-  backgroundColor: 'white',
-  fontsize:120,
-  padding: '30px 80px',
-  borderradius: '5px',
-  margin: '20px 0px',
-  cursor: 'pointer',
-}
+
 
 export default Loginpage
