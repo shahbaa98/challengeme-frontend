@@ -1,10 +1,11 @@
-import img from './image3.png'
+import img from './imgs/logoChallengeMe.png'
 import PropTypes from 'prop-types'
 import React from 'react';
 import {Redirect, Route, Router} from 'react-router-dom';
 import studentlogin from './StudentLogin'
 import teacherlogin from './TeacherLogin'
 import AdminLogin from './AdminLogin'
+import './style.css'
 
 
 import { useHistory } from 'react-router-dom';
@@ -23,15 +24,12 @@ const Loginpage = () => {
     history.push('/StudentLogin');
   }
   return (
-
-    <header style={header1}>
-
+    <div className="app-com">
       <div>
         <img align="center" src={img} alt=""/>
       </div>
         <br/>
-        <h1>Challenge Me</h1>
-        <h2>התחבר</h2>
+        <h2 className = "connect">התחבר</h2>
       <div>
         <button className="buttonStyle" onClick={heIsAdmin} >מנהל</button>
       </div>
@@ -41,17 +39,9 @@ const Loginpage = () => {
       <div>
         <button className="buttonStyle"  onClick={heIsStudent}>תלמיד</button>
       </div>
-    </header>
+    </div>
   )
 }
-const header1 = {
-    backgroundColor: 'cornsilk',
-    color: 'black',
-    fontsize:120,
-    textAlign:'center',
-
-}
-
 
 
 export default Loginpage

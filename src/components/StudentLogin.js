@@ -1,18 +1,43 @@
 import { useHistory } from 'react-router-dom';
+
+import img from './imgs/image3.png'
+
 import './style.css'
 
 const StudentLogin = () =>{
     const history = useHistory();
 
     return(
+        alert = () => {
+            return(<h1>הודעה נשלחה למורה שלך, אל דאגה הסיסמה שלך תשלח אליך בקרוב</h1>);
+        },
         <div className="app-com">
-            <input type="text" placeholder="username"/>
+            <div>
+            <img align="left" src={img} alt="" width="200" height="200"/>
+            </div>
             <br/>
-            <input type="text" placeholder="password"/>
             <br/>
-            <button onClick={()=> {history.push('/StudentProfile')}}>
-                Login
+            <br/>
+            <br/>
+            <br/>
+            <h1>
+                התחבר
+            </h1>
+            <div >
+            <input className="placeholder" type="text" placeholder="שם משתמש"/>
+            </div>
+            <br/>
+            <div >
+            <input className="placeholder" type="text" placeholder="סיסמה"/>
+            </div>
+            <text onPress={()=>{}}>
+                שכחת סיסמה?
+            </text>
+            <div >
+            <button className="buttonStyle" onClick={()=> {history.push('/StudentProfile')}}>
+                התחבר
             </button>
+            </div>
         </div>
     )
 }

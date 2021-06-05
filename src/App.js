@@ -57,7 +57,7 @@ import AdminLogin from './components/AdminLogin'
 import StudentProfile from './components/StudentProfile'
 import TeacherProfile from './components/TeacherProfile'
 import AdminProfile from './components/AdminProfile'
-import './App.css'
+// import './App.css'
 import {Switch, Route} from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import React from 'react'
@@ -65,6 +65,7 @@ import React from 'react'
 function App() {
   
   return (
+    
 
       <Router>
       <Switch>
@@ -77,6 +78,7 @@ function App() {
        <Route exact path='/AdminProfile' component={AdminProfile} />
       </Switch>
     </Router>
+    
   );
 }
 
