@@ -1,20 +1,16 @@
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
-import EmptyImgStudentBase64 from './ImgStudent';
-import {ChatBox} from 'react-chatbox-component';
-import chatImg from './imgs/chat.jpg'
-import './style.css'
-import profile from './imgs/personalPhoto.png'
-import chat from './imgs/messages.gif'
-import challenge from './imgs/challenge.gif'
-import notification from './imgs/notification.gif'
+import '../style.css'
+import profile from '../imgs/personalPhoto.png'
+import chat from '../imgs/messages.gif'
+import challenge from '../imgs/challenge.gif'
+import notification from '../imgs/notification.gif'
 const StudentProfile = () => {
     const history = useHistory();
-    const dataImg = EmptyImgStudentBase64,
 
 
-    logout = () => {
-      history.push('/');
+    const logout = () => {
+      history.push('./');
     }
     return(
         <div className="app-com">
@@ -36,19 +32,19 @@ const StudentProfile = () => {
 
     <div className="chat">
         <div > יש לך הודעות חדשות</div>
-        <img     width= '200px' height='180px' src = {chat} /> 
+        <img     width= '200px' height='180px' src = {chat} onClick={()=> {history.push('/chat')}}/> 
         <br/>
     </div>
 
     <div className="challenge">
         <div >  האתגרים שלי</div>
-        <img     width= '200px' height='180px' src = {challenge} /> 
+        <img     width= '200px' height='180px' src = {challenge} onClick={()=> {history.push('/challenges')}}/> 
         <br/>
     </div>
 
     <div className="notification">
         <div >  התראות</div>
-        <img     width= '200px' height='180px' src = {notification} /> 
+        <img     width= '200px' height='180px' src = {notification} onClick={()=> {history.push('/notification')}}/> 
         <br/>
     </div>
     

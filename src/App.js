@@ -54,9 +54,13 @@ import Loginpage from './components/Loginpage'
 import StudentLogin from './components/StudentLogin'
 import TeacherLogin from './components/TeacherLogin'
 import AdminLogin from './components/AdminLogin'
-import StudentProfile from './components/StudentProfile'
+import StudentProfile from './components/student/StudentProfile'
 import TeacherProfile from './components/TeacherProfile'
 import AdminProfile from './components/AdminProfile'
+import chat from './components/student/chat'
+import notification from './components/student/notification'
+import challenges from './components/student/challenges'
+
 // import './App.css'
 import {Switch, Route} from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -76,6 +80,9 @@ function App() {
        <Route exact path='/StudentProfile' component={StudentProfile} />
        <Route exact path='/TeacherProfile' component={TeacherProfile} />
        <Route exact path='/AdminProfile' component={AdminProfile} />
+       <Route exact path='/chat' component={chat} />
+       <Route exact path='/notification' component={notification} />
+       <Route exact path='/challenges' component={challenges} />
       </Switch>
     </Router>
     
