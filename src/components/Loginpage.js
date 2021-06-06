@@ -5,6 +5,7 @@ import {Redirect, Route, Router} from 'react-router-dom';
 import studentlogin from './StudentLogin'
 import teacherlogin from './TeacherLogin'
 import AdminLogin from './AdminLogin'
+import TherapistLogin from "./TherapistLogin";
 import './style.css'
 
 
@@ -20,12 +21,13 @@ const Loginpage = () => {
   const heIsTeacher = () => {
     history.push('/TeacherLogin');
   }
+    const heIsTherapist = () => {
+        history.push('/TherapistLogin');
+    }
   const heIsStudent = () => {
     history.push('/StudentLogin');
   }
-  const heIsTherapist = () => {
-        history.push('/TherapistLogin');
-  }
+
   return (
     <div className="app-com">
       <div>
