@@ -23,6 +23,9 @@ const Loginpage = () => {
   const heIsStudent = () => {
     history.push('/StudentLogin');
   }
+    const heIsTherapist = () => {
+        history.push('/TherapistLogin');
+    }
   return (
     <div className="app-com">
       <div>
@@ -37,8 +40,11 @@ const Loginpage = () => {
         <button className="buttonStyle"  onClick={heIsTeacher} >מורה</button>
       </div>
       <div>
-        <button className="buttonStyle"  onClick={heIsStudent}>תלמיד</button>
+        <button className="buttonStyle"  onClick={heIsTherapist}>מטפל</button>
       </div>
+        <div>
+            <button className="buttonStyle"  onClick={heIsStudent}>תלמיד</button>
+        </div>
     </div>
   )
 }
