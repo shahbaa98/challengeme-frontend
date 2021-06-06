@@ -32,7 +32,7 @@ const TherapistLogin = () =>{
                     שכחת סיסמה?
                 </text>
                 <div >
-                    <button className="buttonStyle" onClick={()=> {history.push('/StudentProfile')}}>
+                    <button className="buttonStyle" onClick={()=> {history.push('/TherapistProfile')}}>
                         התחבר
                     </button>
                 </div>

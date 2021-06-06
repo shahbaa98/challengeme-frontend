@@ -21,9 +21,9 @@ const Loginpage = () => {
   const heIsTeacher = () => {
     history.push('/TeacherLogin');
   }
-    const heIsTherapist = () => {
+  const heIsTherapist = () => {
         history.push('/TherapistLogin');
-    }
+  }
   const heIsStudent = () => {
     history.push('/StudentLogin');
   }
