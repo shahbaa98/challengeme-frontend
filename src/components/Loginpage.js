@@ -23,9 +23,9 @@ const Loginpage = () => {
   const heIsStudent = () => {
     history.push('/StudentLogin');
   }
-    const heIsTherapist = () => {
+  const heIsTherapist = () => {
         history.push('/TherapistLogin');
-    }
+  }
   return (
     <div className="app-com">
       <div>
