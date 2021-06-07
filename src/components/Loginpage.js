@@ -15,9 +15,6 @@ import { useHistory } from 'react-router-dom';
 const Loginpage = () => {
   const history = useHistory();
 
-
-  const heIsStudent = () => {
-      history.push('/StudentLogin');
   const heIsAdmin = () => {
     history.push('/AdminLogin');
   }
@@ -27,6 +24,8 @@ const Loginpage = () => {
   const heIsTherapist = () => {
         history.push('/TherapistLogin');
   }
+  const heIsStudent = () => {
+    history.push('/StudentLogin');
   }
 
   return (
