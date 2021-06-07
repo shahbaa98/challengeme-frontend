@@ -66,12 +66,13 @@ import challenges from './components/student/challenges'
 // import './App.css'
 import {Switch, Route} from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-import React from 'react'
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import { TextField, Checkbox } from "@material-ui/core";
 
 function App() {
-  
+
   return (
-    
 
       <Router>
       <Switch>
@@ -89,7 +90,7 @@ function App() {
        <Route exact path='/challenges' component={challenges} />
       </Switch>
     </Router>
-    
+
   );
 }
 

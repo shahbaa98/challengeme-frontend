@@ -1,36 +1,37 @@
 import { useHistory } from 'react-router-dom';
-import React from "react";
-import { useForm } from "react-hook-form";
 import './style.css'
 
-const Input = ({ label, register, required }) => (
-    <>
-        <label>{label}</label>
-        <input {...register(label, { required })} />
-    </>
-);
 
 const AdminLogin = () =>{
     const history = useHistory();
-    const { register, handleSubmit } = useForm();
 
-    const onSubmit = (data) => {
-        alert(JSON.stringify(data));
-    };
+    function onSubmit() {
+        history.push('/AdminProfile')
+    }
 
-    return(
+    return (
 
-        <div className="app-com">
-            <input type="text" placeholder="username" />
-            <br/>
-            <input type="text" placeholder="password" />
-            <br/>
-            <button onClick={()=> {history.push('/AdminProfile')}}>
-                Login
-            </button>
-        </div>
-    )
-
+            <div className="app-com">
+                <form
+                    onSubmit={onSubmit}
+                    validate={values => {
+                        const errors = {};
+                        if (!values.username) {
+                            errors.username = "Required";
+                        }
+                        if (!values.password && values.username === "test") {
+                            errors.password = "Required";
+                        }
+                        return errors;
+                    }}>
+                    <input type="text" required placeholder="username"/>
+                    <br/>
+                    <input type="text" required placeholder="password"/>
+                    <br/>
+                    <button type="submit" >submit</button>
+                </form>
+            </div>
+        )
 
 }
 
