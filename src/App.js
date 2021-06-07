@@ -57,6 +57,7 @@ import TeacherLogin from './components/TeacherLogin'
 import AdminLogin from './components/AdminLogin'
 import StudentProfile from './components/student/StudentProfile'
 import TeacherProfile from './components/TeacherProfile'
+import TherapistProfile from "./components/TherapistProfile";
 import AdminProfile from './components/AdminProfile'
 import chat from './components/student/chat'
 import notification from './components/student/notification'
@@ -81,6 +82,7 @@ function App() {
        <Route exact path='/AdminLogin' component={AdminLogin} />
        <Route exact path='/StudentProfile' component={StudentProfile} />
        <Route exact path='/TeacherProfile' component={TeacherProfile} />
+       <Route exact path='/TherapistProfile' component={TherapistProfile} />
        <Route exact path='/AdminProfile' component={AdminProfile} />
        <Route exact path='/chat' component={chat} />
        <Route exact path='/notification' component={notification} />
