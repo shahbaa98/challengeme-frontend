@@ -52,6 +52,7 @@
 
 import Loginpage from './components/Loginpage'
 import StudentLogin from './components/StudentLogin'
+import TherapistLogin from "./components/TherapistLogin";
 import TeacherLogin from './components/TeacherLogin'
 import AdminLogin from './components/AdminLogin'
 import StudentProfile from './components/student/StudentProfile'
@@ -76,6 +77,7 @@ function App() {
        <Route  exact path='/' component={Loginpage} />
        <Route exact path='/StudentLogin' component={StudentLogin} />
        <Route exact path='/TeacherLogin' component={TeacherLogin} />
+       <Route exact path='/TherapistLogin' component={TherapistLogin} />
        <Route exact path='/AdminLogin' component={AdminLogin} />
        <Route exact path='/StudentProfile' component={StudentProfile} />
        <Route exact path='/TeacherProfile' component={TeacherProfile} />
