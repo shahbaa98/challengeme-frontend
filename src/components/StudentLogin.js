@@ -55,6 +55,7 @@ const StudentLogin = () =>{
                 התחבר
             </button>
             </div>
+            </form>
         </div>
     )
 }
