@@ -66,8 +66,7 @@ export function SignupForm(props) {
                         הירשם
                     </button>
                 </div>
-            </form>
-        </div>
+
     )
 }
 export default SignupForm
