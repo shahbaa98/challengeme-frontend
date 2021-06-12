@@ -1,16 +1,8 @@
-import React, {isValidElement, useContext} from "react";
-import {
-  BoldLink,
-  BoxContainer,
-  FormContainer,
-  Input,
-  MutedLink,
-  SubmitButton,
-} from "./Common";
 import { useHistory } from 'react-router-dom';
-import {Marginer} from "./Marginer";
-import {Button} from "@material-ui/core";
-import img from "./imgs/image3.png";
+
+import img from './imgs/image3.png'
+
+import './style.css'
 
 export function SignupForm(props) {
     const history = useHistory();
@@ -79,23 +71,4 @@ export function SignupForm(props) {
     )
 }
 export default SignupForm
-        /*<Input type="text" required placeholder="שם פרטי " />
-        <Input type="text" required placeholder="שם משפחה " />
-        <Input type="number" required placeholder="מספר טלפון " />
-        <Input type="email" required placeholder="אימייל" />
-        <Input type="text" required placeholder="בית הספר " />
-        <Input type="password" required placeholder="סיסמה" />
-        <Button type="submit">הירשם</Button>
-      </Form>
-      <Marginer direction="vertical" margin={10} />
-      <Marginer direction="vertical" margin="1em" />
-      <MutedLink href="#">
-        יש לך חשבון כבר?
-        <BoldLink href="#" onClick={()=> {history.push('/TeacherLogin')}}>
-          כניסה
-        </BoldLink>
-      </MutedLink>
-    </BoxContainer>
-  );
-}*/
-export default SignupForm
+
