@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, {isValidElement, useContext} from "react";
 import {
   BoldLink,
   BoxContainer,
@@ -6,24 +6,38 @@ import {
   Input,
   MutedLink,
   SubmitButton,
-} from "./common";
-import { Marginer } from "../marginer";
+} from "./Common";
 import { useHistory } from 'react-router-dom';
+import {Marginer} from "./Marginer";
+import {Button} from "@material-ui/core";
 
 export function SignupForm(props) {
     const history = useHistory();
-
-  return (
+    function onSubmit() {
+        history.push('/TeacherProfile')
+    }
+    return (
     <BoxContainer>
-      <FormContainer>
+      <FormContainer
+          onSubmit={onSubmit}
+                     validate={values => {
+                         const errors = {};
+                         if (!values.username) {
+                             errors.username = "Required";
+                         }
+                         if (!values.password && values.username === "test") {
+                             errors.password = "Required";
+                         }
+                         return errors;
+                     }}>
           <h1>heyyyyyy</h1>
-        <Input type="text" placeholder="שם מלא " />
-        <Input type="email" placeholder="אימיל" />
-        <Input type="password" placeholder="סיסמה" />
-        <Input type="password" placeholder="אישור סיסמה" />
+        <Input type="text" required placeholder="שם מלא " />
+        <Input type="email" required placeholder="אימייל" />
+        <Input type="password" required placeholder="סיסמה" />
+        <Input type="password" required placeholder="אישור סיסמה" />
+        <Button type="submit">הירשם</Button>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="submit">הירשם</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         יש לך חשבון כבר?

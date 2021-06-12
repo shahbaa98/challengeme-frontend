@@ -8,6 +8,10 @@ const Teacherlogin = () =>{
         history.push('/StudentProfile')
     }
 
+    function singUp() {
+        history.push('/SignUp')
+    }
+
     return(
         alert = () => {
             return(<h1>הודעה נשלחה למורה שלך, אל דאגה הסיסמה שלך תשלח אליך בקרוב</h1>);
@@ -45,6 +49,10 @@ const Teacherlogin = () =>{
                     </div>
                     <text onPress={()=>{}}>
                         שכחת סיסמה?
+                    </text>
+                    <br/>
+                    <text onClick={singUp}>
+                        עדיין לא נרשמת?
                     </text>
                     <div >
                         <button className="buttonStyle" >

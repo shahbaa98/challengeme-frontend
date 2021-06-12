@@ -57,8 +57,9 @@ import TeacherLogin from './components/TeacherLogin'
 import AdminLogin from './components/AdminLogin'
 import StudentProfile from './components/student/StudentProfile'
 import TeacherProfile from './components/TeacherProfile'
-import TherapistProfile from "./components/TherapistProfile";
+import TherapistProfile from './components/TherapistProfile'
 import AdminProfile from './components/AdminProfile'
+import SignUp from './components/SignUp'
 import chat from './components/student/chat'
 import notification from './components/student/notification'
 import challenges from './components/student/challenges'
@@ -69,6 +70,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { TextField, Checkbox } from "@material-ui/core";
+
 
 function App() {
 
@@ -85,6 +87,7 @@ function App() {
        <Route exact path='/TeacherProfile' component={TeacherProfile} />
        <Route exact path='/TherapistProfile' component={TherapistProfile} />
        <Route exact path='/AdminProfile' component={AdminProfile} />
+       <Route exact path='/SignUp' component={SignUp} />
        <Route exact path='/chat' component={chat} />
        <Route exact path='/notification' component={notification} />
        <Route exact path='/challenges' component={challenges} />
