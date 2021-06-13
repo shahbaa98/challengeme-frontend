@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Modal from "./Modal";
 import "../style.css"
-const todoItems = [
+import axios from "axios";
+/*const todoItems = [
     {
         id: 1,
         firstname: "Noura",
@@ -38,14 +39,14 @@ const todoItems = [
         therapistName:"bbb",
         NewUser: true,
     },
-];
+];*/
 
 class addStudent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             viewCompleted: false,
-            todoList: todoItems,
+            todoList: [],
             modal: false,
             activeItem: {
                 firstname: "",
@@ -57,20 +58,39 @@ class addStudent extends Component {
             },
         };
     }
+    componentDidMount() {
+        this.refreshList();
+    }
 
+    refreshList = () => {
+        axios
+            .get("/api/todos/")
+            .then((res) => this.setState({ todoList: res.data }))
+            .catch((err) => console.log(err));
+    };
     toggle = () => {
         this.setState({ modal: !this.state.modal });
     };
 
     handleSubmit = (item) => {
         this.toggle();
-
-        alert("save" + JSON.stringify(item));
+        if (item.id) {
+            axios
+                .put(`/api/todos/${item.id}/`, item)
+                .then((res) => this.refreshList());
+            return;
+        }
+        axios
+            .post("/api/todos/", item)
+            .then((res) => this.refreshList());
     };
 
     handleDelete = (item) => {
-        alert("delete" + JSON.stringify(item));
+        axios
+            .delete(`/api/todos/${item.id}/`)
+            .then((res) => this.refreshList());
     };
+
 
     createItem = () => {
         const item = { firstname: "", lastname: "", username:"", password:"", therapistName:"", NewUser: true };
