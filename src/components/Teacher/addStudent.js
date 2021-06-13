@@ -7,4 +7,4 @@ const addStudent = () => {
 
         </div>)
 }
-export default addStudent()
+export default addStudent
