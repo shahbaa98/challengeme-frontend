@@ -36,7 +36,7 @@
     position: absolute;
     width: 300px;
     height: 200px;
-    left: 100px;
+    left: 150px;
     top: 290px;
 }
 .challenge{
@@ -54,4 +54,33 @@
     top: 500px;
 }
 
+.notification1{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    left: 550px;
+    top: 290px;
+}
+
+.addStudent{
+    position: absolute;
+    width: 105px;
+    height: 97px;
+    left: 450px;
+    top: 550px;
+}
+.classes{
+    position: absolute;
+    width: 103px;
+    height: 89px;
+    left: 850px;
+    top: 550px;
+}
+.searchStudent{
+    position: absolute;
+    width: 125px;
+    height: 200px;
+    left: 950px;
+    top: 290px;
+}
 

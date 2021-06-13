@@ -5,7 +5,7 @@ import './style.css'
 const Teacherlogin = () =>{
     const history = useHistory();
     function onSubmit() {
-        history.push('/StudentProfile')
+        history.push('/TeacherProfile')
     }
 
     function singUp() {

@@ -56,13 +56,18 @@ import TherapistLogin from "./components/TherapistLogin";
 import TeacherLogin from './components/TeacherLogin'
 import AdminLogin from './components/AdminLogin'
 import StudentProfile from './components/student/StudentProfile'
-import TeacherProfile from './components/TeacherProfile'
+import TeacherProfile from './components/Teacher/TeacherProfile'
 import TherapistProfile from './components/TherapistProfile'
 import AdminProfile from './components/AdminProfile'
 import SignUp from './components/SignUp'
 import chat from './components/student/chat'
 import notification from './components/student/notification'
 import challenges from './components/student/challenges'
+import chat1 from './components/Teacher/chat1'
+import notification1 from './components/Teacher/notification1'
+import searchStudent from './components/Teacher/searchStudent'
+import addStudent from './components/Teacher/addStudent'
+import classes from './components/Teacher/classes'
 
 // import './App.css'
 import {Switch, Route} from 'react-router-dom'
@@ -91,6 +96,11 @@ function App() {
        <Route exact path='/chat' component={chat} />
        <Route exact path='/notification' component={notification} />
        <Route exact path='/challenges' component={challenges} />
+       <Route exact path='/chat1' component={chat1} />
+       <Route exact path='/notification1' component={notification1} />
+       <Route exact path='/addStudent' component={addStudent}/>
+       <Route exact path='/searchStudent' component={searchStudent}/>
+       <Route exact path='/classes' component={classes}/>
       </Switch>
     </Router>
 
