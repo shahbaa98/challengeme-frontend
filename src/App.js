@@ -68,6 +68,7 @@ import notification1 from './components/Teacher/notification1'
 import searchStudent from './components/Teacher/searchStudent'
 import addStudent from './components/Teacher/addStudent'
 import classes from './components/Teacher/classes'
+import addNewChall from "./components/Teacher/addNewChall";
 
 // import './App.css'
 import {Switch, Route} from 'react-router-dom'
@@ -75,7 +76,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { TextField, Checkbox } from "@material-ui/core";
-
+import {Modal} from "./components/Teacher/Modal";
 
 function App() {
 
@@ -101,6 +102,7 @@ function App() {
        <Route exact path='/addStudent' component={addStudent}/>
        <Route exact path='/searchStudent' component={searchStudent}/>
        <Route exact path='/classes' component={classes}/>
+       <Route exact path='/addNewChall' component={addNewChall}/>
       </Switch>
     </Router>
 

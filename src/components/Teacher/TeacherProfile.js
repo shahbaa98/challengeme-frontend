@@ -8,27 +8,21 @@ import notification from "../imgs/notification.gif";
 import addStudent from "../imgs/add_user-512.png"
 import classes from "../imgs/class-icon.jpg"
 import searchStudent from "../imgs/1024px-Search_Icon.svg.png"
+import addNewChall from  "../imgs/new.png"
+import {Form} from "reactstrap";
+
+
+
+import React from "react";
+
 const TeacherProfile = () => {
     const history = useHistory();
-    function onSubmit() {
-        history.push('/StudentProfile')
-    }
     const logout = () => {
         history.push('./');
     }
+
     return(
-        <form
-            onSubmit={onSubmit}
-            validate={values => {
-                const errors = {};
-                if (!values.username) {
-                    errors.username = "Required";
-                }
-                if (!values.password && values.username === "test") {
-                    errors.password = "Required";
-                }
-                return errors;
-            }}>
+        <form className="app-com">
             <div>
                 <div align ="left" onClick={logout}>
                     <RiLogoutBoxLine /> התנתק
@@ -66,7 +60,8 @@ const TeacherProfile = () => {
                 <br/>
             </div>
         </form>
+
     )
 }
 
-export default TeacherProfile 
+export default TeacherProfile

@@ -1,11 +1,11 @@
 
-const classes = () => {
+const notification = () => {
     return (
         <div>
             <h1>
-                my classes
+                heyyyyyy
             </h1>
 
         </div>)
 }
-export default classes
+export default notification
