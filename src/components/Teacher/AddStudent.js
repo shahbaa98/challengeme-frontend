@@ -47,7 +47,12 @@ const AddStudent = () => {
     }
     return (
         <div className="app-com">
-            <h1>Add New Student</h1>
+            <div>
+                <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
+                     &lt;  אחורה
+                </div>
+            </div>
+            <h1>הוספת תלמיד חדש</h1>
             {submitting &&
             <div>
                 You are submitting the following:
@@ -87,7 +92,7 @@ const AddStudent = () => {
                     </label>
                 </fieldset>
                 <br/>
-                <button type="submit" disabled={submitting}>Submit</button>
+                <button type="submit" disabled={submitting}>שלח</button>
             </form>
             <div className="Myclasses">
                 <div >שייך לכיתה</div>

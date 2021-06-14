@@ -11,8 +11,8 @@ const SearchStudent = () => {
     return (
         <form className="app-com">
             <div>
-                <div align ="left" onClick={logout}>
-                    <RiLogoutBoxLine /> התנתק
+                <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
+                    &lt;  אחורה
                 </div>
             </div>
             <div>
