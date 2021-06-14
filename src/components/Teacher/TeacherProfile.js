@@ -53,10 +53,12 @@ const TeacherProfile = () => {
                 <div > כיתות שלי</div>
                 <img     width= '200px' height='180px' src = {classes} onClick={()=> {history.push('/classes')}}/>
                 <br/>
+                <br/>
+                <br/>
             </div>
             <div className="searchStudent">
-                <div > הוסיף תלמיד</div>
-                <img     width= '200px' height='180px' src = {searchStudent} onClick={()=> {history.push('/searchStudent')}}/>
+                <div > חפש תלמיד</div>
+                <img     width= '200px' height='180px' src = {searchStudent} onClick={()=> {history.push('/SearchStudent')}}/>
                 <br/>
             </div>
         </form>

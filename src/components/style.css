@@ -9,6 +9,7 @@
     font-size:20px;
     text-align: center;
     background-Image: url(./imgs/background.png);
+    overflow: auto;
 
 }
 .buttonStyle {
@@ -67,14 +68,14 @@
     width: 105px;
     height: 97px;
     left: 350px;
-    top: 550px;
+    top: 600px;
 }
 .classes{
     position: absolute;
     width: 100px;
     height: 89px;
     left: 750px;
-    top: 550px;
+    top: 600px;
 }
 .searchStudent{
     position: absolute;
@@ -89,7 +90,37 @@
     width: 200px;
     height: 200px;
     right: 250px;
-    top: 550px;
+    top: 600px;
 
 }
 
+.wrapper fieldset {
+    margin: 20px 0;
+
+}
+.box {
+    color: black;
+    background-color: rgba(201, 172, 219, 1);
+    font-size:30px;
+    border-radius: 5px;
+    text-align: right;
+    cursor: pointer;
+    font-family: "Arial Rounded MT Bold";
+}
+.label{
+    text-align: right;
+}
+.Myclasses{
+    position: absolute;
+    width: 100px;
+    height: 89px;
+    right: 300px;
+    bottom: 0;
+}
+.Newclass{
+    position: absolute;
+    width: 100px;
+    height: 89px;
+    left: 300px;
+    bottom: 0;
+}

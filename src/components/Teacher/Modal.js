@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { useHistory } from 'react-router-dom';
 import "../style.css"
@@ -13,7 +14,7 @@ import {
     Label,
 } from "reactstrap";
 import img from "../imgs/image3.png";
-import classes from "./classes";
+
 
 export default class CustomModal extends Component {
 
@@ -50,7 +51,7 @@ export default class CustomModal extends Component {
                             <Input
                                 type="text"
                                 id="todo-title"
-                                name="firstname"
+                                name="firstname11"
                                 value={this.state.activeItem.title}
                                 onChange={this.handleChange}
                                 placeholder="Enter First Name"
@@ -61,7 +62,7 @@ export default class CustomModal extends Component {
                             <Input
                                 type="text"
                                 id="todo-title"
-                                name="lastname"
+                                name="lastname11"
                                 value={this.state.activeItem.title}
                                 onChange={this.handleChange}
                                 placeholder="Enter Last Name"
@@ -72,7 +73,7 @@ export default class CustomModal extends Component {
                             <Input
                                 type="text"
                                 id="todo-title"
-                                name="username"
+                                name="username11"
                                 value={this.state.activeItem.title}
                                 onChange={this.handleChange}
                                 placeholder="Enter Username"
@@ -83,7 +84,7 @@ export default class CustomModal extends Component {
                             <Input
                                 type="text"
                                 id="todo-title"
-                                name="password"
+                                name="password11"
                                 value={this.state.activeItem.title}
                                 onChange={this.handleChange}
                                 placeholder="Enter Password"
@@ -102,12 +103,12 @@ export default class CustomModal extends Component {
                         </FormGroup>
                         <br/>
                         <Button color="blue" >
-                           Add to a new class
+                            Add to a new class
                         </Button>
                         &emsp;
                         &emsp;
                         <Button  color="blue"
-                                >
+                        >
                             Add to class
                         </Button>
                     </Form>

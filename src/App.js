@@ -65,9 +65,9 @@ import notification from './components/student/notification'
 import challenges from './components/student/challenges'
 import chat1 from './components/Teacher/chat1'
 import notification1 from './components/Teacher/notification1'
-import searchStudent from './components/Teacher/searchStudent'
-import addStudent from './components/Teacher/addStudent'
 import classes from './components/Teacher/classes'
+import AddStudent from "./components/Teacher/AddStudent";
+import SearchStudent from "./components/Teacher/SearchStudent";
 import addNewChall from "./components/Teacher/addNewChall";
 
 // import './App.css'
@@ -77,6 +77,7 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { TextField, Checkbox } from "@material-ui/core";
 import {Modal} from "./components/Teacher/Modal";
+
 
 function App() {
 
@@ -99,8 +100,8 @@ function App() {
        <Route exact path='/challenges' component={challenges} />
        <Route exact path='/chat1' component={chat1} />
        <Route exact path='/notification1' component={notification1} />
-       <Route exact path='/addStudent' component={addStudent}/>
-       <Route exact path='/searchStudent' component={searchStudent}/>
+       <Route exact path='/AddStudent' component={AddStudent}/>
+       <Route exact path='/SearchStudent' component={SearchStudent}/>
        <Route exact path='/classes' component={classes}/>
        <Route exact path='/addNewChall' component={addNewChall}/>
       </Switch>
