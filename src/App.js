@@ -51,14 +51,10 @@
 // export default App;
 
 import Loginpage from './components/Loginpage'
-import StudentLogin from './components/StudentLogin'
-import TherapistLogin from "./components/TherapistLogin";
-import TeacherLogin from './components/TeacherLogin'
-import AdminLogin from './components/AdminLogin'
 import StudentProfile from './components/student/StudentProfile'
 import TeacherProfile from './components/Teacher/TeacherProfile'
-import TherapistProfile from './components/TherapistProfile'
-import AdminProfile from './components/AdminProfile'
+import CaretakerProfile from './components/CaretakerProfile'
+import PrincipalProfile from './components/PrincipalProfile'
 import SignUp from './components/SignUp'
 import chat from './components/student/chat'
 import notification from './components/student/notification'
@@ -86,14 +82,10 @@ function App() {
       <Router>
       <Switch>
        <Route  exact path='/' component={Loginpage} />
-       <Route exact path='/StudentLogin' component={StudentLogin} />
-       <Route exact path='/TeacherLogin' component={TeacherLogin} />
-       <Route exact path='/TherapistLogin' component={TherapistLogin} />
-       <Route exact path='/AdminLogin' component={AdminLogin} />
        <Route exact path='/StudentProfile' component={StudentProfile} />
        <Route exact path='/TeacherProfile' component={TeacherProfile} />
-       <Route exact path='/TherapistProfile' component={TherapistProfile} />
-       <Route exact path='/AdminProfile' component={AdminProfile} />
+       <Route exact path='/CaretakerProfile' component={CaretakerProfile} />
+       <Route exact path='/PrincipalProfile' component={PrincipalProfile} />
        <Route exact path='/SignUp' component={SignUp} />
        <Route exact path='/chat' component={chat} />
        <Route exact path='/notification' component={notification} />

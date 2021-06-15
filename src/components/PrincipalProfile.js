@@ -1,7 +1,7 @@
-const AdminProfile = () => {
+const PrincipalProfile = () => {
     return(
         <header>hey this is student Admin Page</header>
     )
 
 }
-export default AdminProfile 
+export default PrincipalProfile 
