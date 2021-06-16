@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 
 import img from './imgs/image3.png'
@@ -29,7 +30,7 @@ const Loginpage = () =>{
         const user = {
           email: email,
           password: password,
-          role: ""
+          role: ''
         };
     
         fetch('http://127.0.0.1:8000/api/v1/users/auth/login/', {
@@ -40,8 +41,8 @@ const Loginpage = () =>{
           body: JSON.stringify(user)
         })
           .then(res => res.json())
+
           .then(data => {
-            
             if (data.key) {
               localStorage.clear();
               localStorage.setItem('token', data.key);
