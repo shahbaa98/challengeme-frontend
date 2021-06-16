@@ -1,175 +1,205 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from "react";
+import Modal from "./Modal";
+import "../style.css"
+import axios from "axios";
+/*const todoItems = [
+    {
+        id: 1,
+        firstname: "Noura",
+        lastname: "espanioly",
+        username:"nouraes",
+        password:"nouraess",
+        therapistName:"aaa",
+        NewUser: false,
+    },
+    {
+        id: 2,
+        firstname: "Shahbaa",
+        lastname: "Shaalan",
+        username:"ShahbaaSh",
+        password:"Shaalan",
+        therapistName:"aaa",
+        NewUser: true,
+    },
+    {
+        id: 3,
+        firstname: "Uri",
+        lastname: "Moser",
+        username:"UriMo",
+        password:"uri1234",
+        therapistName:"bbb",
+        NewUser: true,
+    },
+    {
+        id: 4,
+        firstname: "Fredi",
+        lastname: "Fincheli",
+        username:"FrediFin",
+        password:"Fredi123",
+        therapistName:"bbb",
+        NewUser: true,
+    },
+];*/
 
-const AddNewChall = () => {
-    const [PrimaryKey, setPrimaryKey] = useState('');
-    const [ChallengeName, setChallengeName] = useState('');
-    const [SocialMax, setSocialMax] = useState('');
-    const [SocialMin, setSocialMin] = useState('');
-    const [EmotionalMax, setEmotionalMax] = useState('');
-    const [EmotionalMin, setEmotionalMin] = useState('');
-    const [StudyMax, setStudyMax] = useState('');
-    const [StudyMin, setStudyMin] = useState('');
-    const [Personal, setPersonal] = useState('0');
-    const [errors, setErrors] = useState(false);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        if (localStorage.getItem('token') !== null) {
-            window.location.replace('http://localhost:3000/dashboard');
-        } else {
-            setLoading(false);
-        }
-    }, []);
-
-    const onSubmit = e => {
-        e.preventDefault();
-
-        const user = {
-            PrimaryKey: PrimaryKey,
-            ChallengeName: ChallengeName,
-            SocialMax: SocialMax,
-            SocialMin: SocialMin,
-            EmotionalMax: EmotionalMax,
-            EmotionalMin: EmotionalMin,
-            StudyMax: StudyMax,
-            StudyMin: StudyMin,
-            Personal: Personal,
-        };
-
-        fetch('http://127.0.0.1:8000/api/v1/users/auth/register/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+class AddNewChall extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            viewCompleted: false,
+            todoList: [],
+            modal: false,
+            activeItem: {
+                firstname: "",
+                lastname: "",
+                username:"",
+                password:"",
+                therapistName:"",
+                NewUser: true,
             },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .catch(error => {
-                if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
-                }
-            })
-            .then(data => {
-                if (data.key) {
-                    localStorage.clear();
-                    localStorage.setItem('token', data.key);
-                    window.location.replace('http://localhost:3000/dashboard');
-                } else {
-                    setPrimaryKey('');
-                    setChallengeName('');
-                    setSocialMax('');
-                    setSocialMin('');
-                    setEmotionalMax('');
-                    setEmotionalMin('');
-                    setStudyMax('');
-                    setStudyMin('');
-                    setPersonal('');
-                    localStorage.clear();
-                    setErrors(true);
-                }
-            });
+        };
+    }
+    componentDidMount() {
+        this.refreshList();
+    }
+
+    refreshList = () => {
+        axios
+            .get("/api/todos/")
+            .then((res) => this.setState({ todoList: res.data }))
+            .catch((err) => console.log(err));
+    };
+    toggle = () => {
+        this.setState({ modal: !this.state.modal });
     };
 
-    return (
-        <div>
-            {loading === false && <h1>Signup</h1>}
-            {errors === true && <h2>Cannot signup with provided credentials</h2>}
-            <form onSubmit={onSubmit}>
-                <label htmlFor='PrimaryKey'>PrimaryKey:</label> <br />
-                <input
-                    name='PrimaryKey'
-                    type='number'
-                    value={PrimaryKey}
-                    onChange={e => setPrimaryKey(e.target.value)}
-                    required
-                />{' '}
+    handleSubmit = (item) => {
+        this.toggle();
+        if (item.id) {
+            axios
+                .put(`/api/todos/${item.id}/`, item)
+                .then((res) => this.refreshList());
+            return;
+        }
+        axios
+            .post("/api/todos/", item)
+            .then((res) => this.refreshList());
+    };
 
-                <br />
-
-                <label htmlFor='ChallengeName'>ChallengeName:</label> <br />
-                <input
-                    name='ChallengeName'
-                    type='text'
-                    value={ChallengeName}
-                    onChange={e => setChallengeName(e.target.value)}
-                    required
-                />{' '}
-
-                <br />
-
-                <label htmlFor='SocialMax'>SocialMax:</label> <br />
-                <input
-                    name='SocialMax'
-                    type='number'
-                    value={SocialMax}
-                    onChange={e => setSocialMax(e.target.value)}
-                    required
-                />{' '}
-
-                <br />
-
-                <label htmlFor='SocialMin'>SocialMin:</label> <br />
-                <input
-                    name='SocialMin'
-                    type='number'
-                    value={SocialMin}
-                    onChange={e => setSocialMin(e.target.value)}
-                    required
-                />{' '}
-
-                <br />
-
-                <label htmlFor='StudyMin'>StudyMin:</label> <br />
-                <input
-                    name='StudyMin'
-                    type='number'
-                    value={StudyMin}
-                    onChange={e => setStudyMin(e.target.value)}
-                    required
-                />{' '}
-                <br />
-                <label htmlFor='EmotionalMax'>EmotionalMax:</label> <br />
-                <input
-                    name='EmotionalMax'
-                    type='number'
-                    value={EmotionalMax}
-                    onChange={e => setEmotionalMax(e.target.value)}
-                    required
-                />{' '}
-                <br />
-                <label htmlFor='EmotionalMin'>EmotionalMin:</label> <br />
-                <input
-                    name='EmotionalMin'
-                    type='number'
-                    value={EmotionalMin}
-                    onChange={e => setEmotionalMin(e.target.value)}
-                    required
-                />{' '}
-                <br />
-                <label htmlFor='StudyMax'>StudyMax:</label> <br />
-                <input
-                    name='StudyMax'
-                    type='number'
-                    value={StudyMax}
-                    onChange={e => setStudyMax(e.target.value)}
-                    required
-                />{' '}
-                <br />
-                <label htmlFor='Personal'>Personal:</label> <br />
-                <input
-                    name='Personal'
-                    type='number'
-                    value={Personal}
-                    onChange={e => setPersonal(e.target.value)}
-                    required
-                />{' '}
-                <br />
+    handleDelete = (item) => {
+        axios
+            .delete(`/api/todos/${item.id}/`)
+            .then((res) => this.refreshList());
+    };
 
 
-                <input type='submit' value='Signup' />
-            </form>
-        </div>
-    );
-};
+    createItem = () => {
+        const item = { firstname: "", lastname: "", username:"", password:"", therapistName:"", NewUser: true };
+        this.setState({ activeItem: item, modal: !this.state.modal });
+    };
 
-export default AddNewChall;
+    editItem = (item) => {
+        this.setState({ activeItem: item, modal: !this.state.modal });
+    };
+
+    displayCompleted = (status) => {
+        if (status) {
+            return this.setState({ viewCompleted: true });
+        }
+
+        return this.setState({ viewCompleted: false });
+    };
+
+    renderTabList = () => {
+        return (
+            <div className="nav nav-tabs">
+        <span
+            className={this.state.viewCompleted ? "nav-link active" : "nav-link"}
+            onClick={() => this.displayCompleted(true)}
+        >
+          תלמידים חדשים
+        </span>
+                <span
+                    className={this.state.viewCompleted ? "nav-link" : "nav-link active"}
+                    onClick={() => this.displayCompleted(false)}
+                >
+          תלמידים
+        </span>
+            </div>
+        );
+    };
+
+    renderItems = () => {
+        const { viewCompleted } = this.state;
+        const newItems = this.state.todoList.filter(
+            (item) => item.NewUser === viewCompleted
+        );
+
+        return newItems.map((item) => (
+            <li
+                key={item.id}
+                className="list-group-item d-flex justify-content-between align-items-center"
+            >
+        <span
+            className={`todo-title mr-2 ${
+                this.state.viewCompleted ? "completed-todo" : ""
+            }`}
+            title={item.username}
+        >
+          {item.username}
+        </span>
+                <span>
+          <button
+              className="btn btn-secondary mr-2"
+              onClick={() => this.editItem(item)}
+
+          >
+            Edit
+          </button>
+          <button
+              className="btn btn-danger"
+              onClick={() => this.handleDelete(item)}
+          >
+            Delete
+          </button>
+        </span>
+            </li>
+        ));
+    };
+
+    render() {
+        return (
+            <main className="app-com">
+                <h1 className="text-white text-uppercase text-center my-4">משתמש חדש</h1>
+                <br/>
+                <div className="row">
+                    <div className="col-md-6 col-sm-10 mx-auto p-0">
+                        <div className="card p-3">
+                            <div className="mb-4">
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={this.createItem}
+                                >
+                                    הוסף תלמיד חדש
+                                </button>
+                            </div>
+                            {this.renderTabList()}
+                            <ul className="list-group list-group-flush border-top-0">
+                                {this.renderItems()}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {this.state.modal ? (
+                    <Modal
+                        activeItem={this.state.activeItem}
+                        toggle={this.toggle}
+                        onSave={this.handleSubmit}
+                    />
+                ) : null}
+            </main>
+
+        );
+    }
+}
+
+export default AddNewChall
