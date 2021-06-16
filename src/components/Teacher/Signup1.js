@@ -40,14 +40,14 @@ const Signup1 = () => {
             .then(res => res.json())
             .catch(error => {
                 if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
+                    console.log('That username is already in use!');
                 }
             })
             .then(data => {
                 if (data.key) {
                     localStorage.clear();
                     localStorage.setItem('token', data.key);
-                    window.location.replace('http://localhost:3000/dashboard');
+                    window.location.replace('http://localhost:3000/Signup1');
                 } else {
                     setFirstName('');
                     setLastName('');

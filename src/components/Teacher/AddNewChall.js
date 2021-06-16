@@ -15,7 +15,7 @@ const AddNewChall = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            window.location.replace('http://localhost:3000/dashboard');
+            window.location.replace('http://localhost:3000/AddNewChall');
         } else {
             setLoading(false);
         }
