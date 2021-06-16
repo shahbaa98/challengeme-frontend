@@ -17,18 +17,7 @@ const Loginpage = () =>{
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-          if (data.role == 'Student') {
             history.push('/StudentProfile')
-          }
-          if (data.role == 'Teacher') {
-            history.push('/TeacherProfile')
-          }
-          if (data.role == 'Principal') {
-            history.push('/PrincipalProfile')
-          }
-          if (data.role == 'Caretaker') {
-            history.push('/CaretakerProfile')
-          }
         } else {
           setLoading(false);
         }
@@ -39,7 +28,8 @@ const Loginpage = () =>{
     
         const user = {
           email: email,
-          password: password
+          password: password,
+          role: ""
         };
     
         fetch('http://127.0.0.1:8000/api/v1/users/auth/login/', {
@@ -54,18 +44,8 @@ const Loginpage = () =>{
             if (data.key) {
               localStorage.clear();
               localStorage.setItem('token', data.key);
-              if (data.role == 'Student') {
-                history.push('/StudentProfile')
-              }
-              if (data.role == 'Teacher') {
-                history.push('/TeacherProfile')
-              }
-              if (data.role == 'Principal') {
-                history.push('/PrincipalProfile')
-              }
-              if (data.role == 'Caretaker') {
-                history.push('/CaretakerProfile')
-              }     
+              history.push('/StudentProfile')
+                  
             } else {
               setEmail('');
               setPassword('');

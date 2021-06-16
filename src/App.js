@@ -53,10 +53,9 @@
 import Loginpage from './components/Loginpage'
 import StudentProfile from './components/student/StudentProfile'
 import TeacherProfile from './components/Teacher/TeacherProfile'
-import CaretakerProfile from './components/CaretakerProfile'
+import CaretakertProfile from './components/CaretakerProfile'
 import PrincipalProfile from './components/PrincipalProfile'
 import SignUp from './components/SignUp'
-import chat from './components/student/chat'
 import notification from './components/student/notification'
 import challenges from './components/student/challenges'
 import chat1 from './components/Teacher/chat1'
@@ -84,10 +83,9 @@ function App() {
        <Route  exact path='/' component={Loginpage} />
        <Route exact path='/StudentProfile' component={StudentProfile} />
        <Route exact path='/TeacherProfile' component={TeacherProfile} />
-       <Route exact path='/CaretakerProfile' component={CaretakerProfile} />
+       <Route exact path='/CaretakertProfile' component={CaretakertProfile} />
        <Route exact path='/PrincipalProfile' component={PrincipalProfile} />
        <Route exact path='/SignUp' component={SignUp} />
-       <Route exact path='/chat' component={chat} />
        <Route exact path='/notification' component={notification} />
        <Route exact path='/challenges' component={challenges} />
        <Route exact path='/chat1' component={chat1} />

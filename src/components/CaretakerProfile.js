@@ -1,7 +1,7 @@
-const TeacherProfile = () => {
+const CaretakerProfile = () => {
     return(
         <header>hey this is therapist Page</header>
     )
 
 }
-export default TeacherProfile
+export default CaretakerProfile
