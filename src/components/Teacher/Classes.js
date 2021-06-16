@@ -1,5 +1,5 @@
 
-const classes = () => {
+const Classes = () => {
     return (
         <div>
             <h1>
@@ -8,4 +8,4 @@ const classes = () => {
 
         </div>)
 }
-export default classes
+export default Classes

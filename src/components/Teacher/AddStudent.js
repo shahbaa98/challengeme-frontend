@@ -5,6 +5,8 @@ import '../style.css'
 import React, { useReducer,useState } from "react";
 import classes from "../imgs/class-icon.jpg";
 import newclass from "../imgs/add.png"
+
+
 const formReducer = (state, event) => {
     if(event.reset) {
         return {

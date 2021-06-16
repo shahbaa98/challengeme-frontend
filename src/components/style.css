@@ -115,12 +115,12 @@
     width: 100px;
     height: 89px;
     right: 300px;
-    bottom: 0;
+    bottom: 20px;
 }
 .Newclass{
     position: absolute;
     width: 100px;
     height: 89px;
     left: 300px;
-    bottom: 0;
+    bottom: 20px;
 }

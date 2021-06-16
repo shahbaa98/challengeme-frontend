@@ -1,5 +1,5 @@
 
-const chat1 = () => {
+const Chat1 = () => {
     return (
         <div>
             <h1>
@@ -8,4 +8,4 @@ const chat1 = () => {
 
         </div>)
 }
-export default chat1
+export default Chat1

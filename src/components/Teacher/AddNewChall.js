@@ -41,7 +41,7 @@ import axios from "axios";
     },
 ];*/
 
-class addNewChall extends Component {
+class AddNewChall extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -202,4 +202,4 @@ class addNewChall extends Component {
     }
 }
 
-export default addNewChall
+export default AddNewChall

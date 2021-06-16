@@ -10,12 +10,24 @@ import classes from "../imgs/class-icon.jpg"
 import searchStudent from "../imgs/1024px-Search_Icon.svg.png"
 import addNewChall from  "../imgs/new.png"
 import {Form} from "reactstrap";
-
-
-
 import React from "react";
 
+const photoUpload =({
+                      onChange,
+                      src,
+                  })=>{
+    return(
+        <label for="photo-upload" className="custom-file-upload fas">
+            <div className="img-wrap img-upload" >
+                <img for="photo-upload" src={src}/>
+            </div>
+            <input id="photo-upload" type="file" onChange={onChange}/>
+        </label>
+    );
+}
+
 const TeacherProfile = () => {
+
     const history = useHistory();
     const logout = () => {
         history.push('./');

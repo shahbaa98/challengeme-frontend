@@ -6,12 +6,13 @@ import PrincipalProfile from './components/PrincipalProfile'
 import SignUp from './components/SignUp'
 import notification from './components/student/notification'
 import challenges from './components/student/challenges'
-import chat1 from './components/Teacher/chat1'
-import notification1 from './components/Teacher/notification1'
-import classes from './components/Teacher/classes'
+import Chat1 from './components/Teacher/Chat1'
+import Notification1 from './components/Teacher/Notification1'
+import Classes from './components/Teacher/Classes'
 import AddStudent from "./components/Teacher/AddStudent";
 import SearchStudent from "./components/Teacher/SearchStudent";
-import addNewChall from "./components/Teacher/addNewChall";
+import AddNewChall from "./components/Teacher/AddNewChall";
+import Signup1 from "./components/Teacher/Signup1";
 
 // import './App.css'
 import {Switch, Route} from 'react-router-dom'
@@ -36,12 +37,13 @@ function App() {
        <Route exact path='/SignUp' component={SignUp} />
        <Route exact path='/notification' component={notification} />
        <Route exact path='/challenges' component={challenges} />
-       <Route exact path='/chat1' component={chat1} />
-       <Route exact path='/notification1' component={notification1} />
+       <Route exact path='/Chat1' component={Chat1} />
+       <Route exact path='/Notification1' component={Notification1} />
        <Route exact path='/AddStudent' component={AddStudent}/>
        <Route exact path='/SearchStudent' component={SearchStudent}/>
-       <Route exact path='/classes' component={classes}/>
-       <Route exact path='/addNewChall' component={addNewChall}/>
+       <Route exact path='/Classes' component={Classes}/>
+       <Route exact path='/AddNewChall' component={AddNewChall}/>
+       <Route exact path='/Signup1' component={Signup1}/>
       </Switch>
     </Router>
 
