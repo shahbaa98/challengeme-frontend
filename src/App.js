@@ -1,6 +1,7 @@
 import Loginpage from './components/Loginpage'
 import StudentProfile from './components/student/StudentProfile'
 import TeacherProfile from './components/Teacher/TeacherProfile'
+import CaretakerProfile from './components/CaretakerProfile'
 import PrincipalProfile from './components/PrincipalProfile'
 import SignUp from './components/SignUp'
 import notification from './components/student/notification'
@@ -30,7 +31,6 @@ function App() {
        <Route  exact path='/' component={Loginpage} />
        <Route exact path='/StudentProfile' component={StudentProfile} />
        <Route exact path='/TeacherProfile' component={TeacherProfile} />
-       <Route exact path='/CaretakertProfile' component={CaretakertProfile} />
        <Route exact path='/CaretakerProfile' component={CaretakerProfile} />
        <Route exact path='/PrincipalProfile' component={PrincipalProfile} />
        <Route exact path='/SignUp' component={SignUp} />
