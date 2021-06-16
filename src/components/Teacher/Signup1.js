@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 const Signup1 = () => {
-    const [firstname, setFirstName] = useState('');
-    const [lastname, setLastName] = useState('');
-    const [username, setUserName] = useState('');
+    //const [firstname, setFirstName] = useState('');
+    //const [lastname, setLastName] = useState('');
+    const [email, setEmail] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
-    const [therapist, setTherapist] = useState('');
+    //const [therapist, setTherapist] = useState('');
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
+    const history = useHistory();
+
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            window.location.replace('http://localhost:3000/dashboard');
+            history.push('/TeacherProfile')
         } else {
             setLoading(false);
         }
@@ -22,10 +26,10 @@ const Signup1 = () => {
         e.preventDefault();
 
         const user = {
-            firstname: firstname,
-            lastname: lastname,
-            username: username,
-            therapist:therapist,
+            //firstname: firstname,
+            //lastname: lastname,
+            email: email,
+            //therapist:therapist,
             password1: password1,
             password2: password2
         };
@@ -47,12 +51,12 @@ const Signup1 = () => {
                 if (data.key) {
                     localStorage.clear();
                     localStorage.setItem('token', data.key);
-                    window.location.replace('http://localhost:3000/dashboard');
+                    history.push('/TeacherProfile')
                 } else {
-                    setFirstName('');
-                    setLastName('');
-                    setUserName('');
-                    setTherapist('');
+                    //setFirstName('');
+                    //setLastName('');
+                    setEmail('');
+                    //setTherapist('');
                     setPassword1('');
                     setPassword2('');
                     localStorage.clear();
@@ -66,45 +70,45 @@ const Signup1 = () => {
             {loading === false && <h1>Signup</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
             <form onSubmit={onSubmit}>
-                <label htmlFor='firstname'>firstname:</label> <br />
+                {/* <label htmlFor='firstname'>firstname:</label> <br />
                 <input
                     name='firstname'
                     type='text'
                     value={firstname}
                     onChange={e => setFirstName(e.target.value)}
                     required
-                />{' '}
+                />{' '} */}
 
                 <br />
 
-                <label htmlFor='lastname'>lastname:</label> <br />
+                {/* <label htmlFor='lastname'>lastname:</label> <br />
                 <input
                     name='lastname'
                     type='text'
                     value={lastname}
                     onChange={e => setLastName(e.target.value)}
                     required
-                />{' '}
+                />{' '} */}
 
                 <br />
 
-                <label htmlFor='therapist'>therapist:</label> <br />
+                {/* <label htmlFor='therapist'>therapist:</label> <br />
                 <input
                     name='therapist'
                     type='text'
                     value={therapist}
                     onChange={e => setTherapist(e.target.value)}
                     required
-                />{' '}
+                />{' '} */}
 
                 <br />
 
-                <label htmlFor='username'>username:</label> <br />
+                <label htmlFor='username'>email:</label> <br />
                 <input
-                    name='username'
-                    type='text'
-                    value={username}
-                    onChange={e => setUserName(e.target.value)}
+                    name='email'
+                    type='email'
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                     required
                 />{' '}
 
