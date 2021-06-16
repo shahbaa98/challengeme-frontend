@@ -9,15 +9,30 @@ const StudentProfile = () => {
     const history = useHistory();
 
 
-    const logout = () => {
-      history.push('./');
-    }
+    const handleLogout = e => {
+        e.preventDefault();
+    
+        fetch('http://127.0.0.1:8000/api/v1/users/auth/logout/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Token ${localStorage.getItem('token')}`
+          }
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            localStorage.clear();
+            history.push('/');
+          });
+      };
     return(
         <div className="app-com">
 
         <div>
-            <div align ="left" onClick={logout}>
+            <div align ="left" onClick={handleLogout}>
                 <RiLogoutBoxLine /> התנתק
+
             </div>
         </div>
 

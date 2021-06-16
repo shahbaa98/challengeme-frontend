@@ -41,6 +41,7 @@ const Loginpage = () =>{
         })
           .then(res => res.json())
           .then(data => {
+            
             if (data.key) {
               localStorage.clear();
               localStorage.setItem('token', data.key);
