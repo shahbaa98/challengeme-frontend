@@ -16,7 +16,7 @@ const formReducer = (state, event) => {
         [event.name]: event.value
     }
 }
-const newclass = () => {
+const Newclass = () => {
     const history = useHistory();
     const logout = () => {
         history.push('./');
@@ -84,4 +84,4 @@ const newclass = () => {
         </div>
     )
 }
-export default newclass
+export default Newclass
