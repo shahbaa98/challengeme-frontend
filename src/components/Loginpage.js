@@ -23,11 +23,31 @@ const Loginpage = () => {
     if (userprofile.role === 'Student') {
       history.push('/StudentProfile')
     }
+    if (userprofile.role === 'Principal') {
+      history.push('/PrincipalProfile')
+    }
+    if (userprofile.role === 'Caretaker') {
+      history.push('/CaretakerProfile')
+    }
+    if (userprofile.role === 'Teacher') {
+      history.push('/TeacherProfile')
+    }
   }, [userprofile]);
 
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
-      history.push('/StudentProfile')
+      if (userprofile.role === 'Student') {
+        history.push('/StudentProfile')
+      }
+      if (userprofile.role === 'Principal') {
+        history.push('/PrincipalProfile')
+      }
+      if (userprofile.role === 'Caretaker') {
+        history.push('/CaretakerProfile')
+      }
+      if (userprofile.role === 'Teacher') {
+        history.push('/TeacherProfile')
+      }
     } else {
       setLoading(false);
     }
