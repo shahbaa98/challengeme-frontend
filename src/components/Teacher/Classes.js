@@ -13,26 +13,7 @@ const Classes = () => {
     const logout = () => {
         history.push('./');
     }
-    const [formData, setFormData] = useReducer(formReducer, {});
-    const [submitting, setSubmitting] = useState(false);
-    const handleSubmit = event => {
-        event.preventDefault();
-        setSubmitting(true);
 
-        setTimeout(() => {
-            setSubmitting(false);
-            setFormData({
-                reset: true
-            })
-        }, 3000)
-    }
-    //pulls the data from event.target
-    const handleChange = event => {
-        setFormData({
-            name: event.target.name,
-            value: event.target.value,
-        });
-    }
     return (
         <div className="app-com">
             <div>
