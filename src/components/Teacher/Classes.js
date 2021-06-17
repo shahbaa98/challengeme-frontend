@@ -22,16 +22,6 @@ const Classes = () => {
                 </div>
             </div>
             <h1>הכיתות שלי</h1>
-            {submitting &&
-            <div>
-                You are submitting the following:
-                <ul>
-                    {Object.entries(formData).map(([name, value]) => (
-                        <li key={name}><strong>{name}</strong>:{value.toString()}</li>
-                    ))}
-                </ul>
-            </div>
-            }
             <br/><br/>
             <div className="classes">
                 <div className="myClasses">הכיתות שלי</div>
