@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import decodeJwt from 'jwt-decode';
+
 
 
 import img from './imgs/image3.png'
@@ -13,6 +15,7 @@ const Loginpage = () =>{
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // const [role, setRole] = useState('')
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
 
@@ -42,11 +45,17 @@ const Loginpage = () =>{
         })
           .then(res => res.json())
 
-          .then(data => {
-            if (data.key) {
+          .then(token => {
+            if (token.key) {
+              const decodedToken = decodeJwt(token);
               localStorage.clear();
-              localStorage.setItem('token', data.key);
-              history.push('/StudentProfile')
+              localStorage.setItem('token', token.key);
+              localStorage.setItem('permissions',decodedToken.permissions);
+              const role = localStorage.getItem('permissions');
+              if (role === 'Student'){
+                history.push('/StudentProfile')
+              }
+
                   
             } else {
               setEmail('');
