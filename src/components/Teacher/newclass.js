@@ -16,7 +16,7 @@ const formReducer = (state, event) => {
         [event.name]: event.value
     }
 }
-const Newclass = () => {
+const newclass = () => {
     const history = useHistory();
     const logout = () => {
         history.push('./');
@@ -62,7 +62,7 @@ const Newclass = () => {
             <br/><br/>
             <form onSubmit={handleSubmit} dir="rtl"  >
                 <fieldset disabled={submitting}>
-                    <label classNumber="label">
+                    <label className="label">
                         <p>מספר כיתה:</p>
                         <input className="box" type="number" name="classID" onChange={handleChange}  value={formData.classID || ''}/>
                     </label>
@@ -72,7 +72,7 @@ const Newclass = () => {
                         <input className="box" type="text" name="className" onChange={handleChange} value={formData.className || ''}/>
                     </label>
                     <br/>
-                    <label TeacherName="label">
+                    <label className="label">
                         <p>שם מורה אחראי:</p>
                         <input className="box" type="text" name="teachername" onChange={handleChange}  value={formData.teachername || ''}/>
                     </label>
@@ -84,4 +84,4 @@ const Newclass = () => {
         </div>
     )
 }
-export default Newclass
+export default newclass
