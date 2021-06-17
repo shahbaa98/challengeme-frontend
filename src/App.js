@@ -9,6 +9,7 @@ import challenges from './components/student/challenges'
 import Chat1 from './components/Teacher/Chat1'
 import Notification1 from './components/Teacher/notification1'
 import Classes from './components/Teacher/Classes'
+import newclass from './components/Teacher/newclass'
 import AddStudent from "./components/Teacher/AddStudent";
 import SearchStudent from "./components/Teacher/SearchStudent";
 import AddNewChall from "./components/Teacher/AddNewChall";
@@ -42,6 +43,7 @@ function App() {
        <Route exact path='/AddStudent' component={AddStudent}/>
        <Route exact path='/SearchStudent' component={SearchStudent}/>
        <Route exact path='/Classes' component={Classes}/>
+       <Route exact path='/newclass' component={newclass}/>
        <Route exact path='/AddNewChall' component={AddNewChall}/>
        <Route exact path='/Signup1' component={Signup1}/>
       </Switch>
