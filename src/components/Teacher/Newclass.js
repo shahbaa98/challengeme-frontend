@@ -1,10 +1,6 @@
 import {useHistory} from "react-router-dom";
-import {RiLogoutBoxLine} from "react-icons/ri";
-import img from '../imgs/image3.png'
 import '../style.css'
 import React, { useReducer,useState } from "react";
-import classes from "../imgs/class-icon.jpg";
-import newclass from "../imgs/add.png"
 
 
 const formReducer = (state, event) => {
@@ -66,7 +62,7 @@ const Newclass = () => {
             <br/><br/>
             <form onSubmit={handleSubmit} dir="rtl"  >
                 <fieldset disabled={submitting}>
-                    <label className="label">
+                    <label classNumber="label">
                         <p>מספר כיתה:</p>
                         <input className="box" type="number" name="classID" onChange={handleChange}  value={formData.classID || ''}/>
                     </label>
@@ -76,7 +72,7 @@ const Newclass = () => {
                         <input className="box" type="text" name="className" onChange={handleChange} value={formData.className || ''}/>
                     </label>
                     <br/>
-                    <label className="label">
+                    <label TeacherName="label">
                         <p>שם מורה אחראי:</p>
                         <input className="box" type="text" name="teachername" onChange={handleChange}  value={formData.teachername || ''}/>
                     </label>
