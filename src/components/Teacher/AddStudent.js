@@ -103,7 +103,7 @@ const AddStudent = () => {
             </div>
             <div className="Newclass">
                 <div >שייך לכיתה חדשה</div>
-                <img     width= '200px' height='180px' src = {newclass} onClick={()=> {history.push('/classes')}}/>
+                <img     width= '200px' height='180px' src = {newclass} onClick={()=> {history.push('/Newclass')}}/>
                 <br/>
             </div>
         </div>
