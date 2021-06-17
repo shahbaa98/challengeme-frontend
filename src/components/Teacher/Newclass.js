@@ -1,10 +1,6 @@
 import {useHistory} from "react-router-dom";
-import {RiLogoutBoxLine} from "react-icons/ri";
-import img from '../imgs/image3.png'
 import '../style.css'
 import React, { useReducer,useState } from "react";
-import classes from "../imgs/class-icon.jpg";
-import newclass from "../imgs/add.png"
 
 
 const formReducer = (state, event) => {
