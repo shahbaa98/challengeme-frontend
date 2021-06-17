@@ -7,7 +7,6 @@ import SignUp from './components/SignUp'
 import notification from './components/student/notification'
 import challenges from './components/student/challenges'
 import Chat1 from './components/Teacher/Chat1'
-import Notification1 from './components/Teacher/notification1'
 import Notification1 from './components/Teacher/Notification1'
 import Classes from './components/Teacher/Classes'
 import AddStudent from "./components/Teacher/AddStudent";
