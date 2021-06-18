@@ -71,7 +71,7 @@ const AddNewChall = () => {
     };
 
     return (
-        <div>
+        <div className="app-com">
             {loading === false && <h1>Signup</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
             <form onSubmit={onSubmit}>

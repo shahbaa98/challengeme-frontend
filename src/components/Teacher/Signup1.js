@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useHistory} from "react-router-dom";
+import img from "../imgs/image3.png";
+import classes from "../imgs/class-icon.jpg";
+import newclass from "../imgs/add.png";
+
 
 const Signup1 = () => {
     //const [firstname, setFirstName] = useState('');
@@ -65,8 +69,8 @@ const Signup1 = () => {
     };
 
     return (
-        <div>
-            {loading === false && <h1>Signup</h1>}
+        <div className="app-com">
+            {loading === false && <h1>Add New Student</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
             <form onSubmit={onSubmit}>
                 {/* <label htmlFor='firstname'>firstname:</label> <br />
@@ -133,6 +137,17 @@ const Signup1 = () => {
                 <br />
                 <input type='submit' value='Signup' />
             </form>
+
+            <div className="Myclasses">
+                <div >שייך לכיתה</div>
+                <img     width= '200px' height='180px' src = {classes} onClick={()=> {history.push('/classes')}}/>
+                <br/>
+            </div>
+            <div className="Newclass">
+                <div >שייך לכיתה חדשה</div>
+                <img     width= '200px' height='180px' src = {newclass} onClick={()=> {history.push('/classes')}}/>
+                <br/>
+            </div>
         </div>
     );
 };
