@@ -14,19 +14,6 @@ import React from "react";
 import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
 
-const photoUpload =({
-                      onChange,
-                      src,
-                  })=>{
-    return(
-        <label for="photo-upload" className="custom-file-upload fas">
-            <div className="img-wrap img-upload" >
-                <img for="photo-upload" src={src}/>
-            </div>
-            <input id="photo-upload" type="file" onChange={onChange}/>
-        </label>
-    );
-}
 
 const TeacherProfile = () => {
     
