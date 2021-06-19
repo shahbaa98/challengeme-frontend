@@ -26,7 +26,7 @@ const Newclass = () => {
     const onSubmit = e => {
         e.preventDefault();
 
-        const user = {
+        const newclass = {
             classID: classID,
             className: className,
             teachername: teachername,
@@ -38,12 +38,13 @@ const Newclass = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(newclass)
         })
             .then(res => res.json())
             .catch(error => {
-                if (error.code === 'auth/class-already-in-use') {
-                    console.log('That class address is already in use!');
+                //backend check if the class is alreay exist
+                if (error.code === 'auth/class-already-exist') {
+                    console.log('That class is already exist!');
                 }
             })
             .then(data => {
