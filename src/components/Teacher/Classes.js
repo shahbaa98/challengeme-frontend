@@ -25,7 +25,8 @@ const Classes = () => {
             <h1>הכיתות שלי</h1>
             <div className="Newclass">
                 <img   src = {newclass} onClick={()=> {history.push('/Newclass')}}/>
-                <div className="top-right">שייך לכיתה חדשה</div>
+
+                <div >שייך לכיתה חדשה</div>
                 <br/>
             </div>
 
