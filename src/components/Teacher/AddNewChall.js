@@ -38,7 +38,7 @@ const AddNewChall = () => {
             Personal: Personal,
         };
 
-        fetch('http://127.0.0.1:8000/api/v1/users/auth/register/', {
+        fetch('http://127.0.0.1:8000/api/v1/challenges', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
