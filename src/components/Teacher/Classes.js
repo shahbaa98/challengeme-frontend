@@ -18,7 +18,7 @@ const Classes = () => {
     return (
         <div className="app-com">
             <div>
-                <div align ="left" onClick={()=> {history.push('/Classes')}}>
+                <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
                     &lt;  אחורה
                 </div>
             </div>
