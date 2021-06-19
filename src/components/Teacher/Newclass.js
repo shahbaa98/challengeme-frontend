@@ -63,7 +63,7 @@ const Newclass = () => {
     return (
         <div className="app-com">
             {loading === false && <h1>Add New Class</h1>}
-            {errors === true && <h2>Cannot add class with provided credentials</h2>}
+            {errors === true && <h2>Cannot add class that is already in use</h2>}
             <form onSubmit={onSubmit}>
                 <label htmlFor='classID'>classID:</label> <br />
                 <input
