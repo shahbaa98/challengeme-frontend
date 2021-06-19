@@ -121,6 +121,6 @@
     position: absolute;
     width: 100px;
     height: 10px;
+    top:150px;
     right: 300px;
-    text-align: center;
 }
