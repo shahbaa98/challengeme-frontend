@@ -6,6 +6,8 @@ import '../style.css'
 import classes from "../imgs/class-icon.jpg";
 import newclass from "../imgs/add.png";
 import {useAuth} from "../../contexts/UserContext";
+import PhoneInput from 'react-phone-input-2'
+
 
 
 const AddStudent = () => {
@@ -136,9 +138,8 @@ const AddStudent = () => {
                 <br />
 
                 <label htmlFor='phone'>Phone Number:</label> <br />
-                <input
-                    name='phone'
-                    type='number'
+                <PhoneInput
+                    country={'Il'}
                     value={phone}
                     onChange={e => setPhone(e.target.value)}
                     required

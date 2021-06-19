@@ -24,7 +24,8 @@ const StudentProfile = () => {
 
   return (
     <div className="app-com">
-      {userprofile ? userprofile.role : "Not authenticated"}
+      {userprofile ? userprofile.email : "Not authenticated"}
+      {console.log(userprofile)}
       <div>
         <div align="left" onClick={handleLogout}>
           <RiLogoutBoxLine /> התנתק
