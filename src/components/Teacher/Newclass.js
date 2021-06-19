@@ -33,7 +33,7 @@ const Newclass = () => {
 
         };
 
-        fetch('http://127.0.0.1:8000/api/v1/users/auth/register/', {
+        fetch('http://127.0.0.1:8000/api/v1/Classes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
