@@ -6,28 +6,22 @@ import chat from '../imgs/messages.gif'
 import challenge from '../imgs/challenge.gif'
 import notification from '../imgs/notification.gif'
 import { useAuth } from '../../contexts/UserContext';
+import {logout} from '../../actions/logout';
+
+
 const StudentProfile = () => {
+  const { deauthenticate, userprofile } = useAuth();
   const history = useHistory();
-  const { userprofile } = useAuth();
 
 
   const handleLogout = e => {
     e.preventDefault();
+    const response = logout();
+    deauthenticate(response.data);
+    localStorage.clear();
+    history.push('/');
+    };
 
-    fetch('http://127.0.0.1:8000/api/v1/users/auth/logout/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Token ${localStorage.getItem('token')}`
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        localStorage.clear();
-        history.push('/');
-      });
-  };
   return (
     <div className="app-com">
       {userprofile ? userprofile.role : "Not authenticated"}
