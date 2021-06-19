@@ -125,3 +125,30 @@
     right: 300px;
 }
 
+.ClassName one img{
+    position: absolute;
+    width: 121px;
+    left: 42px;
+    top: 257px;
+
+}
+.ClassName two img{
+    position: absolute;
+    width: 121px;
+    left: 229px;
+    top: 257px;
+}
+
+.ClassName three img{
+    position: absolute;
+    width: 121px;
+    left: 42px;
+    top: 329px;
+}
+
+.ClassName four img{
+    position: absolute;
+    width: 121px;
+    left: 229px;
+    top: 329px;
+}

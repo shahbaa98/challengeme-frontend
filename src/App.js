@@ -13,6 +13,10 @@ import Newclass from './components/Teacher/Newclass'
 import AddStudent from "./components/Teacher/AddStudent";
 import SearchStudent from "./components/Teacher/SearchStudent";
 import AddNewChall from "./components/Teacher/AddNewChall";
+import Class1 from "./components/Teacher/Class1";
+import Class2 from "./components/Teacher/Class2";
+import Class3 from "./components/Teacher/Class3";
+import Class4 from "./components/Teacher/Class4";
 
 
 // import './App.css'
@@ -43,6 +47,11 @@ function App() {
           <Route exact path='/Classes' component={Classes} />
           <Route exact path='/newclass' component={Newclass} />
           <Route exact path='/AddNewChall' component={AddNewChall} />
+          <Route exact path='/Class1' component={Class1} />
+          <Route exact path='/Class2' component={Class2} />
+          <Route exact path='/Class3' component={Class3} />
+          <Route exact path='/Class4' component={Class4} />
+
         </Switch>
       </Router>
     </UserProvider>
