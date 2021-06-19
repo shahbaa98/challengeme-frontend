@@ -124,3 +124,8 @@
     top:150px;
     right: 300px;
 }
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
