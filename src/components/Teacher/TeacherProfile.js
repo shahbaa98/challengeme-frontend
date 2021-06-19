@@ -16,7 +16,7 @@ import {logout} from '../../actions/logout';
 
 
 const TeacherProfile = () => {
-    
+
     const { deauthenticate, userprofile } = useAuth();
     const history = useHistory();
     const handleLogout = e => {
@@ -29,6 +29,7 @@ const TeacherProfile = () => {
 
     return(
         <form className="app-com">
+            {console.log(userprofile)}
             <div>
                 <div align ="left" onClick={handleLogout}>
                     <RiLogoutBoxLine /> התנתק
