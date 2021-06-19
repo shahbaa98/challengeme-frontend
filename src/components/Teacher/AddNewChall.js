@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {useHistory} from "react-router-dom";
 
 const AddNewChall = () => {
-    const [PrimaryKey, setPrimaryKey] = useState('');
     const [ChallengeName, setChallengeName] = useState('');
     const [SocialMax, setSocialMax] = useState('');
     const [SocialMin, setSocialMin] = useState('');
@@ -27,7 +26,6 @@ const AddNewChall = () => {
         e.preventDefault();
 
         const challenge = {
-            PrimaryKey: PrimaryKey,
             ChallengeName: ChallengeName,
             SocialMax: SocialMax,
             SocialMin: SocialMin,
@@ -57,7 +55,6 @@ const AddNewChall = () => {
                     localStorage.setItem('token', data.key);
                     history.push('/AddNewChall');
                 } else {
-                    setPrimaryKey('');
                     setChallengeName('');
                     setSocialMax('');
                     setSocialMin('');
@@ -77,16 +74,6 @@ const AddNewChall = () => {
             {loading === false && <h1>Add New Challenge</h1>}
             {errors === true && <h2>Cannot add this challenge</h2>}
             <form onSubmit={onSubmit}>
-                <label htmlFor='PrimaryKey'>PrimaryKey:</label> <br />
-                <input
-                    name='PrimaryKey'
-                    type='number'
-                    value={PrimaryKey}
-                    onChange={e => setPrimaryKey(e.target.value)}
-                    required
-                />{' '}
-
-                <br />
 
                 <label htmlFor='ChallengeName'>ChallengeName:</label> <br />
                 <input

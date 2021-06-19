@@ -13,7 +13,7 @@ import Newclass from './components/Teacher/Newclass'
 import AddStudent from "./components/Teacher/AddStudent";
 import SearchStudent from "./components/Teacher/SearchStudent";
 import AddNewChall from "./components/Teacher/AddNewChall";
-import Signup1 from "./components/Teacher/Signup1";
+
 
 // import './App.css'
 import { Switch, Route } from 'react-router-dom'
@@ -43,7 +43,6 @@ function App() {
           <Route exact path='/Classes' component={Classes} />
           <Route exact path='/newclass' component={Newclass} />
           <Route exact path='/AddNewChall' component={AddNewChall} />
-          <Route exact path='/Signup1' component={Signup1} />
         </Switch>
       </Router>
     </UserProvider>
