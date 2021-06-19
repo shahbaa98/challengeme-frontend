@@ -93,8 +93,14 @@ const AddStudent = () => {
 
     return (
         <div className="app-com">
+              <div>
+                <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
+                    &lt;  אחורה
+                </div>
+            </div>
             {loading === false && <h1>Add New Student</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
+            
             <form onSubmit={onSubmit}>
                 <label htmlFor='firstname'>Firstname:</label> <br />
                 <input
@@ -212,12 +218,6 @@ const AddStudent = () => {
                 <br />
                 <input type='submit' value='Signup' />
             </form>
-
-            <div className="Myclasses">
-                <div >שייך לכיתה</div>
-                <img     width= '200px' height='180px' src = {classes} onClick={()=> {history.push('/classes')}}/>
-                <br/>
-            </div>
 
         </div>
     );
