@@ -8,3 +8,4 @@ export async function getProfile() {
     url: `/api/v1/users/auth/user/`,
   });
 }
+

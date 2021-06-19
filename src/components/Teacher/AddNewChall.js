@@ -45,6 +45,7 @@ const AddNewChall = () => {
         })
             .then(res => res.json())
             .catch(error => {
+                //auth/email-already-in-use returns if challenge exists(backend)
                 if (error.code === 'auth/challenge-already-exists') {
                     console.log('This challenge is already exists!');
                 }

@@ -1,107 +1,87 @@
 import {useHistory} from "react-router-dom";
 import '../style.css'
-import React, {useEffect, useReducer, useState} from "react";
-import img from "../imgs/image3.png";
-import classes from "../imgs/class-icon.jpg";
-import newclass from "../imgs/add.png";
+import React, { useReducer,useState } from "react";
 
 
-
-const Newclass = () => {
-    const [classID, setClassID] = useState('');
-    const [className, setClassName] = useState('');
-    const [teachername, setTeacherName] = useState('');
-    const [errors, setErrors] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const history = useHistory();
-
-    useEffect(() => {
-        if (localStorage.getItem('token') !== null) {
-            history.push('/Classes')
-        } else {
-            setLoading(false);
+const formReducer = (state, event) => {
+    if(event.reset) {
+        return {
+            classID: '',
+            className: '',
+            teachername: '',
         }
-    }, []);
+    }
+    return {
+        ...state,
+        [event.name]: event.value
+    }
+}
+const Newclass = () => {
+    const history = useHistory();
+    const logout = () => {
+        history.push('./');
+    }
+    const [formData, setFormData] = useReducer(formReducer, {});
+    const [submitting, setSubmitting] = useState(false);
+    const handleSubmit = event => {
+        event.preventDefault();
+        setSubmitting(true);
 
-    const onSubmit = e => {
-        e.preventDefault();
-
-        const user = {
-            classID: classID,
-            className: className,
-            teachername: teachername,
-
-        };
-
-        fetch('http://127.0.0.1:8000/api/v1/users/auth/register/', {
-            method: 'POST',
-            headers: {
-               'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .catch(error => {
-                if (error.code === 'auth/class-already-in-use') {
-                    console.log('That class address is already in use!');
-                }
+        setTimeout(() => {
+            setSubmitting(false);
+            setFormData({
+                reset: true
             })
-            .then(data => {
-                if (data.key) {
-                    localStorage.clear();
-                    localStorage.setItem('token', data.key);
-                    history.push('/Classes')
-                } else {
-                    setClassID('');
-                    setClassName('');
-                    setTeacherName('');
-                    localStorage.clear();
-                    setErrors(true);
-                }
-            });
-    };
+        }, 3000)
+    }
+    //pulls the data from event.target
+    const handleChange = event => {
+        setFormData({
+            name: event.target.name,
+            value: event.target.value,
+        });
+    }
     return (
         <div className="app-com">
-            {loading === false && <h1>Add New Class</h1>}
-            {errors === true && <h2>Cannot add class with provided credentials</h2>}
-            <form onSubmit={onSubmit}>
-                <label htmlFor='classID'>classID:</label> <br />
-                <input
-                    name='classID'
-                    type='number'
-                    value={classID}
-                    onChange={e => setClassID(e.target.value)}
-                    required
-                />{' '}
-
-                <br />
-
-                <label htmlFor='className'>className:</label> <br />
-                <input
-                    name='className'
-                    type='text'
-                    value={className}
-                    onChange={e => setClassName(e.target.value)}
-                    required
-                />{' '}
-
-                <br />
-
-                <label htmlFor='teachername'>teachername:</label> <br />
-                <input
-                    name='teachername'
-                    type='text'
-                    value={teachername}
-                    onChange={e => setTeacherName(e.target.value)}
-                    required
-                />{' '}
-
-                <br />
-                <br />
-
-                <input type='submit' value='Add' />
+            <div>
+                <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
+                    &lt;  אחורה
+                </div>
+            </div>
+            <h1>הוספת כיתה חדשה </h1>
+            {submitting &&
+            <div>
+                You are submitting the following:
+                <ul>
+                    {Object.entries(formData).map(([name, value]) => (
+                        <li key={name}><strong>{name}</strong>:{value.toString()}</li>
+                    ))}
+                </ul>
+            </div>
+            }
+            <br/><br/>
+            <form onSubmit={handleSubmit} dir="rtl"  >
+                <fieldset disabled={submitting}>
+                    <label className="label">
+                        <p>מספר כיתה:</p>
+                        <input className="box" type="number" name="classID" onChange={handleChange}  value={formData.classID || ''}/>
+                    </label>
+                    <br/>
+                    <label className="label">
+                        <p>שם כיתה:</p>
+                        <input className="box" type="text" name="className" onChange={handleChange} value={formData.className || ''}/>
+                    </label>
+                    <br/>
+                    <label className="label">
+                        <p>שם מורה אחראי:</p>
+                        <input className="box" type="text" name="teachername" onChange={handleChange}  value={formData.teachername || ''}/>
+                    </label>
+                    <br/>
+                </fieldset>
+                <br/>
+                <button type="submit" disabled={submitting}>הוספה</button>
             </form>
         </div>
-    );
-};
+    )
+}
 export default Newclass
