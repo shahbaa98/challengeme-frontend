@@ -62,6 +62,11 @@ const Newclass = () => {
     };
     return (
         <div className="app-com">
+            <div>
+                <div align ="left" onClick={()=> {history.push('/Classes')}}>
+                    &lt;  אחורה
+                </div>
+            </div>
             {loading === false && <h1>Add New Class</h1>}
             {errors === true && <h2>Cannot add class that is already in use</h2>}
             <form onSubmit={onSubmit}>
