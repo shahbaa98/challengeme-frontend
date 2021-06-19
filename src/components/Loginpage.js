@@ -36,18 +36,7 @@ const Loginpage = () => {
 
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
-      if (userprofile.role === 'Student') {
-        history.push('/StudentProfile')
-      }
-      if (userprofile.role === 'Principal') {
-        history.push('/PrincipalProfile')
-      }
-      if (userprofile.role === 'Caretaker') {
-        history.push('/CaretakerProfile')
-      }
-      if (userprofile.role === 'Teacher') {
-        history.push('/TeacherProfile')
-      }
+      history.push('/StudentProfile')
     } else {
       setLoading(false);
     }
@@ -55,10 +44,8 @@ const Loginpage = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-
     try {
       const response = await login(email, password);
-
       authenticate(response.data.key);
     } catch {
       setEmail('');

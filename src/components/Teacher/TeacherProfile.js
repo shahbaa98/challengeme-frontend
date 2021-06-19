@@ -11,6 +11,8 @@ import searchStudent from "../imgs/1024px-Search_Icon.svg.png"
 import addNewChall from  "../imgs/new.png"
 import {Form} from "reactstrap";
 import React from "react";
+import { useAuth } from '../../contexts/UserContext';
+import {logout} from '../../actions/logout';
 
 const photoUpload =({
                       onChange,
@@ -27,16 +29,21 @@ const photoUpload =({
 }
 
 const TeacherProfile = () => {
-
+    
+    const { deauthenticate, userprofile } = useAuth();
     const history = useHistory();
-    const logout = () => {
-        history.push('./');
-    }
+    const handleLogout = e => {
+        e.preventDefault();
+        const response = logout();
+        deauthenticate(response.data);
+        localStorage.clear();
+        history.push('/');
+        };
 
     return(
         <form className="app-com">
             <div>
-                <div align ="left" onClick={logout}>
+                <div align ="left" onClick={handleLogout}>
                     <RiLogoutBoxLine /> התנתק
                 </div>
             </div>
