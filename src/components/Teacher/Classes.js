@@ -15,7 +15,6 @@ const Classes = () => {
         history.push('./');
     }
 
-
     return (
         <div className="app-com">
             <div>
@@ -26,7 +25,7 @@ const Classes = () => {
             <h1>הכיתות שלי</h1>
             <div className="Newclass">
                 <img     width= '200px' height='180px' src = {newclass} onClick={()=> {history.push('/Newclass')}}/>
-                <div > שייך לכיתה חדשה  </div>
+                <div ><h1>   שייך לכיתה חדשה</h1> </div>
                 <br/>
             </div>
 
