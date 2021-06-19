@@ -8,6 +8,7 @@ import newclass from "../imgs/add.png"
 
 
 
+
 const Classes = () => {
     const history = useHistory();
     const logout = () => {
@@ -17,11 +18,16 @@ const Classes = () => {
     return (
         <div className="app-com">
             <div>
-                <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
+                <div align ="left" onClick={()=> {history.push('/Classes')}}>
                     &lt;  אחורה
                 </div>
             </div>
             <h1>הכיתות שלי</h1>
+            <div className="Newclass">
+                <img     width= '200px' height='180px' src = {newclass} onClick={()=> {history.push('/Newclass')}}/>
+                <div >      שייך לכיתה חדשה</div>
+                <br/>
+            </div>
 
         </div>
 
