@@ -28,7 +28,7 @@ const AddStudent = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            history.push('/TeacherProfile')
+            console.log('New Student has been added!');
         } else {
             setLoading(false);
         }
@@ -36,7 +36,7 @@ const AddStudent = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        userprofile.role = "Student";
+       // userprofile.role = 'Student';
 
         const student = {
             firstname: firstname,
@@ -50,7 +50,7 @@ const AddStudent = () => {
             //therapist:therapist,
             password1: password1,
             password2: password2,
-            userprofile: userprofile,
+            role: ["Student"],
 
         };
 
