@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useHistory} from "react-router-dom";
 import img from "../imgs/image3.png";
+import '../style.css'
 import classes from "../imgs/class-icon.jpg";
 import newclass from "../imgs/add.png";
 

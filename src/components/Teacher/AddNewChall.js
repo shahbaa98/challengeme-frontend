@@ -26,7 +26,7 @@ const AddNewChall = () => {
     const onSubmit = e => {
         e.preventDefault();
 
-        const user = {
+        const challenge = {
             PrimaryKey: PrimaryKey,
             ChallengeName: ChallengeName,
             SocialMax: SocialMax,
@@ -43,7 +43,7 @@ const AddNewChall = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(challenge)
         })
             .then(res => res.json())
             .catch(error => {
