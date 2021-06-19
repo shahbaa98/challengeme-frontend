@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import '../style.css'
 import classes from "../imgs/class-icon.jpg";
 import newclass from "../imgs/add.png";
+import {useAuth} from "../../contexts/UserContext";
 
 
 const AddStudent = () => {
@@ -13,12 +14,16 @@ const AddStudent = () => {
     const [username, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [teacher, setTeacher] = useState('');
+    const [classname, setClassName] = useState('');
+    const [birthdate, setBirthDate] = useState('');
     const [password1, setPassword1] = useState('');
     const [password2, setPassword2] = useState('');
     //const [therapist, setTherapist] = useState('');
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
     const history = useHistory();
+    const { userprofile } = useAuth();
 
 
     useEffect(() => {
@@ -31,15 +36,22 @@ const AddStudent = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        userprofile.role = "Student";
 
-        const user = {
+        const student = {
             firstname: firstname,
             lastname: lastname,
             username: username,
             email: email,
+            phone: phone,
+            teacher: teacher,
+            classname: classname,
+            birthdate: birthdate,
             //therapist:therapist,
             password1: password1,
-            password2: password2
+            password2: password2,
+            userprofile: userprofile,
+
         };
 
         fetch('http://127.0.0.1:8000/api/v1/users/auth/register/', {
@@ -47,10 +59,11 @@ const AddStudent = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(student)
         })
             .then(res => res.json())
             .catch(error => {
+                //auth/email-already-in-use returns if user exists(backend)
                 if (error.code === 'auth/email-already-in-use') {
                     console.log('That email address is already in use!');
                 }
@@ -65,6 +78,10 @@ const AddStudent = () => {
                     setLastName('');
                     setUserName('');
                     setEmail('');
+                    setPhone('');
+                    setTeacher('');
+                    setClassName('');
+                    setBirthDate('');
                     //setTherapist('');
                     setPassword1('');
                     setPassword2('');
@@ -79,7 +96,7 @@ const AddStudent = () => {
             {loading === false && <h1>Add New Student</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
             <form onSubmit={onSubmit}>
-                <label htmlFor='firstname'>firstname:</label> <br />
+                <label htmlFor='firstname'>Firstname:</label> <br />
                 <input
                     name='firstname'
                     type='text'
@@ -90,7 +107,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='lastname'>lastname:</label> <br />
+                <label htmlFor='lastname'>Lastname:</label> <br />
                 <input
                     name='lastname'
                     type='text'
@@ -101,12 +118,56 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='username'>username:</label> <br />
+                <label htmlFor='username'>Username:</label> <br />
                 <input
                     name='username'
                     type='text'
                     value={username}
                     onChange={e => setUserName(e.target.value)}
+                    required
+                />{' '}
+
+                <br />
+
+                <label htmlFor='phone'>Phone Number:</label> <br />
+                <input
+                    name='phone'
+                    type='number'
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+                    required
+                />{' '}
+
+                <br />
+
+                <label htmlFor='teacher'>Teacher Name:</label> <br />
+                <input
+                    name='teacher'
+                    type='text'
+                    value={teacher}
+                    onChange={e => setTeacher(e.target.value)}
+                    required
+                />{' '}
+
+                <br />
+
+                <label htmlFor='classname'>Class Name:</label> <br />
+                <input
+                    name='classname'
+                    type='text'
+                    value={classname}
+                    onChange={e => setClassName(e.target.value)}
+                    required
+                />{' '}
+
+                <br />
+
+                <label htmlFor='birthdate'>Birth Date:</label> <br />
+                <input
+                    name='birthdate'
+                    type='date'
+                    value={birthdate}
+                    onChange={e => setBirthDate(e.target.value)}
                     required
                 />{' '}
 
@@ -119,8 +180,6 @@ const AddStudent = () => {
                     onChange={e => setTherapist(e.target.value)}
                     required
                 />{' '} */}
-
-                <br />
 
                 <label htmlFor='username'>email:</label> <br />
                 <input
