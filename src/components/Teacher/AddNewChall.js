@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useHistory} from "react-router-dom";
 
 const AddNewChall = () => {
     const [PrimaryKey, setPrimaryKey] = useState('');
@@ -12,10 +13,11 @@ const AddNewChall = () => {
     const [Personal, setPersonal] = useState('0');
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
+    const history = useHistory();
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            window.location.replace('http://localhost:3000/AddNewChall');
+            history.push('/AddNewChall')
         } else {
             setLoading(false);
         }
@@ -45,15 +47,15 @@ const AddNewChall = () => {
         })
             .then(res => res.json())
             .catch(error => {
-                if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
+                if (error.code === 'auth/challenge-already-exists') {
+                    console.log('This challenge is already exists!');
                 }
             })
             .then(data => {
                 if (data.key) {
                     localStorage.clear();
                     localStorage.setItem('token', data.key);
-                    window.location.replace('http://localhost:3000/dashboard');
+                    history.push('/AddNewChall');
                 } else {
                     setPrimaryKey('');
                     setChallengeName('');
@@ -72,8 +74,8 @@ const AddNewChall = () => {
 
     return (
         <div className="app-com">
-            {loading === false && <h1>Signup</h1>}
-            {errors === true && <h2>Cannot signup with provided credentials</h2>}
+            {loading === false && <h1>Add New Challenge</h1>}
+            {errors === true && <h2>Cannot add this challenge</h2>}
             <form onSubmit={onSubmit}>
                 <label htmlFor='PrimaryKey'>PrimaryKey:</label> <br />
                 <input
