@@ -139,12 +139,11 @@ const AddStudent = () => {
 
                 <label htmlFor='phone'>Phone Number:</label> <br />
                 <PhoneInput
-                    country={'Il'}
-                    value={phone}
-                    onChange={e => setPhone(e.target.value)}
-                    required
+                  placeholder="Enter phone number"
+                  country="IL"
+                  value={phone}
+                  onChange={setPhone}
                 />{' '}
-
                 <br />
 
                 <label htmlFor='teacher'>Teacher Name:</label> <br />

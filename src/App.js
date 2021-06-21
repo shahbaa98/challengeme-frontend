@@ -45,7 +45,7 @@ function App() {
           <Route exact path='/AddStudent' component={AddStudent} />
           <Route exact path='/SearchStudent' component={SearchStudent} />
           <Route exact path='/Classes' component={Classes} />
-          <Route exact path='/newclass' component={Newclass} />
+          <Route exact path='/Newclass' component={Newclass} />
           <Route exact path='/AddNewChall' component={AddNewChall} />
           <Route exact path='/Class1' component={Class1} />
           <Route exact path='/Class2' component={Class2} />
