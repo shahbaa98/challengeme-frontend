@@ -51,7 +51,6 @@ function App() {
           <Route exact path='/Class2' component={Class2} />
           <Route exact path='/Class3' component={Class3} />
           <Route exact path='/Class4' component={Class4} />
-
         </Switch>
       </Router>
     </UserProvider>

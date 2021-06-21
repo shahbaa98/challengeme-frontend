@@ -24,7 +24,7 @@ const StudentProfile = () => {
 
   return (
     <div className="app-com">
-      {userprofile ? userprofile.email : "Not authenticated"}
+      {userprofile ? userprofile.role : "Not authenticated"}
       {console.log(userprofile)}
       <div>
         <div align="left" onClick={handleLogout}>
@@ -39,6 +39,7 @@ const StudentProfile = () => {
         </label>
         <br />
         <input type="file" id="fileImgStudent" align="right" />
+
       </div>
       <div>  הי שהבאא שעלאן </div>
 
