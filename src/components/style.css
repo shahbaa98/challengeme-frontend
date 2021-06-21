@@ -121,8 +121,8 @@
     position: absolute;
     width: 100px;
     height: 10px;
-    top:150px;
-    right: 300px;
+    top: 8px;
+    right: 100px;
 }
 
 .ClassName one img{
@@ -151,4 +151,28 @@
     width: 121px;
     left: 229px;
     top: 329px;
+}
+
+.classNameHome, .studentHome {
+    flex: 0 1 27%;
+    height: 80px;
+    margin: 10px;
+}
+.classStudentHome {
+    box-shadow: 1.5px 1.5px #90a6ad;
+    text-align: center;
+    align-items: center;
+    float: none;
+    padding: 0;
+    background-color: #d7a5e0;
+    font-weight: 700;
+    color: #0c0c0c;
+    border-radius: 5px;
+}
+verticalMiddle {
+    display: flex;
+    justify-content: center;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 12px;
 }

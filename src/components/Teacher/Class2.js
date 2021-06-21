@@ -17,6 +17,18 @@ const Class2 = () => {
                 </div>
             </div>
             <h1>כיתה י"א 2</h1>
+            <div className="col-12">
+                <div className="row mp0 flex-container containerStudents">
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle">חן לוי</span></div>
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle">שירה ריבה</span></div>
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle">דן דהן</span></div>
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle">אורי זקזאק</span></div>
+                </div>
+            </div>
 
         </div>
 
