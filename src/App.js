@@ -17,7 +17,7 @@ import Class1 from "./components/Teacher/Class1";
 import Class2 from "./components/Teacher/Class2";
 import Class3 from "./components/Teacher/Class3";
 import Class4 from "./components/Teacher/Class4";
-import StudentReportProfile from "./components/Teacher/StudentReportProfile"
+import StudentReportProfile from "./components/Teacher/StudentReportProfile";
 
 
 // import './App.css'
