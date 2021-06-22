@@ -18,7 +18,7 @@ import Class2 from "./components/Teacher/Class2";
 import Class3 from "./components/Teacher/Class3";
 import Class4 from "./components/Teacher/Class4";
 import StudentReportProfile from "./components/Teacher/StudentReportProfile";
-
+import Report from "./components/Teacher/Report";
 
 // import './App.css'
 import { Switch, Route } from 'react-router-dom'
@@ -53,6 +53,7 @@ function App() {
           <Route exact path='/Class3' component={Class3} />
           <Route exact path='/Class4' component={Class4} />
           <Route exact path='/StudentReportProfile' component={StudentReportProfile} />
+          <Route exact path='/Report' component={Report} />
 
         </Switch>
       </Router>

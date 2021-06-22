@@ -7,6 +7,7 @@ import newchallenge from '../imgs/new.png'
 import plan from '../imgs/plan.png'
 import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
+import edit from "../imgs/edit.png"
 import React from "react";
 
 
@@ -36,21 +37,15 @@ const StudentReportProfile = () => {
             </div>
             <div>  שהבאא שעלאן </div>
 
-            <div className="Report">
-                <div >דווחות</div>
-                <img width='200px' height='180px' src={Report} onClick={() => { history.push('/chat') }} />
+            <div className="edit">
+                <div >עריכה לתוכנית </div>
+                <img width='200px' height='180px' src={edit} onClick={() => { history.push('/EditPlan') }} />
                 <br />
             </div>
 
             <div className="newchallenge">
                 <div > הוספת אתגר חדש</div>
                 <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push('/AddNEWChall') }} />
-                <br />
-            </div>
-
-            <div className="plan ">
-                <div >  בניית תוכנית</div>
-                <img width='200px' height='180px' src={plan} onClick={() => { history.push('/plan') }} />
                 <br />
             </div>
         </div>
