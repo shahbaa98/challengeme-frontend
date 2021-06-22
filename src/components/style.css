@@ -24,7 +24,7 @@
 }
 .placeholder{
     color: black;
-    background-color: rgba(201, 172, 219, 1);
+    //background-color: rgba(201, 172, 219, 1);
     font-size:30px;
     padding: 20px 70px;
     border-radius: 5px;
@@ -175,4 +175,14 @@ verticalMiddle {
     padding-right: 5px;
     padding-left: 5px;
     padding-top: 12px;
+}
+
+.Student {
+    color: black;
+    font-size:100px;
+    padding: 50px 70px;
+    border-radius: 30px;
+    margin: 100px 0;
+    cursor: pointer;
+    font-family: "Arial Rounded MT Bold";
 }
