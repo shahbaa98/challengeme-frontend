@@ -44,13 +44,13 @@ const StudentReportProfile = () => {
 
             <div className="newchallenge">
                 <div > הוספת אתגר חדש</div>
-                <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push('/AddNEWChall') }} />
+                <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push('/AddNewChall') }} />
                 <br />
             </div>
 
             <div className="plan ">
                 <div >  בניית תוכנית</div>
-                <img width='200px' height='180px' src={plan} onClick={() => { history.push('/plan') }} />
+                <img width='200px' height='180px' src={plan} onClick={() => { history.push('/Reports') }} />
                 <br />
             </div>
         </div>
