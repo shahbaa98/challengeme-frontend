@@ -44,7 +44,7 @@ const Reports = () => {
             </div>
 
             <div className="newchallenge">
-                <div > הוספת אתגר חדש</div>
+                <div > הוספת תוכנית חדש</div>
                 <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push('/AddNEWChall') }} />
                 <br />
             </div>

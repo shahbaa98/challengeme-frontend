@@ -208,3 +208,11 @@ verticalMiddle {
     right: 600px;
     top: 500px;
 }
+
+.edit{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    left: 150px;
+    top: 290px;
+}
