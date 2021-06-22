@@ -22,15 +22,13 @@ const StudentReportProfile = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            <div className="app-com">
-                <div align="right" dir="rtl">
-                    <label for="fileImgStudent" className="lableImg">
-                        <img width="200" height="200" src={profile} />
-                    </label>
-                    <br />
-                </div>
+            <div align="right" dir="rtl">
+                <label for="fileImgStudent" className="lableImg">
+                    <img width="200" height="200" src={profile} />
+                </label>
+                <br />
             </div>
-            <div>  שהבאא שעלאן </div>
+
 
             <div className="Report">
                 <div >דווחות</div>
