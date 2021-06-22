@@ -38,7 +38,7 @@ const StudentReportProfile = () => {
 
             <div className="Report">
                 <div >דווחות</div>
-                <img width='200px' height='180px' src={Report} onClick={() => { history.push('/chat') }} />
+                <img width='200px' height='180px' src={Report} onClick={() => { history.push('/Reports') }} />
                 <br />
             </div>
 
