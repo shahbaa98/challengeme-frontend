@@ -19,24 +19,24 @@ const Class1 = () => {
             <h1>כיתה י"א 1</h1>
             <div className="col-12">
                 <div className="row mp0 flex-container containerStudents">
+                    <div className="studentHome classStudentHome" dir="rtl" >
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>זהר לוי</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">זהר לוי</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>שירלי ריבה</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">שירלי ריבה</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>ליפז דהן</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">ליפז דהן</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>נדב זקזאק</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">נדב זקזאק</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>אמיר קפלן</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">אמיר קפלן</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>ימית שרעבי</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">ימית שרעבי</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>חגי בן שושן</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">חגי בן שושן</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>גל אטל</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">גל אטל</span></div>
-                    <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">שיר שיר</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>שיר שיר</span></div>
                 </div>
             </div>
           </div>
