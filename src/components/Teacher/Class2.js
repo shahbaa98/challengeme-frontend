@@ -17,6 +17,18 @@ const Class2 = () => {
                 </div>
             </div>
             <h1>כיתה י"א 2</h1>
+            <div className="col-12">
+                <div className="row mp0 flex-container containerStudents">
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>חן לוי</span></div>
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>שירה ריבה</span></div>
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>דן דהן</span></div>
+                    <div className="studentHome classStudentHome" dir="rtl">
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>אורי זקזאק</span></div>
+                </div>
+            </div>
 
         </div>
 
