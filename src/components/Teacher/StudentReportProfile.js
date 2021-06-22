@@ -22,7 +22,6 @@ const StudentReportProfile = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            <h1>שהבאא</h1>
             };
 
             return (

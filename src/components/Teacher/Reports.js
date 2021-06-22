@@ -19,11 +19,10 @@ const Reports = () => {
     return (
         <div className="app-com">
             <div>
-                <div align ="left" onClick={()=> {history.push('/Classes')}}>
+                <div align ="left" onClick={()=> {history.push('/StudentReportProfile')}}>
                     &lt;  אחורה
                 </div>
             </div>
-            <h1>שהבאא</h1>
             };
 
             return (
