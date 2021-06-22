@@ -60,6 +60,7 @@ const Newclass = () => {
                     setErrors(true);
                 }
             });
+            console.log(newclass)
     };
     return (
         <div className="app-com">
