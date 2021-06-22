@@ -11,7 +11,7 @@ import edit from "../imgs/edit.png"
 import React from "react";
 
 
-const StudentReportProfile = () => {
+const Report = () => {
     const history = useHistory();
     const logout = () => {
         history.push('./');
@@ -51,4 +51,4 @@ const StudentReportProfile = () => {
         </div>
     )
 }
-export default StudentReportProfile
+export default Report
