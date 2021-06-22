@@ -1,5 +1,5 @@
 
-const notification1 = () => {
+const Notification1 = () => {
     return (
         <div>
             <h1>
@@ -8,4 +8,4 @@ const notification1 = () => {
 
         </div>)
 }
-export default notification1
+export default Notification1
