@@ -15,23 +15,13 @@ const StudentReportProfile = () => {
     const logout = () => {
         history.push('./');
     }
+   
     return (
         <div className="app-com">
+
             <div>
                 <div align ="left" onClick={()=> {history.push('/Classes')}}>
                     &lt;  אחורה
-                </div>
-            </div>
-            <h1>שהבאא</h1>
-    };
-
-    return (
-        <div className="app-com">
-
-            <div>
-                <div align="left" onClick={handleLogout}>
-                    <RiLogoutBoxLine /> התנתק
-
                 </div>
             </div>
 
