@@ -20,13 +20,13 @@ const Class2 = () => {
             <div className="col-12">
                 <div className="row mp0 flex-container containerStudents">
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">חן לוי</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>חן לוי</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">שירה ריבה</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>שירה ריבה</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">דן דהן</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>דן דהן</span></div>
                     <div className="studentHome classStudentHome" dir="rtl">
-                        <span className="verticalMiddle">אורי זקזאק</span></div>
+                        <span className="verticalMiddle" onClick={()=> {history.push('/StudentReportProfile')}}>אורי זקזאק</span></div>
                 </div>
             </div>
 
