@@ -11,7 +11,7 @@ import edit from "../imgs/edit.png"
 import React from "react";
 
 
-const Reportn = () => {
+const Reports = () => {
     const history = useHistory();
     const logout = () => {
         history.push('./');
@@ -35,7 +35,7 @@ const Reportn = () => {
                     <br />
                 </div>
             </div>
-            <div>  שהבאא שעלאן </div>
+
 
             <div className="edit">
                 <div >עריכה לתוכנית </div>
@@ -51,4 +51,4 @@ const Reportn = () => {
         </div>
     )
 }
-export default Reportn
+export default Reports
