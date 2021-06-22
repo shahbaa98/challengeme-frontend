@@ -22,9 +22,6 @@ const StudentReportProfile = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            };
-
-            return (
             <div className="app-com">
                 <div align="right" dir="rtl">
                     <label for="fileImgStudent" className="lableImg">
