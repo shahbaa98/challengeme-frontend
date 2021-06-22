@@ -72,10 +72,14 @@ const AddNewChall = () => {
 
     return (
         <div className="app-com">
+            <div align="left" onClick={() => {
+                history.push('/StudentReportProfile')
+            }}>
+                &lt;  אחורה
+            </div>
             {loading === false && <h1>Add New Challenge</h1>}
             {errors === true && <h2>Cannot add this challenge</h2>}
             <form onSubmit={onSubmit}>
-
                 <label htmlFor='ChallengeName'>ChallengeName:</label> <br />
                 <input
                     name='ChallengeName'
