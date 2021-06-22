@@ -91,6 +91,7 @@ const AddStudent = () => {
                     setErrors(true);
                 }
             });
+            console.log(student)
     };
 
     return (
