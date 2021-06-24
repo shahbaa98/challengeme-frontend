@@ -22,7 +22,7 @@ const StudentReportProfile = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            };
+            
 
             return (
             <div className="app-com">
