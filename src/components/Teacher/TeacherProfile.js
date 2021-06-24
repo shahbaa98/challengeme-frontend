@@ -43,7 +43,7 @@ const TeacherProfile = () => {
             </div>
             <div className="chat">
                 <div > יש לך הודעות חדשות</div>
-                <img     width= '200px' height='180px' src = {chat} onClick={()=> {history.push('/chat1')}}/>
+                <img     width= '200px' height='180px' src = {chat} onClick={()=> {history.push('/Chat1')}}/>
                 <br/>
             </div>
             <div className="notification1">

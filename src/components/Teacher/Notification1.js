@@ -8,15 +8,14 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from "@material-ui/core/styles";
 
 
-
 const useStyles = makeStyles(theme => ({
-  labelRoot: {
-    right: 0
-  },
-  shrink: {
-    transformOrigin: "top right"
-  }
-}));
+    labelRoot: {
+      right: 0
+    },
+    shrink: {
+      transformOrigin: "top right"
+    }
+  }));
 
 const Notification1 = () => {
     const classes = useStyles();

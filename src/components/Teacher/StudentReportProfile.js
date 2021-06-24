@@ -22,6 +22,7 @@ const StudentReportProfile = () => {
                     &lt;  אחורה
                 </div>
             </div>
+<<<<<<< HEAD
             
 
             return (
@@ -32,8 +33,15 @@ const StudentReportProfile = () => {
                     </label>
                     <br />
                 </div>
+=======
+            <div align="right" dir="rtl">
+                <label for="fileImgStudent" className="lableImg">
+                    <img width="200" height="200" src={profile} />
+                </label>
+                <br />
+>>>>>>> 560a6b8db3a7642f7c56ea83cafcf70bfe71f55f
             </div>
-            <div>  שהבאא שעלאן </div>
+
 
             <div className="Report">
                 <div >דווחות</div>

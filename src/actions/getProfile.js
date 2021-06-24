@@ -5,7 +5,7 @@ export async function getProfile() {
 
   return await API.request({
     method: "GET",
-    url: `/api/v1/users/auth/user/`,
+    url: `/api/v1/users/dj-rest-auth/user/`,
   });
 }
 
