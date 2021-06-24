@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {useHistory} from "react-router-dom";
 import axios from "axios";
+import "./barStyle.css"
 
 
 export default class AddNewChall extends React.Component {
 
     state = {
         ChallengeName:'',
-        SocialMax:'',
-        SocialMin:'',
-        EmotionalMax:'',
-        EmotionalMin:'',
-        StudyMax:'',
-        StudyMin:'',
+        Social:'',
+        Emotional:'',
+        Study:'',
         Personal:'',
     }
 
@@ -25,12 +23,9 @@ export default class AddNewChall extends React.Component {
 
         const challenge = {
             ChallengeName: this.state.ChallengeName,
-            SocialMax: this.state.SocialMax,
-            SocialMin: this.state.SocialMin,
-            EmotionalMax: this.state.EmotionalMax,
-            EmotionalMin: this.state.EmotionalMin,
-            StudyMax: this.state.StudyMax,
-            StudyMin: this.state.StudyMin,
+            Social: this.state.Social,
+            Emotional: this.state.Emotional,
+            Study: this.state.Study,
             Personal: this.state.Personal,
 
         };
@@ -45,6 +40,8 @@ export default class AddNewChall extends React.Component {
     render() {
         return (
                 <div className="app-com">
+                    <br/>
+                    <h1>Add New Challenge</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label htmlFor='ChallengeName'>ChallengeName:</label> <br />
                         <input
@@ -56,54 +53,29 @@ export default class AddNewChall extends React.Component {
 
                         <br />
 
-                        <label htmlFor='SocialMax'>SocialMax:</label> <br />
+                        <label htmlFor='Social'>Social:</label> <br />
                         <input
-                            name='SocialMax'
-                            type='number'
+                            name='Social'
+                            type='range'  min="0" max="5"
+                            color='pink'
                             required
                             onChange={this.handleChange}
                         />{' '}
 
                         <br />
 
-                        <label htmlFor='SocialMin'>SocialMin:</label> <br />
+                        <label htmlFor='Emotional'>Emotional</label> <br />
                         <input
-                            name='SocialMin'
-                            type='number'
-                            required
-                            onChange={this.handleChange}
-                        />{' '}
-
-                        <br />
-
-                        <label htmlFor='StudyMin'>StudyMin:</label> <br />
-                        <input
-                            name='StudyMin'
-                            type='number'
+                            name='Emotional'
+                            type='range' min="0" max="5"
                             required
                             onChange={this.handleChange}
                         />{' '}
                         <br />
-                        <label htmlFor='EmotionalMax'>EmotionalMax:</label> <br />
+                        <label htmlFor='Study'>Study:</label> <br />
                         <input
-                            name='EmotionalMax'
-                            type='number'
-                            required
-                            onChange={this.handleChange}
-                        />{' '}
-                        <br />
-                        <label htmlFor='EmotionalMin'>EmotionalMin:</label> <br />
-                        <input
-                            name='EmotionalMin'
-                            type='number'
-                            required
-                            onChange={this.handleChange}
-                        />{' '}
-                        <br />
-                        <label htmlFor='StudyMax'>StudyMax:</label> <br />
-                        <input
-                            name='StudyMax'
-                            type='number'
+                            name='Study'
+                            type='range' min="0" max="5"
                             required
                             onChange={this.handleChange}
                         />{' '}

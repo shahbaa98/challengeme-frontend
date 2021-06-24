@@ -20,6 +20,7 @@ import Class4 from "./components/Teacher/Class4";
 import StudentReportProfile from "./components/Teacher/StudentReportProfile";
 import Reports from "./components/Teacher/Reports";
 
+
 // import './App.css'
 import { Switch, Route } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
