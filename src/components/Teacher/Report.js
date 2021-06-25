@@ -1,3 +1,6 @@
+import { useHistory } from 'react-router-dom';
+import '../style.css'
+import profile from '../imgs/personalPhoto.png'
 import plan from '../imgs/plan.png'
 import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
