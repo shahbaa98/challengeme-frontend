@@ -29,27 +29,28 @@ const Classes = () => {
                 <div >שייך לביתה חדשה</div>
                 <br/>
             </div>
-            <div className="ClassName one">
-                <img src={rectangle} onClick={()=> {history.push('/Class1')}}/>
-                <div> כיתה י"א 1</div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div className="ClassName">
+                <div><span className="verticalMiddle" onClick={()=> {history.push('/Class1')}}>כיתה י"א 1</span></div>
             </div>
             <br/>
             <br/>
-            <div className="ClassName two">
-                <img src={rectangle} onClick={()=> {history.push('/Class2')}}/>
-                <div> כיתה י"א 2</div>
+            <div className="ClassName">
+                <div><span className="verticalMiddle" onClick={()=> {history.push('/Class2')}}>כיתה י"א 2</span></div>
             </div>
             <br/>
             <br/>
-            <div className="ClassName three">
-                <img src={rectangle} onClick={()=> {history.push('/Class3')}}/>
-                <div> כיתה י"ב 1</div>
+            <div className="ClassName ">
+                <div><span className="verticalMiddle" onClick={()=> {history.push('/Class3')}}>כיתה י"ב </span></div>
             </div>
             <br/>
             <br/>
-            <div className="ClassName four">
-                <img src={rectangle} onClick={()=> {history.push('/Class4')}}/>
-                <div> י' 1</div>
+            <div className="ClassName ">
+                <div><span className="verticalMiddle" onClick={()=> {history.push('/Class4')}}>כיתה י' 1 </span></div>
             </div>
 
 

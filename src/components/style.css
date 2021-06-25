@@ -38,14 +38,14 @@
     width: 300px;
     height: 200px;
     left: 150px;
-    top: 290px;
+    top: 190px;
 }
 .challenge{
     position: absolute;
     width: 300px;
     height: 200px;
-    right: 100px;
-    top: 290px;
+    right: 200px;
+    top: 190px;
 }
 .notification{
     position: absolute;
@@ -60,7 +60,7 @@
     width: 300px;
     height: 200px;
     left: 550px;
-    top: 290px;
+    top: 190px;
 }
 
 .addStudent{
@@ -68,21 +68,21 @@
     width: 105px;
     height: 97px;
     left: 350px;
-    top: 600px;
+    top: 450px;
 }
 .classes{
     position: absolute;
     width: 100px;
     height: 89px;
     left: 750px;
-    top: 600px;
+    top: 450px;
 }
 .searchStudent{
     position: absolute;
     width: 125px;
     height: 200px;
     left: 950px;
-    top: 290px;
+    top: 190px;
 }
 
 .addNewChall{
@@ -125,32 +125,17 @@
     right: 100px;
 }
 
-.ClassName one img{
-    position: absolute;
-    width: 121px;
-    left: 42px;
-    top: 257px;
+.ClassName {
+    text-align: center;
+    align-items: center;
+    float: none;
+    padding: 0;
+    background-color: #d7a5e0;
+    font-weight: 700;
+    color: #0c0c0c;
+    border-radius: 200px;
+    height: 50px;
 
-}
-.ClassName two img{
-    position: absolute;
-    width: 121px;
-    left: 229px;
-    top: 257px;
-}
-
-.ClassName three img{
-    position: absolute;
-    width: 121px;
-    left: 42px;
-    top: 329px;
-}
-
-.ClassName four img{
-    position: absolute;
-    width: 121px;
-    left: 229px;
-    top: 329px;
 }
 
 .classNameHome, .studentHome {
@@ -168,6 +153,7 @@
     font-weight: 700;
     color: #0c0c0c;
     border-radius: 5px;
+    height: 50px;
 }
 verticalMiddle {
     display: flex;
@@ -198,7 +184,7 @@ verticalMiddle {
     position: absolute;
     width: 300px;
     height: 200px;
-    right: 100px;
+    right: 200px;
     top: 290px;
 }
 .plan{
@@ -206,7 +192,7 @@ verticalMiddle {
     width: 300px;
     height: 200px;
     right: 600px;
-    top: 500px;
+    top: 290px;
 }
 
 .edit{
@@ -222,4 +208,11 @@ verticalMiddle {
     color: #000504;
     text-align: center ;
     padding-top: 20px;
+}
+
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
 }

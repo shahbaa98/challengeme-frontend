@@ -101,11 +101,11 @@ const AddStudent = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            {loading === false && <h1>Add New Student</h1>}
+            {loading === false && <h1>הוספת תלמיד חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
             
             <form onSubmit={onSubmit}>
-                <label htmlFor='firstname'>Firstname:</label> <br />
+                <label htmlFor='firstname'>שם פרטי</label> <br />
                 <input
                     name='firstname'
                     type='text'
@@ -116,7 +116,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='lastname'>Lastname:</label> <br />
+                <label htmlFor='lastname'>שם משפחה</label> <br />
                 <input
                     name='lastname'
                     type='text'
@@ -127,8 +127,8 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='username'>Username:</label> <br />
-                <input
+                <label htmlFor='username'>שם משתמש</label> <br />
+                <input className="inp"
                     name='username'
                     type='text'
                     value={username}
@@ -138,7 +138,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='phone'>Phone Number:</label> <br />
+                <label htmlFor='phone'>מספר טלפון</label> <br />
                 <PhoneInput
                   placeholder="Enter phone number"
                   country="IL"
@@ -147,7 +147,7 @@ const AddStudent = () => {
                 />{' '}
                 <br />
 
-                <label htmlFor='teacher'>Teacher Name:</label> <br />
+                <label htmlFor='teacher'>שם המורה</label> <br />
                 <input
                     name='teacher'
                     type='text'
@@ -158,7 +158,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='classname'>Class Name:</label> <br />
+                <label htmlFor='classname'>שם הכיתה</label> <br />
                 <input
                     name='classname'
                     type='text'
@@ -169,7 +169,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='birthdate'>Birth Date:</label> <br />
+                <label htmlFor='birthdate'>תאריך לידה</label> <br />
                 <input
                     name='birthdate'
                     type='date'
@@ -188,7 +188,7 @@ const AddStudent = () => {
                     required
                 />{' '} */}
 
-                <label htmlFor='username'>email:</label> <br />
+                <label htmlFor='username'>אמייל</label> <br />
                 <input
                     name='email'
                     type='email'
@@ -199,7 +199,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='password1'>Password:</label> <br />
+                <label htmlFor='password1'>סיסמה</label> <br />
                 <input
                     name='password1'
                     type='password'
@@ -208,7 +208,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='password2'>Confirm password:</label> <br />
+                <label htmlFor='password2'>אימות סיסמה</label> <br />
                 <input
                     name='password2'
                     type='password'
@@ -217,7 +217,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <input type='submit' value='Signup' />
+                <input type='submit' value='הרשמה' />
             </form>
 
         </div>
