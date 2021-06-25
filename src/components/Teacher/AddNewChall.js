@@ -35,9 +35,7 @@ const AddStudent = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        // userprofile.role = 'Student';
-
-        const student = {
+        const chall = {
             Title: Title,
             Social: Social,
             Emotional: Emotional,
@@ -46,25 +44,24 @@ const AddStudent = () => {
 
         };
 
-        fetch('http://127.0.0.1:8001/api/addChallanges/', {
+        fetch('http://127.0.0.1:8000/api/addChallanges/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(student)
+            body: JSON.stringify(chall)
         })
             .then(res => res.json())
             .catch(error => {
-                //auth/email-already-in-use returns if user exists(backend)
-                if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
+                if (error.code === 'challenge-already-in-use') {
+                    console.log('That challenge is already in use!');
                 }
             })
             .then(data => {
                 if (data.key) {
                     localStorage.clear();
                     localStorage.setItem('token', data.key);
-                    history.push('/TeacherProfile')
+                    history.push('/classes')
                 } else {
                     setTitle('');
                     setSocial('');
@@ -76,7 +73,7 @@ const AddStudent = () => {
                     setErrors(true);
                 }
             });
-        console.log(student)
+        console.log(chall)
     };
 
     return (
@@ -87,7 +84,7 @@ const AddStudent = () => {
                 </div>
             </div>
             {loading === false && <h1>add new challenge</h1>}
-            {errors === true && <h2>Cannot signup with provided credentials</h2>}
+            {errors === true && <h2>Cannot add this challenge</h2>}
 
             <form onSubmit={onSubmit}>
                 <label htmlFor='Title'> Title</label> <br />
