@@ -5,6 +5,6 @@ export async function logout() {
 
   return await API.request({
     method: "POST",
-    url: `/api/v1/users/auth/logout/`,
+    url: `api/v1/users/dj-rest-auth/logout/`,
   });
 }
