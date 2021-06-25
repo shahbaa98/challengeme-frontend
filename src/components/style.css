@@ -125,32 +125,17 @@
     right: 100px;
 }
 
-.ClassName one img{
-    position: absolute;
-    width: 121px;
-    left: 42px;
-    top: 257px;
+.ClassName {
+    text-align: center;
+    align-items: center;
+    float: none;
+    padding: 0;
+    background-color: #d7a5e0;
+    font-weight: 700;
+    color: #0c0c0c;
+    border-radius: 200px;
+    height: 50px;
 
-}
-.ClassName two img{
-    position: absolute;
-    width: 121px;
-    left: 229px;
-    top: 257px;
-}
-
-.ClassName three img{
-    position: absolute;
-    width: 121px;
-    left: 42px;
-    top: 329px;
-}
-
-.ClassName four img{
-    position: absolute;
-    width: 121px;
-    left: 229px;
-    top: 329px;
 }
 
 .classNameHome, .studentHome {
@@ -168,6 +153,7 @@
     font-weight: 700;
     color: #0c0c0c;
     border-radius: 5px;
+    height: 50px;
 }
 verticalMiddle {
     display: flex;
