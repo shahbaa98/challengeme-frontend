@@ -26,7 +26,7 @@ const Report = () => {
                 <br/>
             </div>
 
-
+        </div>
     )
 }
 export default Report
