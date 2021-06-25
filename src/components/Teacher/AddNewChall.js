@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 export default class AddNewChall extends React.Component {
     constructor(props) {
@@ -25,7 +26,28 @@ export default class AddNewChall extends React.Component {
 
         console.log(this.state)
     }
+    handleSubmit = event => {
+        event.preventDefault();
+        axios.delete(`https://127.0.0.1:8001/api/addChallanges/${this.state.name}`)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+        const challenge = {
+            ChallengeName: this.state.ChallengeName,
+            valueSocial: this.state.valueSocial,
+            valueEmotional: this.state.valueEmotional,
+            valueStudy: this.state.valueStudy,
+            Personal: this.state.Personal,
 
+        };
+
+        axios.post(`https://127.0.0.1:8001/api/addChallanges/`, {challenge})
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+    };
     render() {
         return (
             <form>
