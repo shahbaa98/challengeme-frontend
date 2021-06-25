@@ -31,7 +31,7 @@ const StudentReportProfile = () => {
 
             <div className="Report">
                 <div >דווחות</div>
-                <img width='200px' height='180px' src={Report} onClick={() => { history.push('/Reports') }} />
+                <img width='200px' height='180px' src={Report} onClick={() => { history.push('/Report') }} />
                 <br />
             </div>
 
@@ -43,7 +43,7 @@ const StudentReportProfile = () => {
 
             <div className="plan ">
                 <div >  בניית תוכנית</div>
-                <img width='200px' height='180px' src={plan} onClick={() => { history.push('/Reports') }} />
+                <img width='200px' height='180px' src={plan} onClick={() => { history.push('/Plan') }} />
                 <br />
             </div>
         </div>
