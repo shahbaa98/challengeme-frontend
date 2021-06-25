@@ -1,106 +1,163 @@
-import React from "react";
+import React, { Component } from "react";
+import Modal from "./Modal";
 import axios from "axios";
 
-export default class AddNewChall extends React.Component {
+class AddNewChall extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ChallengeName:'',
-            Social:'',
-            Emotional:'',
-            Study:'',
-            Personal:'',
-
+            viewCompleted: false,
+            todoList: [],
+            modal: false,
+            activeItem: {
+                title: "",
+                description: "",
+                completed: false,
+            },
         };
-
-        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-
-        this.setState({
-            [name]: value
-        });
-
-        console.log(this.state)
+    componentDidMount() {
+        this.refreshList();
     }
-    handleSubmit = event => {
-        event.preventDefault();
-        axios.delete(`http://127.0.0.1:8001/api/addChallanges/${this.state.name}`)
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-        const challenge = {
-            ChallengeName: this.state.ChallengeName,
-            valueSocial: this.state.valueSocial,
-            valueEmotional: this.state.valueEmotional,
-            valueStudy: this.state.valueStudy,
-            Personal: this.state.Personal,
 
-        };
-
-        axios.post(`http://127.0.0.1:8001/api/addChallanges/`, {challenge})
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
+    refreshList = () => {
+        axios
+            .get("http://127.0.0.1:8001/api/addChallanges/")
+            .then((res) => this.setState({ todoList: res.data }))
+            .catch((err) => console.log(err));
     };
+
+    toggle = () => {
+        this.setState({ modal: !this.state.modal });
+    };
+
+    handleSubmit = (item) => {
+        this.toggle();
+
+        if (item.id) {
+            axios
+                .put(`http://127.0.0.1:8001/api/addChallanges/${item.id}/`, item)
+                .then((res) => this.refreshList());
+            return;
+        }
+        axios
+            .post("http://127.0.0.1:8001/api/addChallanges/", item)
+            .then((res) => this.refreshList());
+    };
+
+    handleDelete = (item) => {
+        axios
+            .delete(`http://127.0.0.1:8001/api/addChallanges/${item.id}/`)
+            .then((res) => this.refreshList());
+    };
+
+    createItem = () => {
+        const item = { title: "", description: "", completed: false };
+
+        this.setState({ activeItem: item, modal: !this.state.modal });
+    };
+
+    editItem = (item) => {
+        this.setState({ activeItem: item, modal: !this.state.modal });
+    };
+
+    displayCompleted = (status) => {
+        if (status) {
+            return this.setState({ viewCompleted: true });
+        }
+
+        return this.setState({ viewCompleted: false });
+    };
+
+    renderTabList = () => {
+        return (
+            <div className="nav nav-tabs">
+        <span
+            onClick={() => this.displayCompleted(true)}
+            className={this.state.viewCompleted ? "nav-link active" : "nav-link"}
+        >
+          Complete
+        </span>
+                <span
+                    onClick={() => this.displayCompleted(false)}
+                    className={this.state.viewCompleted ? "nav-link" : "nav-link active"}
+                >
+          Incomplete
+        </span>
+            </div>
+        );
+    };
+
+    renderItems = () => {
+        const { viewCompleted } = this.state;
+        const newItems = this.state.todoList.filter(
+            (item) => item.completed === viewCompleted
+        );
+
+        return newItems.map((item) => (
+            <li
+                key={item.id}
+                className="list-group-item d-flex justify-content-between align-items-center"
+            >
+        <span
+            className={`todo-title mr-2 ${
+                this.state.viewCompleted ? "completed-todo" : ""
+            }`}
+            title={item.description}
+        >
+          {item.title}
+        </span>
+                <span>
+          <button
+              className="btn btn-secondary mr-2"
+              onClick={() => this.editItem(item)}
+          >
+            Edit
+          </button>
+          <button
+              className="btn btn-danger"
+              onClick={() => this.handleDelete(item)}
+          >
+            Delete
+          </button>
+        </span>
+            </li>
+        ));
+    };
+
     render() {
         return (
-            <form>
-                <button type="submit">Delete</button>
-                <br/>
-                <label>
-                    ChallengeName:
-                    <input
-                        name="ChallengeName"
-                        type="text"
-                        value={this.state.ChallengeName}
-                        onChange={this.handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Social:
-                    <input
-                        name="Social"
-                        type="number"
-                        value={this.state.Social}
-                        onChange={this.handleInputChange} />
-                </label>
-                <br/>
-                <label>
-                    Emotional:
-                    <input
-                        name="Emotional"
-                        type="number"
-                        value={this.state.Emotional}
-                        onChange={this.handleInputChange} />
-                </label>
-                <br/>
-                <label>
-                    Study:
-                    <input
-                        name="Study"
-                        type="number"
-                        value={this.state.Study}
-                        onChange={this.handleInputChange} />
-                </label>
-                <br/>
-                <label>
-                    Personal:
-                    <input
-                        name="Personal"
-                        type="number"
-                        value={this.state.Personal}
-                        onChange={this.handleInputChange} />
-                </label>
-                <br/>
-                <input type='submit' value='Add' />
-            </form>
+            <main className="container">
+                <h1 className="text-white text-uppercase text-center my-4">Todo app</h1>
+                <div className="row">
+                    <div className="col-md-6 col-sm-10 mx-auto p-0">
+                        <div className="card p-3">
+                            <div className="mb-4">
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={this.createItem}
+                                >
+                                    Add task
+                                </button>
+                            </div>
+                            {this.renderTabList()}
+                            <ul className="list-group list-group-flush border-top-0">
+                                {this.renderItems()}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {this.state.modal ? (
+                    <Modal
+                        activeItem={this.state.activeItem}
+                        toggle={this.toggle}
+                        onSave={this.handleSubmit}
+                    />
+                ) : null}
+            </main>
         );
     }
 }
+
+export default AddNewChall;

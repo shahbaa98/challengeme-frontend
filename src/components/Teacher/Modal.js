@@ -1,7 +1,4 @@
-
 import React, { Component } from "react";
-import { useHistory } from 'react-router-dom';
-import "../style.css"
 import {
     Button,
     Modal,
@@ -13,11 +10,8 @@ import {
     Input,
     Label,
 } from "reactstrap";
-import img from "../imgs/image3.png";
-
 
 export default class CustomModal extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +24,6 @@ export default class CustomModal extends Component {
 
         if (e.target.type === "checkbox") {
             value = e.target.checked;
-
         }
 
         const activeItem = { ...this.state.activeItem, [name]: value };
@@ -42,80 +35,48 @@ export default class CustomModal extends Component {
         const { toggle, onSave } = this.props;
 
         return (
-            <Modal  isOpen={true} toggle={toggle}>
-                <ModalHeader toggle={toggle}>הוספת תלמיד חדש</ModalHeader>
+            <Modal isOpen={true} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Todo Item</ModalHeader>
                 <ModalBody>
-                    <Form >
+                    <Form>
                         <FormGroup>
-                            <Label for="FirstName">First Name:</Label>
+                            <Label for="todo-title">Title</Label>
                             <Input
                                 type="text"
                                 id="todo-title"
-                                name="firstname11"
+                                name="title"
                                 value={this.state.activeItem.title}
                                 onChange={this.handleChange}
-                                placeholder="Enter First Name"
+                                placeholder="Enter Todo Title"
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="LastName">Last Name:</Label>
+                            <Label for="todo-description">Description</Label>
                             <Input
                                 type="text"
-                                id="todo-title"
-                                name="lastname11"
-                                value={this.state.activeItem.title}
+                                id="todo-description"
+                                name="description"
+                                value={this.state.activeItem.description}
                                 onChange={this.handleChange}
-                                placeholder="Enter Last Name"
+                                placeholder="Enter Todo description"
                             />
                         </FormGroup>
-                        <FormGroup>
-                            <Label for="FirstName">Username:</Label>
-                            <Input
-                                type="text"
-                                id="todo-title"
-                                name="username11"
-                                value={this.state.activeItem.title}
-                                onChange={this.handleChange}
-                                placeholder="Enter Username"
-                            />
+                        <FormGroup check>
+                            <Label check>
+                                <Input
+                                    type="checkbox"
+                                    name="completed"
+                                    checked={this.state.activeItem.completed}
+                                    onChange={this.handleChange}
+                                />
+                                Completed
+                            </Label>
                         </FormGroup>
-                        <FormGroup>
-                            <Label for="FirstName">Password:</Label>
-                            <Input
-                                type="text"
-                                id="todo-title"
-                                name="password11"
-                                value={this.state.activeItem.title}
-                                onChange={this.handleChange}
-                                placeholder="Enter Password"
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="FirstName">Therapist:</Label>
-                            <Input
-                                type="text"
-                                id="todo-title"
-                                name="therapistName"
-                                value={this.state.activeItem.title}
-                                onChange={this.handleChange}
-                                placeholder="Therapist"
-                            />
-                        </FormGroup>
-                        <br/>
-                        <Button color="blue" >
-                            Add to a new class
-                        </Button>
-                        &emsp;
-                        &emsp;
-                        <Button  color="blue"
-                        >
-                            Add to class
-                        </Button>
                     </Form>
                 </ModalBody>
-                <ModalFooter >
+                <ModalFooter>
                     <Button
-                        color="blue"
+                        color="success"
                         onClick={() => onSave(this.state.activeItem)}
                     >
                         Save
