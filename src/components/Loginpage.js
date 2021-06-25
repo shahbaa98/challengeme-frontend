@@ -41,7 +41,6 @@ const Loginpage = () => {
       setLoading(false);
     }
   }, []);
-
   const onSubmit = async e => {
     e.preventDefault();
     try {
@@ -55,8 +54,6 @@ const Loginpage = () => {
     }
 
   };
-
-
   return (
     <div className="app-com">
       <div>
@@ -70,7 +67,7 @@ const Loginpage = () => {
       <br />
       <br />
       {loading === false && <h1>התחבר</h1>}
-      {errors === true && <h2>אי אפשר לכנס עם הנתונים שהכנסת</h2>}
+      {errors === true && <h2>אי אפשר להיכנס עם הנתונים שהכנסת</h2>}
       {loading === false && (
         <form onSubmit={onSubmit}>
           <input className="placeholder"

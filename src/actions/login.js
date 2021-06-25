@@ -5,7 +5,7 @@ export async function login(email, password) {
 
   return await API.request({
     method: "POST",
-    url: `/api/v1/users/auth/login/`,
+    url: `/api/v1/users/dj-rest-auth/login/`,
     data: {
       email,
       password,
