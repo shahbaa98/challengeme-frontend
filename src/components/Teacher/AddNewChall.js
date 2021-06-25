@@ -17,7 +17,7 @@ const AddStudent = () => {
     const [Emotional, setEmotional] = useState('');
     const [Study, setStudy] = useState('');
     const [Personal, setPersonal] = useState('');
-
+    const [completed, setCompleted] = useState(false);
 
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -41,6 +41,7 @@ const AddStudent = () => {
             Emotional: Emotional,
             Study: Study,
             Personal: Personal,
+            completed: completed,
 
         };
 
@@ -68,6 +69,7 @@ const AddStudent = () => {
                     setEmotional('');
                     setStudy('');
                     setPersonal('');
+                    setCompleted('false');
 
                     localStorage.clear();
                     setErrors(true);
