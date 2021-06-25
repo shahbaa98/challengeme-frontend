@@ -10,6 +10,7 @@ export default class AddNewChall extends React.Component {
             Emotional:'',
             Study:'',
             Personal:'',
+
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,7 +29,7 @@ export default class AddNewChall extends React.Component {
     }
     handleSubmit = event => {
         event.preventDefault();
-        axios.delete(`https://127.0.0.1:8001/api/addChallanges/${this.state.name}`)
+        axios.delete(`http://127.0.0.1:8001/api/addChallanges/${this.state.name}`)
             .then(res => {
                 console.log(res);
                 console.log(res.data);
@@ -42,7 +43,7 @@ export default class AddNewChall extends React.Component {
 
         };
 
-        axios.post(`https://127.0.0.1:8001/api/addChallanges/`, {challenge})
+        axios.post(`http://127.0.0.1:8001/api/addChallanges/`, {challenge})
             .then(res => {
                 console.log(res);
                 console.log(res.data);
