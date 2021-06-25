@@ -44,8 +44,8 @@
     position: absolute;
     width: 300px;
     height: 200px;
-    right: 100px;
-    top: 290px;
+    right: 200px;
+    top: 190px;
 }
 .notification{
     position: absolute;
@@ -209,3 +209,4 @@ verticalMiddle {
     text-align: center ;
     padding-top: 20px;
 }
+
