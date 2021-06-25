@@ -35,7 +35,9 @@ const AddStudent = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        const chall = {
+        // userprofile.role = 'Student';
+
+        const student = {
             Title: Title,
             Social: Social,
             Emotional: Emotional,
@@ -45,24 +47,25 @@ const AddStudent = () => {
 
         };
 
-        fetch('http://127.0.0.1:8000/api/addChallanges/', {
+        fetch('http://127.0.0.1:8001/api/addChallanges/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(chall)
+            body: JSON.stringify(student)
         })
             .then(res => res.json())
             .catch(error => {
-                if (error.code === 'challenge-already-in-use') {
-                    console.log('That challenge is already in use!');
+                //auth/email-already-in-use returns if user exists(backend)
+                if (error.code === 'auth/email-already-in-use') {
+                    console.log('That email address is already in use!');
                 }
             })
             .then(data => {
                 if (data.key) {
                     localStorage.clear();
                     localStorage.setItem('token', data.key);
-                    history.push('/classes')
+                    history.push('/TeacherProfile')
                 } else {
                     setTitle('');
                     setSocial('');
@@ -75,7 +78,7 @@ const AddStudent = () => {
                     setErrors(true);
                 }
             });
-        console.log(chall)
+        console.log(student)
     };
 
     return (
@@ -85,11 +88,11 @@ const AddStudent = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            {loading === false && <h1>add new challenge</h1>}
-            {errors === true && <h2>Cannot add this challenge</h2>}
+            {loading === false && <h1>הוספת אתגר חדש</h1>}
+            {errors === true && <h2>Cannot signup with provided credentials</h2>}
 
             <form onSubmit={onSubmit}>
-                <label htmlFor='Title'> Title</label> <br />
+                <label htmlFor='Title'>כותרת</label> <br />
                 <TextField
                     name='Title'
                     type='text'
@@ -98,7 +101,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Social'>Social</label> <br />
+                <label htmlFor='Social'>חברתי</label> <br />
                 <input
                     name='Social'
                     type='number'
@@ -107,7 +110,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Emotional'> Emotional</label> <br />
+                <label htmlFor='Emotional'> נפשי</label> <br />
                 <input
                     name='Emotional'
                     type='number'
@@ -116,7 +119,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Study'>Study</label> <br />
+                <label htmlFor='Study'>לימודי</label> <br />
                 <input
                     name='Study'
                     type='number'
@@ -125,7 +128,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Personal'> Personal</label> <br />
+                <label htmlFor='Personal'> אישי</label> <br />
                 <input
                     name='Personal'
                     type='number'
@@ -139,7 +142,7 @@ const AddStudent = () => {
 
 
                 <br />
-                <input type='submit' value='add' />
+                <input type='submit' value='הרשמה' />
             </form>
 
         </div>
