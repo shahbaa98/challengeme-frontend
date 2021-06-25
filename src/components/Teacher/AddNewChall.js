@@ -86,11 +86,11 @@ const AddStudent = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            {loading === false && <h1>הוספת אתגר חדש</h1>}
+            {loading === false && <h1>add new challenge</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
 
             <form onSubmit={onSubmit}>
-                <label htmlFor='Title'> כותרת</label> <br />
+                <label htmlFor='Title'> Title</label> <br />
                 <TextField
                     name='Title'
                     type='text'
@@ -99,7 +99,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Social'>חברתי</label> <br />
+                <label htmlFor='Social'>Social</label> <br />
                 <input
                     name='Social'
                     type='number'
@@ -108,7 +108,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Emotional'> נפשי</label> <br />
+                <label htmlFor='Emotional'> Emotional</label> <br />
                 <input
                     name='Emotional'
                     type='number'
@@ -117,7 +117,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Study'>לימודי</label> <br />
+                <label htmlFor='Study'>Study</label> <br />
                 <input
                     name='Study'
                     type='number'
@@ -126,7 +126,7 @@ const AddStudent = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Personal'> אישי</label> <br />
+                <label htmlFor='Personal'> Personal</label> <br />
                 <input
                     name='Personal'
                     type='number'
