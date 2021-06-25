@@ -137,7 +137,7 @@ const AddStudent = () => {
 
 
                 <br />
-                <input type='submit' value='הרשמה' />
+                <input type='submit' value='add' />
             </form>
 
         </div>
