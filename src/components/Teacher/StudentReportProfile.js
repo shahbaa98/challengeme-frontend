@@ -28,12 +28,7 @@ const StudentReportProfile = () => {
                     </label>
                     <br />
                 </div>
-            <div align="right" dir="rtl">
-                <label for="fileImgStudent" className="lableImg">
-                    <img width="200" height="200" src={profile} />
-                </label>
-                <br />
-            </div>
+
             <div className="Report">
                 <div >דווחות</div>
                 <img width='200px' height='180px' src={Report} onClick={() => { history.push('/Reports') }} />
