@@ -39,7 +39,9 @@ const TeacherProfile = () => {
                 <img align="left" src={img} alt="" width="200" height="200"/>
             </div>
             <div align="right" dir="rtl">
-                <h1>Profile picture</h1>
+                <label htmlFor="fileImgStudent" className="lableImg">
+                    <img width="200" height="200" src={profile}/>
+                </label>
             </div>
             <div className="chat">
                 <div > יש לך הודעות חדשות</div>
