@@ -11,7 +11,7 @@ import {TextField} from "@material-ui/core";
 
 
 
-const AddStudent = () => {
+const AddNewChall = () => {
     const [Title, setTitle] = useState('');
     const [Social, setSocial] = useState('');
     const [Emotional, setEmotional] = useState('');
@@ -147,4 +147,4 @@ const AddStudent = () => {
     );
 };
 
-export default AddStudent;
+export default AddNewChall;
