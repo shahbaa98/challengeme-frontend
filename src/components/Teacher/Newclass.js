@@ -69,10 +69,10 @@ const Newclass = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            {loading === false && <h1>Add New Class</h1>}
+            {loading === false && <h1>הוספת כיתה חדשה</h1>}
             {errors === true && <h2>Cannot add class that is already in use</h2>}
             <form onSubmit={onSubmit}>
-                <label htmlFor='classID'>classID:</label> <br />
+                <label htmlFor='classID'>מספר מזהה לכיתה</label> <br />
                 <input
                     name='classID'
                     type='number'
@@ -83,7 +83,7 @@ const Newclass = () => {
 
                 <br />
 
-                <label htmlFor='className'>className:</label> <br />
+                <label htmlFor='className'>שם כיתה</label> <br />
                 <input
                     name='className'
                     type='text'
@@ -94,7 +94,7 @@ const Newclass = () => {
 
                 <br />
 
-                <label htmlFor='teachername'>teachername:</label> <br />
+                <label htmlFor='teachername'>שם המורה</label> <br />
                 <input
                     name='teachername'
                     type='text'
@@ -106,7 +106,7 @@ const Newclass = () => {
                 <br />
                 <br />
 
-                <input type='submit' value='Add' />
+                <input type='submit' value='הוספה' />
             </form>
         </div>
     );

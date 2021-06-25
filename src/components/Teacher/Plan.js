@@ -11,7 +11,7 @@ import edit from "../imgs/edit.png"
 import React from "react";
 
 
-const Reports = () => {
+const Plan = () => {
     const history = useHistory();
     const logout = () => {
         history.push('./');
@@ -47,4 +47,4 @@ const Reports = () => {
         </div>
     )
 }
-export default Reports
+export default Plan
