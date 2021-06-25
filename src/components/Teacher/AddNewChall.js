@@ -27,7 +27,7 @@ const AddStudent = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            console.log('New Student has been added!');
+            console.log('New Challenge has been added!');
         } else {
             setLoading(false);
         }
@@ -46,7 +46,7 @@ const AddStudent = () => {
 
         };
 
-        fetch('http://127.0.0.1:8000/api/v1/users/dj-rest-auth/registration/', {
+        fetch('http://127.0.0.1:8001/api/addChallanges/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ const AddStudent = () => {
                     &lt;  אחורה
                 </div>
             </div>
-            {loading === false && <h1>הוספת תלמיד חדש</h1>}
+            {loading === false && <h1>add new challenge</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
 
             <form onSubmit={onSubmit}>
