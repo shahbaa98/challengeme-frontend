@@ -210,3 +210,9 @@ verticalMiddle {
     padding-top: 20px;
 }
 
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
