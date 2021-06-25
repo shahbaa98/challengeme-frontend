@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {TextField} from "@material-ui/core";
 
 export default class AddNewChall extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ export default class AddNewChall extends React.Component {
             <form>
                 <label>
                     ChallengeName:
-                    <input
+                    <TextField
                         name="ChallengeName"
                         type="text"
                         value={this.state.ChallengeName}
