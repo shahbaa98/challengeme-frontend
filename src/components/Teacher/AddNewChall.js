@@ -1,20 +1,14 @@
-import {useHistory} from "react-router-dom";
-import {RiLogoutBoxLine} from "react-icons/ri";
-import img from '../imgs/image3.png'
-import React, { useState, useEffect } from 'react';
-import '../style.css'
-import {useAuth} from "../../contexts/UserContext";
-import AddStudent from "./AddStudent";
+import React from "react";
 
 export default class AddNewChall extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ChallengeName: '',
-            Social: '',
-            Emotional: '',
-            Study: '',
-            Personal: '',
+            ChallengeName:'',
+            Social:'',
+            Emotional:'',
+            Study:'',
+            Personal:'',
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -36,53 +30,52 @@ export default class AddNewChall extends React.Component {
         return (
             <form>
                 <label>
+                    ChallengeName:
                     <input
                         name="ChallengeName"
                         type="text"
                         value={this.state.ChallengeName}
-                        onChange={this.handleInputChange}/>
+                        onChange={this.handleInputChange} />
                 </label>
-                שם האתגר
-
-                <br/>
+                <br />
                 <label>
+                    Social:
                     <input
                         name="Social"
                         type="number"
                         value={this.state.Social}
-                        onChange={this.handleInputChange}/>
-                    חברתי
+                        onChange={this.handleInputChange} />
                 </label>
                 <br/>
                 <label>
+                    Emotional:
                     <input
                         name="Emotional"
                         type="number"
                         value={this.state.Emotional}
-                        onChange={this.handleInputChange}/>
-                    רגשי
+                        onChange={this.handleInputChange} />
                 </label>
                 <br/>
                 <label>
+                    Study:
                     <input
                         name="Study"
                         type="number"
                         value={this.state.Study}
-                        onChange={this.handleInputChange}/>
-                    לימודי
+                        onChange={this.handleInputChange} />
                 </label>
                 <br/>
                 <label>
+                    Personal:
                     <input
                         name="Personal"
                         type="number"
                         value={this.state.Personal}
-                        onChange={this.handleInputChange}/>
-                    אישי
+                        onChange={this.handleInputChange} />
                 </label>
                 <br/>
-                <input type='submit' value='הוספה'/>
+                <input type='submit' value='Add' />
             </form>
         );
     }
-};
+}
