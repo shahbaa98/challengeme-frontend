@@ -53,6 +53,8 @@ export default class AddNewChall extends React.Component {
     render() {
         return (
             <form>
+                <button type="submit">Delete</button>
+                <br/>
                 <label>
                     ChallengeName:
                     <TextField
