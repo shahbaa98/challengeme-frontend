@@ -27,10 +27,10 @@ import { Switch, Route } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import React from "react";
 import { UserProvider } from './contexts/UserContext'
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
   return (
     <UserProvider>
       <Router>
@@ -60,8 +60,8 @@ function App() {
 
         </Switch>
       </Router>
+      <ToastContainer />
     </UserProvider>
-
   );
 }
 

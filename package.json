@@ -22,6 +22,7 @@
     "react-phone-input-2": "^2.14.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
     "reactstrap": "^8.9.0",
     "stream-chat": "^3.11.0",
     "stream-chat-react": "^6.0.6",

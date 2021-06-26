@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { getProfile } from "../actions/getProfile";
+import { toast } from 'react-toastify';
 
 export const AUTH_TOKEN = "AUTH_TOKEN";
 
@@ -47,6 +48,25 @@ export function UserProvider({ children }) {
       });
     }
   }, []);
+
+  // Send notifications
+  useEffect(() => {
+    if (!state.userprofile) return;
+
+    const channelName = `my-channel-${state.userprofile.id}`;
+
+    console.log(channelName);
+    const channel = window.pusher.subscribe(channelName);
+
+    channel.bind('my-event', function (data) {
+      toast(data.message)
+    });
+
+    return () => {
+      window.pusher.unsubscribe(channelName);
+    }
+  }, [state.userprofile])
+
 
   const actions = {
     authenticate: (token) => {
