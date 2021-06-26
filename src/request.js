@@ -3,7 +3,6 @@ import { AUTH_TOKEN } from "./contexts/UserContext";
 
 const config = {
   baseURL: process.env.REACT_APP_BACKEND_URL,
-  // baseURL: "http://127.0.0.1:8000/",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",

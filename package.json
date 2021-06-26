@@ -2,7 +2,6 @@
   "name": "challengeme-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
   "dependencies": {
     "@syncfusion/ej2-react-popups": "^19.1.67",
     "@testing-library/jest-dom": "^5.12.0",
