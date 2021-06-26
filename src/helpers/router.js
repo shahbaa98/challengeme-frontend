@@ -14,7 +14,7 @@ export const PrivateRoute = ({ component, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/",
               state: {
                 from: props.location,
               },
@@ -36,7 +36,7 @@ export const PublicRoute = ({ component, ...rest }) => {
         isAuthenticated === null ? null : isAuthenticated ? (
           <Redirect
             to={{
-              pathname: "/",
+              pathname: "/TeacherProfile",
             }}
           />
         ) : (

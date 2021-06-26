@@ -1,24 +1,20 @@
-import { RiLogoutBoxLine } from 'react-icons/ri';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import '../style.css'
 import profile from '../imgs/personalPhoto.png'
 import Report from '../imgs/reports.png'
 import newchallenge from '../imgs/new.png'
 import plan from '../imgs/plan.png'
-import { useAuth } from '../../contexts/UserContext';
-import {logout} from '../../actions/logout';
 import React from "react";
 
 
 const StudentReportProfile = () => {
     const history = useHistory();
-    const logout = () => {
-        history.push('./');
-    }
+    const params = useParams();
+
     return (
         <div className="app-com">
             <div>
-                <div align ="left" onClick={()=> {history.push('/Classes')}}>
+                <div align="left" onClick={() => { history.push('/Classes') }}>
                     &lt;  אחורה
                 </div>
             </div>
@@ -28,6 +24,7 @@ const StudentReportProfile = () => {
                 </label>
                 <br />
             </div>
+
             <div className="Report">
                 <div >דווחות</div>
                 <img width='200px' height='180px' src={Report} onClick={() => { history.push('/Report') }} />
@@ -36,7 +33,7 @@ const StudentReportProfile = () => {
 
             <div className="newchallenge">
                 <div > הוספת אתגר חדש</div>
-                <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push('/AddNewChall') }} />
+                <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push(`/students/${params.student_id}/add-challenge`) }} />
                 <br />
             </div>
 

@@ -1,17 +1,14 @@
-import {useHistory} from "react-router-dom";
-import {RiLogoutBoxLine} from "react-icons/ri";
-import img from '../imgs/image3.png'
+import { useHistory, useParams } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import '../style.css'
-import classes from "../imgs/class-icon.jpg";
-import newclass from "../imgs/add.png";
-import {useAuth} from "../../contexts/UserContext";
-import PhoneInput from 'react-phone-input-2'
-import {TextField} from "@material-ui/core";
+import { useAuth } from "../../contexts/UserContext";
+import { TextField } from "@material-ui/core";
+import { addNewChallenge } from "../../actions/addNewChallenge";
 
 
 
-const AddStudent = () => {
+const AddNewChall = () => {
+    const params = useParams();
     const [Title, setTitle] = useState('');
     const [Social, setSocial] = useState('');
     const [Emotional, setEmotional] = useState('');
@@ -33,7 +30,7 @@ const AddStudent = () => {
         }
     }, []);
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
         // userprofile.role = 'Student';
 
@@ -44,47 +41,33 @@ const AddStudent = () => {
             Study: Study,
             Personal: Personal,
             completed: completed,
+            students: [params.student_id]
 
         };
 
-        fetch('http://127.0.0.1:8001/api/addChallanges/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(student)
-        })
-            .then(res => res.json())
-            .catch(error => {
-                //auth/email-already-in-use returns if user exists(backend)
-                if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
-                }
-            })
-            .then(data => {
-                if (data.key) {
-                    localStorage.clear();
-                    localStorage.setItem('token', data.key);
-                    history.push('/TeacherProfile')
-                } else {
-                    setTitle('');
-                    setSocial('');
-                    setEmotional('');
-                    setStudy('');
-                    setPersonal('');
-                    setCompleted('false');
+        try {
+            const data = await addNewChallenge(student);
 
-                    localStorage.clear();
-                    setErrors(true);
-                }
-            });
-        console.log(student)
+            setTitle('');
+            setSocial('');
+            setEmotional('');
+            setStudy('');
+            setPersonal('');
+            setCompleted('false');
+
+            setErrors(false);
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
     };
 
     return (
         <div className="app-com">
             <div>
-                <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
+                <div align="left" onClick={() => { history.push('/TeacherProfile') }}>
                     &lt;  אחורה
                 </div>
             </div>
@@ -149,4 +132,4 @@ const AddStudent = () => {
     );
 };
 
-export default AddStudent;
+export default AddNewChall;

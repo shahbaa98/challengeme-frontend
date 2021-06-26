@@ -10,13 +10,12 @@ import Chat1 from './components/Teacher/Chat1'
 import Notification1 from './components/Teacher/Notification1'
 import Classes from './components/Teacher/Classes'
 import Newclass from './components/Teacher/Newclass'
+import StudentClass from './components/Teacher/StudentClass'
 import AddStudent from "./components/Teacher/AddStudent";
 import SearchStudent from "./components/Teacher/SearchStudent";
 import AddNewChall from "./components/Teacher/AddNewChall";
-import Class1 from "./components/Teacher/Class1";
-import Class2 from "./components/Teacher/Class2";
-import Class3 from "./components/Teacher/Class3";
-import Class4 from "./components/Teacher/Class4";
+import { PrivateRoute, PublicRoute } from "./helpers/router";
+
 import StudentReportProfile from "./components/Teacher/StudentReportProfile";
 import Plan from "./components/Teacher/Plan";
 import Report from "./components/Teacher/Report";
@@ -27,41 +26,38 @@ import { Switch, Route } from 'react-router-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import React from "react";
 import { UserProvider } from './contexts/UserContext'
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
   return (
     <UserProvider>
       <Router>
         <Switch>
           <Route exact path='/' component={Loginpage} />
-          <Route exact path='/StudentProfile' component={StudentProfile} />
-          <Route exact path='/TeacherProfile' component={TeacherProfile} />
-          <Route exact path='/CaretakerProfile' component={CaretakerProfile} />
-          <Route exact path='/PrincipalProfile' component={PrincipalProfile} />
           <Route exact path='/SignUp' component={SignUp} />
-          <Route exact path='/notification' component={notification} />
-          <Route exact path='/challenges' component={challenges} />
-          <Route exact path='/Chat1' component={Chat1} />
-          <Route exact path='/Notification1' component={Notification1} />
-          <Route exact path='/AddStudent' component={AddStudent} />
-          <Route exact path='/SearchStudent' component={SearchStudent} />
-          <Route exact path='/Classes' component={Classes} />
-          <Route exact path='/Newclass' component={Newclass} />
-          <Route exact path='/AddNewChall' component={AddNewChall} />
-          <Route exact path='/Class1' component={Class1} />
-          <Route exact path='/Class2' component={Class2} />
-          <Route exact path='/Class3' component={Class3} />
-          <Route exact path='/Class4' component={Class4} />
-          <Route exact path='/StudentReportProfile' component={StudentReportProfile} />
-          <Route exact path='/Plan' component={Plan} />
-          <Route exact path='/Report' component={Report} />
+          <PrivateRoute exact path='/StudentProfile' component={StudentProfile} />
+          <PrivateRoute exact path='/TeacherProfile' component={TeacherProfile} />
+          <PrivateRoute exact path='/CaretakerProfile' component={CaretakerProfile} />
+          <PrivateRoute exact path='/PrincipalProfile' component={PrincipalProfile} />
+          <PrivateRoute exact path='/notification' component={notification} />
+          <PrivateRoute exact path='/challenges' component={challenges} />
+          <PrivateRoute exact path='/Chat1' component={Chat1} />
+          <PrivateRoute exact path='/Notification1' component={Notification1} />
+          <PrivateRoute exact path='/AddStudent' component={AddStudent} />
+          <PrivateRoute exact path='/SearchStudent' component={SearchStudent} />
+          <PrivateRoute exact path='/classes' component={Classes} />
+          <PrivateRoute exact path='/classes/:class_id' component={StudentClass} />
+          <PrivateRoute exact path='/Newclass' component={Newclass} />
+          <PrivateRoute exact path='/students/:student_id/add-challenge' component={AddNewChall} />
+          <PrivateRoute exact path='/students/:student_id/profile' component={StudentReportProfile} />
+          <PrivateRoute exact path='/Plan' component={Plan} />
+          <PrivateRoute exact path='/Report' component={Report} />
 
         </Switch>
       </Router>
+      <ToastContainer />
     </UserProvider>
-
   );
 }
 

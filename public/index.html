@@ -26,6 +26,15 @@
     -->
 
     <title>Challenge ME</title>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script>
+      // Enable pusher logging - don't include this in production
+      Pusher.logToConsole = true;
+
+      var pusher = new Pusher('6eec2d039c51e6fbc58b', {
+        cluster: 'eu'
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
