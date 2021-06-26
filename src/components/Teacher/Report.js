@@ -20,7 +20,7 @@ const Report = () => {
                 <div align="left" onClick={() => {
                     history.push('/StudentReportProfile')
                 }}>
-                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
             <div align="right" dir="rtl">

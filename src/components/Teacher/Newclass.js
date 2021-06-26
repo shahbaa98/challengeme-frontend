@@ -4,7 +4,6 @@ import '../style.css'
 import { useAuth } from "../../contexts/UserContext";
 import { TextField } from "@material-ui/core";
 import { addNewChallenge } from "../../actions/addNewChallenge";
-import {RiLogoutBoxLine} from "react-icons/ri";
 
 
 
@@ -59,7 +58,7 @@ const Newclass = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => { history.push('/TeacherProfile') }}>
-                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
             {loading === false && <h1>הוספת כיתה חדשה</h1>}

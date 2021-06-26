@@ -69,10 +69,10 @@ const AddNewChall = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => { history.push('/TeacherProfile') }}>
-                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
-            {loading === false && <h1>הוספת אתגר חדש</h1>}
+            {loading === false && <h1 className="text">הוספת אתגר חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
 
             <form onSubmit={onSubmit}>
@@ -86,7 +86,7 @@ const AddNewChall = () => {
                 />{' '}
                 <br />
                 <label htmlFor='Social'>חברתי</label> <br />
-                <input
+                <input className="input"
                     name='Social'
                     type='number'
                     value={Social}
@@ -95,7 +95,7 @@ const AddNewChall = () => {
                 />{' '}
                 <br />
                 <label htmlFor='Emotional'> נפשי</label> <br />
-                <input
+                <input className="input"
                     name='Emotional'
                     type='number'
                     value={Emotional}
@@ -104,7 +104,7 @@ const AddNewChall = () => {
                 />{' '}
                 <br />
                 <label htmlFor='Study'>לימודי</label> <br />
-                <input
+                <input className="input"
                     name='Study'
                     type='number'
                     value={Study}
@@ -113,7 +113,7 @@ const AddNewChall = () => {
                 />{' '}
                 <br />
                 <label htmlFor='Personal'> אישי</label> <br />
-                <input
+                <input className="input"
                     name='Personal'
                     type='number'
                     value={Personal}
@@ -126,7 +126,7 @@ const AddNewChall = () => {
 
 
                 <br />
-                <input type='submit' value='הרשמה' />
+                <input  className="input" type='submit' value='הרשמה' />
             </form>
 
         </div>

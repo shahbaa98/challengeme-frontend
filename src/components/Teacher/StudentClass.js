@@ -13,7 +13,7 @@ const StudentClass = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => { history.push('/Classes') }}>
-                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
             <h1>כיתה י"א 1</h1>

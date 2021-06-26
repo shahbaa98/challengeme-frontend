@@ -16,7 +16,7 @@ const SearchStudent = () => {
             <div>
             <div>
                 <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
-                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
                 <div>
