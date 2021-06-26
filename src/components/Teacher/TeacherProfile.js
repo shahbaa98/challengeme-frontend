@@ -13,9 +13,11 @@ import {Form} from "reactstrap";
 import React from "react";
 import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
+import {useFetch} from "../../useAPI";
 
 
 const TeacherProfile = () => {
+    const { data } = useFetch("teacher/users/", []);
 
     const { deauthenticate, userprofile } = useAuth();
     const history = useHistory();
@@ -32,42 +34,35 @@ const TeacherProfile = () => {
             {console.log(userprofile)}
             <div>
                 <div align ="left" onClick={handleLogout}>
-                    <RiLogoutBoxLine /> התנתק
+                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
+                </div>
+                <div>
+                    <h1 className="text"> שלום </h1>
                 </div>
             </div>
+
             <div>
-                <img align="left" src={img} alt="" width="200" height="200"/>
+                <img className="logo"  src={img} alt="" />
             </div>
             <div align="right" dir="rtl">
-                <label htmlFor="fileImgStudent" className="lableImg">
-                    <img width="200" height="200" src={profile}/>
+                <label htmlFor="fileImgStudent">
+                    <img className="profileImg" src={profile}/>
                 </label>
             </div>
-            <div className="chat">
-                <div > יש לך הודעות חדשות</div>
-                <img     width= '200px' height='180px' src = {chat} onClick={()=> {history.push('/Chat1')}}/>
-                <br/>
-            </div>
-            <div className="notification1">
-                <div >  התראות</div>
-                <img     width= '200px' height='180px' src = {notification} onClick={()=> {history.push('/notification1')}}/>
-                <br/>
-            </div>
+
+            <br/>
             <div className="addStudent">
-                <div > הוסיף תלמיד</div>
+                <h4 className="text"> הוסיף תלמיד</h4>
+                <br/>
                 <img     width= '200px' height='180px' src = {addStudent} onClick={()=> {history.push('/addStudent')}}/>
                 <br/>
             </div>
             <div className="classes">
-                <div > כיתות שלי</div>
+                <h4 className="text"> כיתות שלי</h4>
+                <br/>
                 <img     width= '200px' height='180px' src = {classes} onClick={()=> {history.push('/classes')}}/>
                 <br/>
                 <br/>
-                <br/>
-            </div>
-            <div className="searchStudent">
-                <div > חפש תלמיד</div>
-                <img     width= '200px' height='180px' src = {searchStudent} onClick={()=> {history.push('/SearchStudent')}}/>
                 <br/>
             </div>
         </form>

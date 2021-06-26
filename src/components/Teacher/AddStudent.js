@@ -7,6 +7,8 @@ import classes from "../imgs/class-icon.jpg";
 import newclass from "../imgs/add.png";
 import {useAuth} from "../../contexts/UserContext";
 import PhoneInput from 'react-phone-input-2'
+import {Select} from "@material-ui/core";
+import {useFetch} from "../../useAPI";
 
 
 
@@ -27,7 +29,7 @@ const AddStudent = () => {
     const history = useHistory();
     const { userprofile } = useAuth();
 
-
+    const { data } = useFetch("teacher/classes/", []);
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
             console.log('New Student has been added!');
@@ -35,6 +37,7 @@ const AddStudent = () => {
             setLoading(false);
         }
     }, []);
+
 
     const onSubmit = e => {
         e.preventDefault();
@@ -98,15 +101,15 @@ const AddStudent = () => {
         <div className="app-com">
               <div>
                 <div align ="left" onClick={()=> {history.push('/TeacherProfile')}}>
-                    &lt;  אחורה
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
-            {loading === false && <h1>הוספת תלמיד חדש</h1>}
+            {loading === false && <h1 className="text">הוספת תלמיד חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
             
             <form onSubmit={onSubmit}>
                 <label htmlFor='firstname'>שם פרטי</label> <br />
-                <input
+                <input className="input"
                     name='firstname'
                     type='text'
                     value={firstname}
@@ -117,7 +120,7 @@ const AddStudent = () => {
                 <br />
 
                 <label htmlFor='lastname'>שם משפחה</label> <br />
-                <input
+                <input className="input"
                     name='lastname'
                     type='text'
                     value={lastname}
@@ -128,7 +131,7 @@ const AddStudent = () => {
                 <br />
 
                 <label htmlFor='username'>שם משתמש</label> <br />
-                <input className="inp"
+                <input className="input"
                     name='username'
                     type='text'
                     value={username}
@@ -138,16 +141,15 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='phone'>מספר טלפון</label> <br />
-                <PhoneInput
+                <label htmlFor='phone' >מספר טלפון</label> <br />
+                <input className="input"
                   placeholder="Enter phone number"
-                  country="IL"
-                  value={phone}
-                  onChange={setPhone}
-                />{' '}
-                <br />
 
-                <label htmlFor='teacher'>שם המורה</label> <br />
+                  value={phone}
+                  onChange={e => setPhone(e.target.value)}
+                />{' '}
+                <br/>
+                {/* <label htmlFor='teacher'>שם המורה</label> <br />
                 <input
                     name='teacher'
                     type='text'
@@ -155,22 +157,25 @@ const AddStudent = () => {
                     onChange={e => setTeacher(e.target.value)}
                     required
                 />{' '}
-
                 <br />
+                */}
 
                 <label htmlFor='classname'>שם הכיתה</label> <br />
-                <input
-                    name='classname'
-                    type='text'
-                    value={classname}
-                    onChange={e => setClassName(e.target.value)}
-                    required
-                />{' '}
-
+                <select placeholder='בחר כיתה' className="input">
+                    <option>
+                        {data.map((studentClass) => {
+                            return (
+                                <div className="select" >
+                                    <div><span className="select" onClick={() => { history.push(`/classes/${studentClass.id}`) }}>{studentClass.title}</span></div>
+                                </div>
+                            )
+                        })}
+                    </option>
+                </select>
                 <br />
 
                 <label htmlFor='birthdate'>תאריך לידה</label> <br />
-                <input
+                <input className="input"
                     name='birthdate'
                     type='date'
                     value={birthdate}
@@ -189,7 +194,7 @@ const AddStudent = () => {
                 />{' '} */}
 
                 <label htmlFor='username'>אמייל</label> <br />
-                <input
+                <input className="input"
                     name='email'
                     type='email'
                     value={email}
@@ -200,7 +205,7 @@ const AddStudent = () => {
                 <br />
 
                 <label htmlFor='password1'>סיסמה</label> <br />
-                <input
+                <input className="input"
                     name='password1'
                     type='password'
                     value={password1}
@@ -209,15 +214,15 @@ const AddStudent = () => {
                 />{' '}
                 <br />
                 <label htmlFor='password2'>אימות סיסמה</label> <br />
-                <input
+                <input className="input"
                     name='password2'
                     type='password'
                     value={password2}
                     onChange={e => setPassword2(e.target.value)}
                     required
                 />{' '}
-                <br />
-                <input type='submit' value='הרשמה' />
+                <br/>
+                <input  className="input" type='submit' value='הרשמה' />
             </form>
 
         </div>

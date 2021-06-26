@@ -22,7 +22,7 @@ const Plan = () => {
                 <div align="left" onClick={() => {
                     history.push('/StudentReportProfile')
                 }}>
-                    &lt;  אחורה
+                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
                 </div>
             </div>
             <div align="right" dir="rtl">

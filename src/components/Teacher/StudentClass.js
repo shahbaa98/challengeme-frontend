@@ -2,6 +2,7 @@ import { useHistory, useParams } from "react-router-dom";
 import '../style.css'
 import React from "react";
 import { useFetch } from "../../useAPI";
+import {RiLogoutBoxLine} from "react-icons/ri";
 
 const StudentClass = () => {
     const params = useParams();
@@ -12,7 +13,7 @@ const StudentClass = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => { history.push('/Classes') }}>
-                    &lt;  אחורה
+                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
                 </div>
             </div>
             <h1>כיתה י"א 1</h1>

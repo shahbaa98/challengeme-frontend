@@ -6,6 +6,7 @@ import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
 import edit from "../imgs/edit.png"
 import React from "react";
+import {RiLogoutBoxLine} from "react-icons/ri";
 
 
 const Report = () => {
@@ -19,7 +20,7 @@ const Report = () => {
                 <div align="left" onClick={() => {
                     history.push('/StudentReportProfile')
                 }}>
-                    &lt;  אחורה
+                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
                 </div>
             </div>
             <div align="right" dir="rtl">

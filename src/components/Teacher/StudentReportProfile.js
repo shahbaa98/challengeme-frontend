@@ -5,6 +5,7 @@ import Report from '../imgs/reports.png'
 import newchallenge from '../imgs/new.png'
 import plan from '../imgs/plan.png'
 import React from "react";
+import {RiLogoutBoxLine} from "react-icons/ri";
 
 
 const StudentReportProfile = () => {
@@ -15,7 +16,7 @@ const StudentReportProfile = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => { history.push('/Classes') }}>
-                    &lt;  אחורה
+                    <button className="button"> <RiLogoutBoxLine /> התנתק </button>
                 </div>
             </div>
             <div align="right" dir="rtl">
