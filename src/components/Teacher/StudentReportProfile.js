@@ -15,10 +15,13 @@ const StudentReportProfile = () => {
 
     const history = useHistory();
     const params = useParams();
+    const { data } = useFetch(`teacher/classes/${params.class_id}/`, []);
+
+
 
     return (
+       <form>
         <div className="app-com">
-
             <div>
                 <div align="left" onClick={() => { history.push('/classes') }}>
                     <button className="button"> אחורה </button>
@@ -33,6 +36,7 @@ const StudentReportProfile = () => {
                 </label>
                 <br />
             </div>*/}
+
 
             <div className="Report">
                 <h3 className="text" >דווחות</h3>
@@ -52,6 +56,7 @@ const StudentReportProfile = () => {
                 <br />
             </div>
         </div>
+       </form>
     )
 }
 export default StudentReportProfile

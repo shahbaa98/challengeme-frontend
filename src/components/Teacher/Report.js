@@ -19,7 +19,7 @@ const Report = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => {
-                    history.push('/StudentReportProfile')
+                    history.push('/classes')
                 }}>
                     <button className="button"> אחורה </button>
                 </div>

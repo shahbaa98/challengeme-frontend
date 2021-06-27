@@ -173,6 +173,7 @@ const AddStudent = (props) => {
 
                 <label htmlFor='classname'>שם הכיתה</label> <br />
                     <select placeholder='בחר כיתה' className="input">
+
                         <option>
                             {options}
                         </option>

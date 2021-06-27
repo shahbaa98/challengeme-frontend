@@ -69,7 +69,7 @@ const AddNewChall = () => {
     return (
         <div className="app-com">
             <div>
-                <div align="left" onClick={() => { history.push('/TeacherProfile') }}>
+                <div align="left" onClick={() => { history.push('/classes') }}>
                     <button className="button"> אחורה </button>
                 </div>
             </div>
