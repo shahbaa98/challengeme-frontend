@@ -14,11 +14,13 @@ import StudentClass from './components/Teacher/StudentClass'
 import AddStudent from "./components/Teacher/AddStudent";
 import SearchStudent from "./components/Teacher/SearchStudent";
 import AddNewChall from "./components/Teacher/AddNewChall";
+import EditPlan from "./components/Teacher/EditPlan"
 import { PrivateRoute, PublicRoute } from "./helpers/router";
 
 import StudentReportProfile from "./components/Teacher/StudentReportProfile";
 import Plan from "./components/Teacher/Plan";
 import Report from "./components/Teacher/Report";
+import OneChallenge from "./components/student/OneChallenge"
 
 
 // import './App.css'
@@ -53,6 +55,8 @@ function App() {
           <PrivateRoute exact path='/students/:student_id/profile' component={StudentReportProfile} />
           <PrivateRoute exact path='/Plan' component={Plan} />
           <PrivateRoute exact path='/Report' component={Report} />
+          <PrivateRoute exact path='/EditPlan' component={EditPlan} />
+          <PrivateRoute exact path='/OneChallenge' component={OneChallenge} />
 
         </Switch>
       </Router>

@@ -72,7 +72,7 @@ const Loginpage = () => {
         <form onSubmit={onSubmit}>
           <input className="placeholder"
             name='email'
-            type='email'
+            type='text'
             value={email}
             required placeholder="שם משתמש"
             onChange={e => setEmail(e.target.value)}

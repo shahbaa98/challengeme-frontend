@@ -10,7 +10,7 @@ import {RiLogoutBoxLine} from "react-icons/ri";
 import img from "../imgs/image3.png";
 
 
-const Report = () => {
+const EditPlan = () => {
     const history = useHistory();
     const logout = () => {
         history.push('./');
@@ -19,7 +19,7 @@ const Report = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => {
-                    history.push('/classes')
+                    history.push('/StudentReportProfile')
                 }}>
                     <button className="button"> אחורה </button>
                 </div>
@@ -37,4 +37,4 @@ const Report = () => {
         </div>
     )
 }
-export default Report
+export default EditPlan

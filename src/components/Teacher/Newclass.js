@@ -1,114 +1,95 @@
-import {useHistory} from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import '../style.css'
-import React, {useEffect, useReducer, useState} from "react";
-import img from "../imgs/image3.png";
-import classes from "../imgs/class-icon.jpg";
-import newclass from "../imgs/add.png";
+import { useAuth } from "../../contexts/UserContext";
+import { TextField } from "@material-ui/core";
+import { addNewChallenge } from "../../actions/addNewChallenge";
 
 
 
 const Newclass = () => {
+    const params = useParams();
     const [classID, setClassID] = useState('');
     const [className, setClassName] = useState('');
-    const [teachername, setTeacherName] = useState('');
+   // const [teachername, setTeacherName] = useState('');
+  //  const [completed, setCompleted] = useState(false);
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
     const history = useHistory();
+    const { userprofile } = useAuth();
+
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            history.push('/Classes')
+            console.log('New Class has been added!');
         } else {
             setLoading(false);
         }
     }, []);
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
 
-        const newclass = {
+        const teacher = {
             classID: classID,
             className: className,
-            teachername: teachername,
+            //completed: completed,
+            teacher: [params.teacher_id]
 
         };
 
-        fetch('http://127.0.0.1:8000/api/v1/Classes', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newclass)
-        })
-            .then(res => res.json())
-            .catch(error => {
-                //backend check if the class is alreay exist
-                if (error.code === 'auth/class-already-exist') {
-                    console.log('That class is already exist!');
-                }
-            })
-            .then(data => {
-                if (data.key) {
-                    localStorage.clear();
-                    localStorage.setItem('token', data.key);
-                    history.push('/Classes')
-                } else {
-                    setClassID('');
-                    setClassName('');
-                    setTeacherName('');
-                    localStorage.clear();
-                    setErrors(true);
-                }
-            });
-            console.log(newclass)
+        try {
+            const data = await addNewChallenge(teacher);
+
+            setClassID('');
+            setClassName('');
+            //setCompleted('false');
+
+            setErrors(false);
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
     };
+
     return (
         <div className="app-com">
             <div>
-                <div align ="left" onClick={()=> {history.push('/Classes')}}>
-                    &lt;  אחורה
+                <div align="left" onClick={() => { history.push('/TeacherProfile') }}>
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
             {loading === false && <h1>הוספת כיתה חדשה</h1>}
-            {errors === true && <h2>Cannot add class that is already in use</h2>}
+            {errors === true && <h2>Cannot signup with provided credentials</h2>}
+
             <form onSubmit={onSubmit}>
-                <label htmlFor='classID'>מספר מזהה לכיתה</label> <br />
-                <input
+                <label htmlFor='classID'>מזהה הכיתה</label> <br />
+                <TextField
                     name='classID'
-                    type='number'
+                    type='text'
                     value={classID}
                     onChange={e => setClassID(e.target.value)}
                     required
                 />{' '}
-
                 <br />
-
-                <label htmlFor='className'>שם כיתה</label> <br />
+                <label htmlFor='className'>שם הכיתה</label> <br />
                 <input
                     name='className'
-                    type='text'
+                    type='number'
                     value={className}
                     onChange={e => setClassName(e.target.value)}
                     required
                 />{' '}
 
-                <br />
-
-                <label htmlFor='teachername'>שם המורה</label> <br />
-                <input
-                    name='teachername'
-                    type='text'
-                    value={teachername}
-                    onChange={e => setTeacherName(e.target.value)}
-                    required
-                />{' '}
 
                 <br />
-                <br />
-
-                <input type='submit' value='הוספה' />
+                <input type='submit' value='הרשמה' />
             </form>
+
         </div>
     );
 };
-export default Newclass
+
+export default Newclass;

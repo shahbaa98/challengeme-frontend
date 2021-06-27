@@ -7,6 +7,8 @@ import challenge from '../imgs/challenge.gif'
 import notification from '../imgs/notification.gif'
 import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
+import React from "react";
+import img from "../imgs/image3.png";
 
 
 const StudentProfile = () => {
@@ -24,30 +26,33 @@ const StudentProfile = () => {
 
   return (
     <div className="app-com">
-      {userprofile ? userprofile.role : "Not authenticated"}
-      {console.log(userprofile)}
+        <div className="text">
+        {userprofile ? userprofile.role : "Not authenticated"}
+        {console.log(userprofile)}
+        </div>
       <div>
         <div align="left" onClick={handleLogout}>
-          <RiLogoutBoxLine /> התנתק
+            <button className="button"> <RiLogoutBoxLine /> התנתק </button>
 
             </div>
-      </div>
+          <div>
+              <h1 className="text">{userprofile.first_name} {userprofile.last_name} שלום </h1>
 
-      <div align="right" dir="rtl">
+          </div>
+      </div>
+        <div>
+            <img className="profileImg"  src={img} alt="" />
+        </div>
+
+        {/*<div align="right" dir="rtl">
         <label for="fileImgStudent" className="lableImg">
           <img width="200" height="200" src={profile} />
         </label>
         <br />
         <input type="file" id="fileImgStudent" align="right" />
 
-      </div>
-      <div>  הי שהבאא שעלאן </div>
+      </div>*/}
 
-      <div className="chat">
-        <div > יש לך הודעות חדשות</div>
-        <img width='200px' height='180px' src={chat} onClick={() => { history.push('/chat') }} />
-        <br />
-      </div>
 
       <div className="challenge">
         <div >  האתגרים שלי</div>
@@ -55,11 +60,6 @@ const StudentProfile = () => {
         <br />
       </div>
 
-      <div className="notification">
-        <div >  התראות</div>
-        <img width='200px' height='180px' src={notification} onClick={() => { history.push('/notification') }} />
-        <br />
-      </div>
 
     </div>
   )

@@ -22,19 +22,11 @@ const Classes = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => { history.push('/TeacherProfile') }}>
-                    &lt;  אחורה
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
-            <h1>הכיתות שלי</h1>
-            <div className="Newclass">
-                <img src={newclass} onClick={() => { history.push('/Newclass') }} />
-                <div >שייך לביתה חדשה</div>
-                <br />
-            </div>
-            <br />
-            <br />
-            <br />
-            <br />
+            <h1 className="text">הכיתות שלי</h1>
+
             <br />
             {data.map((studentClass) => {
                 return (

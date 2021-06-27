@@ -3,6 +3,9 @@ import '../style.css'
 import React from "react";
 import { useFetch } from "../../useAPI";
 
+import {RiLogoutBoxLine} from "react-icons/ri";
+import {useAuth} from "../../contexts/UserContext";
+
 const StudentClass = () => {
     const params = useParams();
     const { data } = useFetch(`teacher/classes/${params.class_id}/`, []);
@@ -12,10 +15,11 @@ const StudentClass = () => {
         <div className="app-com">
             <div>
                 <div align="left" onClick={() => { history.push('/Classes') }}>
-                    &lt;  אחורה
+                    <button className="button"> אחורה </button>
                 </div>
             </div>
-            <h1>כיתה י"א 1</h1>
+            <h1 className="text"> תלמידי הכיתה</h1>
+            <br/>
             <div className="col-12">
                 <div className="row mp0 flex-container containerStudents">
                     {data.map((student) => {
