@@ -20,6 +20,7 @@ import { PrivateRoute, PublicRoute } from "./helpers/router";
 import StudentReportProfile from "./components/Teacher/StudentReportProfile";
 import Plan from "./components/Teacher/Plan";
 import Report from "./components/Teacher/Report";
+import OneChallenge from "./components/student/OneChallenge"
 
 
 // import './App.css'
@@ -55,6 +56,7 @@ function App() {
           <PrivateRoute exact path='/Plan' component={Plan} />
           <PrivateRoute exact path='/Report' component={Report} />
           <PrivateRoute exact path='/EditPlan' component={EditPlan} />
+          <PrivateRoute exact path='/OneChallenge' component={OneChallenge} />
 
         </Switch>
       </Router>

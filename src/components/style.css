@@ -214,6 +214,13 @@ verticalMiddle {
     right: 500px;
     top: 200px;
 }
+.no{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    right: 650px;
+    top: 200px;
+}
 
 .edit{
     position: absolute;
@@ -249,7 +256,9 @@ verticalMiddle {
     left: 40%;
 }
 .text2{
-    color: #a00e6f;
+    color: #831199;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 60px;
 }
 .button {
 

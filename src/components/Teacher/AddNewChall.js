@@ -76,7 +76,7 @@ const AddNewChall = () => {
             <div>
                 <img className="profileImg"  src={img} alt="" />
             </div>
-            {loading === false && <h1 className="text">הוספת אתגר חדש</h1>}
+            {loading === false && <h1 className="text1">הוספת אתגר חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
 
             <form onSubmit={onSubmit}>
