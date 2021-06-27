@@ -7,6 +7,7 @@ import {logout} from '../../actions/logout';
 import edit from "../imgs/edit.png"
 import React from "react";
 import {RiLogoutBoxLine} from "react-icons/ri";
+import img from "../imgs/image3.png";
 
 
 const Report = () => {
@@ -23,12 +24,15 @@ const Report = () => {
                     <button className="button"> אחורה </button>
                 </div>
             </div>
-            <div align="right" dir="rtl">
+            <div>
+                <img className="profileImg"  src={img} alt="" />
+            </div>
+            {/*<div align="right" dir="rtl">
                 <label htmlFor="fileImgStudent" className="lableImg">
                     <img width="200" height="200" src={profile}/>
                 </label>
                 <br/>
-            </div>
+            </div>*/}
 
         </div>
     )

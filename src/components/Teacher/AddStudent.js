@@ -7,12 +7,14 @@ import classes from "../imgs/class-icon.jpg";
 import newclass from "../imgs/add.png";
 import {useAuth} from "../../contexts/UserContext";
 import PhoneInput from 'react-phone-input-2'
-import {Select} from "@material-ui/core";
+import {ListItem, Select} from "@material-ui/core";
 import {useFetch} from "../../useAPI";
+import {Dropdown} from "reactstrap";
 
 
 
-const AddStudent = () => {
+
+const AddStudent = (props) => {
     const [firstname, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
     const [username, setUserName] = useState('');
@@ -28,8 +30,16 @@ const AddStudent = () => {
     const [loading, setLoading] = useState(true);
     const history = useHistory();
     const { userprofile } = useAuth();
-
     const { data } = useFetch("teacher/classes/", []);
+
+
+    const options = data.map((studentClass) => {
+        return (
+            [studentClass.title]
+        )
+    })
+
+
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
             console.log('New Student has been added!');
@@ -37,7 +47,6 @@ const AddStudent = () => {
             setLoading(false);
         }
     }, []);
-
 
     const onSubmit = e => {
         e.preventDefault();
@@ -104,11 +113,13 @@ const AddStudent = () => {
                     <button className="button"> אחורה </button>
                 </div>
             </div>
-            {loading === false && <h1 className="text">הוספת תלמיד חדש</h1>}
+            {loading === false && <h1 className="text1">הוספת תלמיד חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
+            <br/>
+            <br/>
             
             <form onSubmit={onSubmit}>
-                <label htmlFor='firstname'>שם פרטי</label> <br />
+                <label htmlFor='firstname' >שם פרטי</label> <br />
                 <input className="input"
                     name='firstname'
                     type='text'
@@ -119,7 +130,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='lastname'>שם משפחה</label> <br />
+                <label htmlFor='lastname' >שם משפחה</label> <br />
                 <input className="input"
                     name='lastname'
                     type='text'
@@ -130,7 +141,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='username'>שם משתמש</label> <br />
+                <label htmlFor='username' >שם משתמש</label> <br />
                 <input className="input"
                     name='username'
                     type='text'
@@ -161,20 +172,16 @@ const AddStudent = () => {
                 */}
 
                 <label htmlFor='classname'>שם הכיתה</label> <br />
-                <select placeholder='בחר כיתה' className="input">
-                    <option>
-                        {data.map((studentClass) => {
-                            return (
-                                <div className="select" >
-                                    <div><span className="select" onClick={() => { history.push(`/classes/${studentClass.id}`) }}>{studentClass.title}</span></div>
-                                </div>
-                            )
-                        })}
-                    </option>
-                </select>
+                    <select placeholder='בחר כיתה' className="input">
+                        <option>
+                            {options}
+                        </option>
+                    </select>
                 <br />
 
-                <label htmlFor='birthdate'>תאריך לידה</label> <br />
+
+
+                <label htmlFor='birthdate' >תאריך לידה</label> <br />
                 <input className="input"
                     name='birthdate'
                     type='date'
@@ -193,7 +200,7 @@ const AddStudent = () => {
                     required
                 />{' '} */}
 
-                <label htmlFor='username'>אמייל</label> <br />
+                <label htmlFor='username' >אמייל</label> <br />
                 <input className="input"
                     name='email'
                     type='email'
@@ -204,7 +211,7 @@ const AddStudent = () => {
 
                 <br />
 
-                <label htmlFor='password1'>סיסמה</label> <br />
+                <label htmlFor='password1' >סיסמה</label> <br />
                 <input className="input"
                     name='password1'
                     type='password'

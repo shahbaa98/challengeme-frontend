@@ -17,7 +17,7 @@ import {useFetch} from "../../useAPI";
 
 
 const TeacherProfile = () => {
-    const { data } = useFetch("teacher/users/", []);
+   // const { data } = useFetch("teacher/classes/", []);
 
     const { deauthenticate, userprofile } = useAuth();
     const history = useHistory();
@@ -33,33 +33,34 @@ const TeacherProfile = () => {
         <form className="app-com">
             {console.log(userprofile)}
             <div>
+                <br/>
                 <div align ="left" onClick={handleLogout}>
                     <button className="button"> <RiLogoutBoxLine /> התנתק </button>
                 </div>
                 <div>
-                    <h1 className="text"> שלום </h1>
+                    <h1 className="text">{userprofile.first_name} {userprofile.last_name} שלום </h1>
+
                 </div>
             </div>
 
             <div>
-                <img className="logo"  src={img} alt="" />
+                <img className="profileImg"  src={img} alt="" />
             </div>
-            <div align="right" dir="rtl">
+            {/*<div align="right" dir="rtl">
                 <label htmlFor="fileImgStudent">
                     <img className="profileImg" src={profile}/>
                 </label>
-            </div>
+            </div>*/}
 
             <br/>
             <div className="addStudent">
-                <h4 className="text"> הוסיף תלמיד</h4>
-                <br/>
+                <h5 className="text"> הוסיף תלמיד</h5>
                 <img     width= '200px' height='180px' src = {addStudent} onClick={()=> {history.push('/addStudent')}}/>
                 <br/>
             </div>
             <div className="classes">
-                <h4 className="text"> כיתות שלי</h4>
-                <br/>
+                <h5 className="text"> כיתות שלי</h5>
+
                 <img     width= '200px' height='180px' src = {classes} onClick={()=> {history.push('/classes')}}/>
                 <br/>
                 <br/>

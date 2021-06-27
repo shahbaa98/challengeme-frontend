@@ -5,6 +5,7 @@ import { useAuth } from "../../contexts/UserContext";
 import { TextField } from "@material-ui/core";
 import { addNewChallenge } from "../../actions/addNewChallenge";
 import {RiLogoutBoxLine} from "react-icons/ri";
+import img from "../imgs/image3.png";
 
 
 
@@ -71,6 +72,9 @@ const AddNewChall = () => {
                 <div align="left" onClick={() => { history.push('/TeacherProfile') }}>
                     <button className="button"> אחורה </button>
                 </div>
+            </div>
+            <div>
+                <img className="profileImg"  src={img} alt="" />
             </div>
             {loading === false && <h1 className="text">הוספת אתגר חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}

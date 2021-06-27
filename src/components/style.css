@@ -64,8 +64,8 @@
     position: absolute;
     width: 300px;
     height: 200px;
-    right: 200px;
-    top: 190px;
+    right: 600px;
+    top: 300px;
 }
 .notification{
     position: absolute;
@@ -88,14 +88,14 @@
     width: 100px;
     height: 97px;
     left: 350px;
-    top: 230px;
+    top: 150px;
 }
 .classes{
     position: absolute;
     width: 100px;
     height: 89px;
     left: 750px;
-    top: 250px;
+    top: 150px;
 }
 .searchStudent{
     position: absolute;
@@ -198,21 +198,21 @@ verticalMiddle {
     width: 300px;
     height: 200px;
     left: 150px;
-    top: 290px;
+    top: 200px;
 }
 .newchallenge{
     position: absolute;
     width: 300px;
     height: 200px;
-    right: 200px;
-    top: 290px;
+    right: 180px;
+    top: 200px;
 }
 .plan{
     position: absolute;
     width: 300px;
     height: 200px;
-    right: 600px;
-    top: 290px;
+    right: 500px;
+    top: 200px;
 }
 
 .edit{
@@ -237,7 +237,19 @@ verticalMiddle {
     margin: 10px 10px 10px 0px;
 }
 .text {
-    color: #9b1ab0;
+    color: #831199;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 30px;
+}
+.text1{
+    font-family: "Arial Rounded MT Bold";
+    color: #831199;
+    position: absolute;
+    top: -10px;
+    left: 35%;
+}
+.text2{
+    color: #a00e6f;
 }
 .button {
 
