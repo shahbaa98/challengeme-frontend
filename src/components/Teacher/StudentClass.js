@@ -25,7 +25,7 @@ const StudentClass = () => {
                     {data.map((student) => {
                         return (
                             <div className="studentHome classStudentHome" dir="rtl" >
-                                <span className="verticalMiddle" onClick={() => { history.push(`/students/${student.id}/profile`) }}>{student.first_name} {student.last_name}</span>
+                                <div className="verticalMiddle" onClick={() => { history.push(`/students/${student.id}`) }}>{student.first_name} {student.last_name}</div>
                             </div>
 
                         )
@@ -35,4 +35,5 @@ const StudentClass = () => {
         </div>
     )
 }
+
 export default StudentClass

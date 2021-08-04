@@ -6,7 +6,7 @@ import { TextField } from "@material-ui/core";
 import { addNewChallenge } from "../../actions/addNewChallenge";
 import {RiLogoutBoxLine} from "react-icons/ri";
 import img from "../imgs/image3.png";
-
+import { useFetch } from "../../useAPI";
 
 
 const AddNewChall = () => {
@@ -22,7 +22,10 @@ const AddNewChall = () => {
     const [loading, setLoading] = useState(true);
     const history = useHistory();
     const { userprofile } = useAuth();
+    const { useLocation } = useAuth();
+    const { studentChallenges } = useFetch(`teacher/classes/1/student/${params.student_id}/challanges`, []);
 
+    const location = useLocation();
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
@@ -48,8 +51,12 @@ const AddNewChall = () => {
         };
 
         try {
+        
+            if(studentChallenges.find(challenge => challenge.Title === student.Title)){
+            return ;
+            }
             const data = await addNewChallenge(student);
-
+            
             setTitle('');
             setSocial('');
             setEmotional('');
@@ -79,11 +86,13 @@ const AddNewChall = () => {
             {loading === false && <h1 className="text1">הוספת אתגר חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
 
-            <form onSubmit={onSubmit}>
-                <label htmlFor='Title'>כותרת</label> <br />
+            <form onSubmit={onSubmit} style={{marginTop: '50px'}} >
                 <TextField
                     name='Title'
                     type='text'
+                    placeholder="כותרת"
+                    min="1"
+                    max="5"
                     value={Title}
                     onChange={e => setTitle(e.target.value)}
                     required
@@ -91,6 +100,8 @@ const AddNewChall = () => {
                 <br />
                 <label htmlFor='Social'>חברתי</label> <br />
                 <input className="input"
+                 min="1"
+                 max="5"
                     name='Social'
                     type='number'
                     value={Social}
@@ -101,6 +112,8 @@ const AddNewChall = () => {
                 <label htmlFor='Emotional'> נפשי</label> <br />
                 <input className="input"
                     name='Emotional'
+                    min="1"
+                    max="5"
                     type='number'
                     value={Emotional}
                     onChange={e => setEmotional(e.target.value)}
@@ -112,6 +125,8 @@ const AddNewChall = () => {
                     name='Study'
                     type='number'
                     value={Study}
+                    min="1"
+                    max="5"
                     onChange={e => setStudy(e.target.value)}
                     required
                 />{' '}

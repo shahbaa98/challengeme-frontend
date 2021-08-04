@@ -5,7 +5,7 @@ export async function addNewChallenge(data) {
 
   return await API.request({
     method: "POST",
-    url: `/api/v1/teacher/challanges/`,
+    url: `/api/v1/teacher/challanges`,
     data,
   });
 }

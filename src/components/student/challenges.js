@@ -11,7 +11,7 @@ const Challenges = () => {
     const { userprofile } = useAuth();
     const params = useParams();
     const history = useHistory();
-    const { data } = useFetch(`teacher/classes/1/student/${userprofile.id}/challanges/`, []);
+    const { data } = useFetch(`teacher/classes/1/student/${userprofile.id}/challanges`, []);
     return (
         <div className="app-com">
         <br/>
@@ -19,10 +19,10 @@ const Challenges = () => {
             <h1 className="text1">
                 האתגרים שלי
             </h1>
-            {data.map((Challanges) => {
+            {data.map((challanges) => {
                 return (
-                    <div className="ClassName" style={{ marginBottom: 20 }}>
-                        <div><span className="verticalMiddle" onClick={() => { history.push(`/OneChallenge`) }}>{Challanges.title}</span></div>
+                    <div className="ClassName"  onClick={() => { history.push(`/OneChallenge/${challanges.id}`) }} style={{marginTop: 20, marginBottom: 20 }}>
+                        <div className="verticalMiddle">{challanges.Title}</div>
                     </div>
                 )
             })}

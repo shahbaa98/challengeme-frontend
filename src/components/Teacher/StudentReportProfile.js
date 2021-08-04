@@ -46,7 +46,7 @@ const StudentReportProfile = () => {
 
             <div className="newchallenge">
                 <h3 className="text" > הוספת אתגר חדש</h3>
-                <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push(`/students/${params.student_id}/add-challenge`) }} />
+                <img width='200px' height='180px' src={newchallenge} onClick={() => history.push({pathName: `/students/${params.student_id}/add-challenge`, state: params.class_id} )} />
                 <br />
             </div>
 
