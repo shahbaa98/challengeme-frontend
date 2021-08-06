@@ -78,6 +78,11 @@ const AddNewChall = () => {
             </div>
             {loading === false && <h1 className="text1">הוספת אתגר חדש</h1>}
             {errors === true && <h2>Cannot signup with provided credentials</h2>}
+            <br/>
+            <br />
+            <br />
+            <br />
+
 
             <form onSubmit={onSubmit}>
                 <label htmlFor='Title'>כותרת</label> <br />

@@ -12,7 +12,6 @@ import {useFetch} from "../../useAPI";
 
 
 const StudentReportProfile = () => {
-
     const history = useHistory();
     const params = useParams();
     const { data } = useFetch(`teacher/classes/${params.class_id}/`, []);
@@ -30,6 +29,7 @@ const StudentReportProfile = () => {
             <div>
                 <img className="profileImg"  src={img} alt="" />
             </div>
+            <h1>hello</h1>
             {/*<div align="right" dir="rtl">
                 <label for="fileImgStudent" className="lableImg">
                     <img width="200" height="200" src={profile} />
