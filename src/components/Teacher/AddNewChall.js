@@ -22,10 +22,8 @@ const AddNewChall = () => {
     const [loading, setLoading] = useState(true);
     const history = useHistory();
     const { userprofile } = useAuth();
-    const { useLocation } = useAuth();
     const { studentChallenges } = useFetch(`teacher/classes/1/student/${params.student_id}/challanges`, []);
 
-    const location = useLocation();
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
@@ -37,7 +35,6 @@ const AddNewChall = () => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        // userprofile.role = 'Student';
 
         const student = {
             Title: Title,
@@ -72,11 +69,11 @@ const AddNewChall = () => {
         }
 
     };
-
+ 
     return (
         <div className="app-com">
             <div>
-                <div align="left" onClick={() => { history.push('/classes') }}>
+                <div align="left" onClick={() => { history.push('/Challenge') }}>
                     <button className="button"> אחורה </button>
                 </div>
             </div>
@@ -84,7 +81,7 @@ const AddNewChall = () => {
                 <img className="profileImg"  src={img} alt="" />
             </div>
             {loading === false && <h1 className="text1">הוספת אתגר חדש</h1>}
-            {errors === true && <h2>Cannot signup with provided credentials</h2>}
+            {/* {errors === true && <h2>Cannot signup with provided credentials</h2>} */}
 
             <form onSubmit={onSubmit} style={{marginTop: '50px'}} >
                 <TextField

@@ -1,4 +1,3 @@
-import { RiLogoutBoxLine } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
 import '../style.css'
 import profile from '../imgs/personalPhoto.png'
@@ -45,7 +44,7 @@ const Plan = () => {
 
             <div className="newchallenge">
                 <h3 className="text"> הוספת תוכנית חדש</h3>
-                <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push('/AddNewChall') }} />
+                <img width='200px' height='180px' src={newchallenge} onClick={() => { history.push('/newplan') }} />
                 <br />
             </div>
         </div>
