@@ -14,6 +14,8 @@ import React from "react";
 import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
 import {useFetch} from "../../useAPI";
+import messages from '../imgs/messages.gif'
+
 
 
 const TeacherProfile = () => {
@@ -46,25 +48,20 @@ const TeacherProfile = () => {
             <div>
                 <img className="profileImg"  src={img} alt="" />
             </div>
-            {/*<div align="right" dir="rtl">
-                <label htmlFor="fileImgStudent">
-                    <img className="profileImg" src={profile}/>
-                </label>
-            </div>*/}
-
-            <br/>
+           <div className="teacher-container">
+             <div className="chatStudent">
+               <h5 className="text" >  ההודעות שלי</h5>
+                  <img width='200px' height='180px' src={messages} onClick={() => {window.open('http://localhost:8000/chat/') }} />
+              </div>
             <div className="addStudent">
                 <h5 className="text"> הוסיף תלמיד</h5>
                 <img     width= '200px' height='180px' src = {addStudent} onClick={()=> {history.push('/addStudent')}}/>
-                <br/>
             </div>
             <div className="classes">
                 <h5 className="text"> כיתות שלי</h5>
-
                 <img     width= '200px' height='180px' src = {classes} onClick={()=> {history.push('/classes')}}/>
-                <br/>
-                <br/>
-                <br/>
+
+            </div>
             </div>
         </form>
 

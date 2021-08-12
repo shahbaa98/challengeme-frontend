@@ -14,11 +14,13 @@ const StudentClass = () => {
     return (
         <div className="app-com">
             <div>
-                <div align="left" onClick={() => { history.push('/Classes') }}>
+                <div align="left" onClick={() => { history.push('/Classes/') }}>
                     <button className="button"> אחורה </button>
                 </div>
             </div>
             <h1 className="text"> תלמידי הכיתה</h1>
+            {console.log(params)}
+
             <br/>
             <div className="col-12">
                 <div className="row mp0 flex-container containerStudents">

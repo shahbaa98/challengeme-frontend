@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { authorised } from "./request";
 
-export async function fetch(url) {
+export async function fetch(url,request) {
   const API = authorised();
+    return await API.request({
+      method: "GET",
+      url: `/api/v1/${url}`,
+    });
+  }
 
-  return await API.request({
-    method: "GET",
-    url: `/api/v1/${url}`,
-  });
-}
 
-export function useFetch(url, initialValue) {
+export function useFetch(url, initialValue, httpMethod) {
   const [data, setData] = useState(initialValue);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,8 +19,8 @@ export function useFetch(url, initialValue) {
     const fetchData = async function () {
       try {
         setLoading(true);
-
-        const response = await fetch(url);
+        
+        const response = await fetch(url, httpMethod);
 
         setData(response.data);
       } catch (e) {

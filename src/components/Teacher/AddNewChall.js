@@ -22,7 +22,7 @@ const AddNewChall = () => {
     const [loading, setLoading] = useState(true);
     const history = useHistory();
     const { userprofile } = useAuth();
-    const { studentChallenges } = useFetch(`teacher/classes/1/student/${params.student_id}/challanges`, []);
+    const { studentChallenges } = useFetch(`teacher/classes/1/student/44/challanges`, []);
 
 
     useEffect(() => {
@@ -106,7 +106,7 @@ const AddNewChall = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Emotional'> נפשי</label> <br />
+                <label htmlFor='Emotional'>רגשי</label> <br />
                 <input className="input"
                     name='Emotional'
                     min="1"
@@ -128,7 +128,7 @@ const AddNewChall = () => {
                     required
                 />{' '}
                 <br />
-                <label htmlFor='Personal'> אישי</label> <br />
+                <label htmlFor='Personal'> תפקודי</label> <br />
                 <input className="input"
                     name='Personal'
                     type='number'

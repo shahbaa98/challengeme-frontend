@@ -33,9 +33,11 @@ const AddStudent = (props) => {
     const { data } = useFetch("teacher/classes/", []);
 
 
-    const options = data.map((studentClass) => {
+    const options = data.map((Class) => {
         return (
-            [studentClass.title]
+            <option>
+                {Class.title}
+            </option>
         )
     })
 
@@ -59,7 +61,7 @@ const AddStudent = (props) => {
             email: email,
             phone: phone,
             teacher: teacher,
-            classname: classname,
+            classname: data.find(Class => Class.name == classname),
             birthdate: birthdate,
             //therapist:therapist,
             password1: password1,
@@ -114,7 +116,7 @@ const AddStudent = (props) => {
                 </div>
             </div>
             {loading === false && <h1 className="text1">הוספת תלמיד חדש</h1>}
-            {errors === true && <h2>Cannot signup with provided credentials</h2>}
+            {/* {errors === true && <h2>Cannot signup with provided credentials</h2>} */}
             <br/>
             <br/>
             
@@ -172,15 +174,11 @@ const AddStudent = (props) => {
                 */}
 
                 <label htmlFor='classname'>שם הכיתה</label> <br />
-                    <select placeholder='בחר כיתה' className="input">
-
-                        <option>
-                            {options}
-                        </option>
+                    <select placeholder='בחר כיתה' className="input" 
+                    onChange={e => setClassName(e.target.value)}>
+                    {options}
                     </select>
                 <br />
-
-
 
                 <label htmlFor='birthdate' >תאריך לידה</label> <br />
                 <input className="input"

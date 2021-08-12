@@ -11,8 +11,6 @@ const Newclass = () => {
     const params = useParams();
     const [classID, setClassID] = useState('');
     const [className, setClassName] = useState('');
-   // const [teachername, setTeacherName] = useState('');
-  //  const [completed, setCompleted] = useState(false);
     const [errors, setErrors] = useState(false);
     const [loading, setLoading] = useState(true);
     const history = useHistory();

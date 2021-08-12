@@ -5,14 +5,29 @@ import no from "../imgs/no.png"
 import newchallenge from "../imgs/new.png";
 import plan from "../imgs/plan.png";
 import React from "react";
+import { useHistory, useParams } from 'react-router-dom';
+import { useFetch } from "../../useAPI";
+import { useAuth } from '../../contexts/UserContext';
+
+
 
 const OneChallenge = () => {
+    const history = useHistory();
+    const { userprofile } = useAuth();
+    const params = useParams();
+    const { data } = useFetch(`teacher/classes/1/student/${userprofile.id}/challanges/${params.challanges_id}`, []);
+
+
     return (
         <div className="app-com">
+            <div>
+                <div align="left" onClick={() => { history.push('/challenges') }}>
+                    <button className="button"> אחורה </button>
+                </div>
+            </div>
             <br/>
-            <h1 className="text2">
-               לעשות שיעורי בית עם חברים
-            </h1>
+            <h1 className="text">{data.challenge_id}</h1>
+
             <br/>
             <br/>
             <div className="Report">

@@ -2,8 +2,9 @@ import { RiLogoutBoxLine } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
 import '../style.css'
 import profile from '../imgs/personalPhoto.png'
-import chat from '../imgs/messages.gif'
 import challenge from '../imgs/challenge.gif'
+import messages from '../imgs/messages.gif'
+
 import notification from '../imgs/notification.gif'
 import { useAuth } from '../../contexts/UserContext';
 import {logout} from '../../actions/logout';
@@ -27,7 +28,6 @@ const StudentProfile = () => {
   return (
     <div className="app-com">
         <div className="text">
-        {userprofile ? userprofile.role : "Not authenticated"}
         {console.log(userprofile)}
         </div>
       <div>
@@ -54,9 +54,21 @@ const StudentProfile = () => {
       </div>*/}
 
 
-      <div className="challenge">
+      <div className="challenges">
         <div >  האתגרים שלי</div>
         <img width='200px' height='180px' src={challenge} onClick={() => { history.push('/challenges') }} />
+        <br />
+      </div>
+
+      <div className="chatStudent">
+        <div >  ההודעות שלי</div>
+        <img width='200px' height='180px' src={messages} onClick={() => {window.open('http://localhost:8000/chat/') }} />
+        <br />
+      </div>
+
+      <div className="StudentNotifications">
+        <div >  ההתראות שלי</div>
+        <img width='200px' height='180px' src={notification} onClick={() => { history.push('/StudentNotifications') }} />
         <br />
       </div>
 
