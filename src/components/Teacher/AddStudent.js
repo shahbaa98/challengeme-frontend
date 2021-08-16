@@ -70,7 +70,7 @@ const AddStudent = (props) => {
 
         };
 
-        fetch('http://127.0.0.1:8000/api/v1/users/dj-rest-auth/registration/', {
+        fetch('https://backend-auth-forked-3u9bv.ondigitalocean.app/api/v1/users/dj-rest-auth/registration/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
